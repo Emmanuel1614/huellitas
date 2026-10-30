@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyecto Guiado - Huellitas | Universidad de Caldas</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 12mm 16mm 12mm 16mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      color: #2D3748;
+      background-color: #FFFFFF;
+      font-size: 8.4pt;
+      line-height: 1.34;
+    }
+
+    /* PÁGINAS Y SALTOS */
+    .doc-page {
+      width: 100%;
+      height: 248mm;
+      max-height: 248mm;
+      position: relative;
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .doc-page:last-child {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    /* ENCABEZADO INSTITUCIONAL */
+    .inst-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .header-logo-left {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .logo-ucaldas-text {
+      font-size: 15pt;
+      font-weight: 900;
+      color: #1A202C;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .cap-icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin-bottom: 4px;
+    }
+
+    .logo-pueblo-row {
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+      font-size: 10pt;
+      font-weight: 700;
+      margin-top: -2px;
+    }
+
+    .txt-en-tu {
+      color: #4A5568;
+      font-weight: 600;
+      font-size: 9.5pt;
+    }
+
+    .p-blue { color: #0077C8; }
+    .u-green { color: #78BE20; }
+    .e-orange { color: #F58220; }
+    .b-blue { color: #0077C8; }
+    .l-purple { color: #7A2582; }
+    .o-green { color: #78BE20; }
+
+    .header-swoosh {
+      height: 3px;
+      width: 110px;
+      background: linear-gradient(90deg, #1A202C 0%, #78BE20 50%, #0077C8 100%);
+      border-radius: 99px;
+      margin-top: 2px;
+    }
+
+    .header-logo-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: right;
+    }
+
+    .ucaldas-seal {
+      width: 28px;
+      height: 28px;
+    }
+
+    .tejiendo-txt {
+      font-size: 7.2pt;
+      font-weight: 800;
+      color: #2B4C7E;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .tejiendo-sub {
+      display: block;
+      font-size: 6pt;
+      font-weight: 600;
+      color: #718096;
+    }
+
+    /* PIE DE PÁGINA INSTITUCIONAL */
+    .inst-footer {
+      border-top: 1px solid #E2E8F0;
+      padding-top: 6px;
+      margin-top: 8px;
+      text-align: center;
+      font-size: 7.2pt;
+      color: #718096;
+      line-height: 1.35;
+    }
+
+    .inst-footer strong {
+      color: #4A5568;
+    }
+
+    /* CONTENEDOR CENTRAL DE CADA PÁGINA */
+    .page-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TIPOGRAFÍAS Y ELEMENTOS COMUNES */
+    h1, h2, h3, h4 {
+      margin: 0;
+      color: #1A365D;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: 12pt;
+      margin-top: 10pt;
+      margin-bottom: 5pt;
+      color: #1A365D;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    h3 {
+      font-size: 9.8pt;
+      margin-top: 7pt;
+      margin-bottom: 3.5pt;
+      color: #2B4C7E;
+    }
+
+    p {
+      margin: 0 0 5pt;
+      color: #374151;
+    }
+
+    ul, ol {
+      margin: 0 0 6pt 16pt;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 2.5pt;
+    }
+
+    /* TABLAS ESTILO UCAlDAS */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 5pt 0 8pt;
+      font-size: 7.8pt;
+    }
+
+    table.data-table th {
+      background-color: #1E3A5F;
+      color: #FFFFFF;
+      text-align: left;
+      padding: 5pt 6pt;
+      font-weight: 700;
+      font-size: 8pt;
+      border: 1px solid #1E3A5F;
+    }
+
+    table.data-table td {
+      padding: 4.5pt 6pt;
+      border: 1px solid #E2E8F0;
+      vertical-align: top;
+      color: #2D3748;
+    }
+
+    table.data-table tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    table.data-table tr:nth-child(odd) td {
+      background-color: #FFFFFF;
+    }
+
+    /* CAJAS DESTACADAS (PROPÓSITO, CONCLUSIÓN, NOTAS) */
+    .callout-box {
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #2B4C7E;
+      border-radius: 4px;
+      padding: 7pt 10pt;
+      margin: 6pt 0 8pt;
+    }
+
+    .callout-box.green {
+      background-color: #F0FDF4;
+      border-color: #DCFCE7;
+      border-left: 4px solid #16A34A;
+    }
+
+    .callout-title {
+      font-size: 8.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1E3A5F;
+      margin-bottom: 3pt;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .callout-box.green .callout-title {
+      color: #15803D;
+    }
+
+    .callout-desc {
+      font-size: 8.3pt;
+      color: #374151;
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    /* CÓDIGO FUENTE */
+    pre.code-block {
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+      padding: 6pt 8pt;
+      margin: 4pt 0 7pt;
+      font-family: Consolas, 'Courier New', monospace;
+      font-size: 6.8pt;
+      line-height: 1.25;
+      color: #1F2937;
+      overflow: hidden;
+      white-space: pre-wrap;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 7.8pt;
+      color: #0F172A;
+    }
+
+    /* BADGES Y CHIPS */
+    .badge-approved {
+      display: inline-block;
+      background: #DCFCE7;
+      color: #15803D;
+      font-weight: 800;
+      padding: 1.5pt 5pt;
+      border-radius: 3px;
+      font-size: 7pt;
+    }
+
+    .badge-role {
+      display: inline-block;
+      background: #E0F2FE;
+      color: #0369A1;
+      font-weight: 700;
+      padding: 1pt 4pt;
+      border-radius: 3px;
+      font-size: 6.8pt;
+    }
+
+    /* PORTADA ESPECÍFICA */
+    .cover-body {
+      text-align: center;
+      padding: 10pt 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .cover-tag {
+      font-size: 9.5pt;
+      font-weight: 800;
+      color: #2B4C7E;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8pt;
+    }
+
+    .cover-title {
+      font-size: 26pt;
+      font-weight: 900;
+      color: #1A365D;
+      line-height: 1.1;
+      margin-bottom: 6pt;
+      letter-spacing: -0.5px;
+    }
+
+    .cover-rule {
+      width: 80%;
+      height: 2px;
+      background: #2B4C7E;
+      margin: 4pt auto 8pt;
+    }
+
+    .cover-sub {
+      font-size: 11pt;
+      font-style: italic;
+      color: #4A5568;
+      margin-bottom: 4pt;
+    }
+
+    .cover-context {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: #2B4C7E;
+      margin-bottom: 12pt;
+    }
+
+    .cover-photo-wrap {
+      width: 82%;
+      max-width: 440px;
+      height: 200px;
+      margin: 0 auto 12pt;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      border: 1px solid #CBD5E1;
+      background: #FAF5EE;
+    }
+
+    .cover-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cover-authors-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 8pt 20pt;
+      margin: 0 auto;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .cover-authors-card strong {
+      display: block;
+      font-size: 9.5pt;
+      color: #1A365D;
+      margin-bottom: 2pt;
+    }
+
+    .cover-authors-card span {
+      font-size: 8pt;
+      color: #64748B;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+       PÁGINA 1: PORTADA
+       ========================================================================= -->
+  <div class="doc-page">
+    <div class="inst-header">
+      <div class="header-logo-left">
+        <div class="logo-ucaldas-text">
+          <span>UCaldas</span>
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/>
+          </svg>
+        </div>
+        <div class="logo-pueblo-row">
+          <span class="txt-en-tu">en tu</span>
+          <span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span>
+        </div>
+        <div class="header-swoosh"></div>
+      </div>
+      <div class="header-logo-right">
+        <svg class="ucaldas-seal" viewBox="0 0 36 36">
+          <circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/>
+          <circle cx="18" cy="18" r="12" fill="#2B4C7E"/>
+          <path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/>
+        </svg>
+        <div>
+          <span class="tejiendo-txt">Tejiendo Universidad</span>
+          <span class="tejiendo-sub">Universidad de Caldas</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body cover-body">
+      <div class="cover-tag">PROYECTO GUIADO 1</div>
+      <div class="cover-title">Huellitas: Spa &amp; Veterinaria</div>
+      <div class="cover-rule"></div>
+      <div class="cover-sub">Del análisis de requisitos a una plataforma web funcional</div>
+      <div class="cover-context">Caso de estudio para Análisis y Diseño de Soluciones Web</div>
+
+      <div class="cover-photo-wrap">
+        <img src="img/hero-mascotas.jpg" alt="Mascotas felices en Huellitas">
+      </div>
+
+      <div class="cover-authors-card">
+        <strong>Emmanuel Morales &amp; Juan Ricardo Londoño</strong>
+        <span>Desarrolladores Web &bull; Estudiantes de Programación Web</span>
+        <div style="margin-top: 4pt; font-size: 7.6pt; color: #2B4C7E; font-weight: 700;">
+          Docente: Ing. Angela Andrea Suarez Arango
+        </div>
+      </div>
+    </div>
+
+    <div class="inst-footer">
+      <strong>Universidad de Caldas · Programa Técnico en Programación Web · U en tu pueblo</strong><br>
+      Ingeniera Angela Andrea Suarez Arango · tecnicosfacingenierias@ucaldas.edu.co · 8781500 Ext. 13220
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PÁGINA 2: PROPÓSITO Y FICHA DEL PROYECTO
+       ========================================================================= -->
+  <div class="doc-page">
+    <div class="inst-header">
+      <div class="header-logo-left">
+        <div class="logo-ucaldas-text">
+          <span>UCaldas</span>
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+        </div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="header-swoosh"></div>
+      </div>
+      <div class="header-logo-right">
+        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
+        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="callout-box">
+        <div class="callout-title">PROPÓSITO</div>
+        <p class="callout-desc">
+          Comprender cómo un equipo profesional transforma las necesidades de un negocio de servicios y productos para mascotas en una solución web completa, interactiva y accesible: analizar, diseñar, desarrollar, probar y preparar la entrega.
+        </p>
+      </div>
+
+      <h2>Ficha del proyecto</h2>
+
+      <table class="data-table">
+        <tbody>
+          <tr>
+            <td style="width: 25%; font-weight: 700;">Cliente simulado</td>
+            <td><strong>Huellitas: Spa, Veterinaria &amp; Tienda Oficial</strong></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Tipo de solución</td>
+            <td>Plataforma web informativa y transaccional con catálogo e-commerce, cotizador interactivo de suscripción mensual para mascotas, spa sin jaulas, carrito dinámico, autenticación y panel administrativo.</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Usuarios principales</td>
+            <td>Tutores de perros y gatos que desean agendar servicios veterinarios y spa bajo metodología Fear-Free (cero miedo), adquirir productos premium o suscribirse a cajas mensuales; además de administradores del negocio.</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Tecnologías base</td>
+            <td>HTML5 semántico, CSS3 moderno (Custom Properties, Flexbox, CSS Grid), JavaScript vanilla ES6+ (DOM reactivo, LocalStorage/SessionStorage), PHP 8 y base de datos relacional MySQL (<code>huellitas_db</code>).</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Alcance</td>
+            <td>Prototipo funcional completo con catálogo de 12 productos filtrables, wizard de suscripción en 3 pasos con cálculo en tiempo real de ración (g/día), carrito drawer reactivo con simulación de pasarela de pago (Nequi, Daviplata, Tarjeta), modal de inicio de sesión visual con roles (Administrador y Cliente), y repositorio oficial versionado en GitHub.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Propuesta de Valor y Enfoque Diferencial</h2>
+      <p>
+        A diferencia de los sitios web convencionales de tiendas para animales, <strong>Huellitas</strong> integra el concepto <em>Fear-Free</em> (cero estrés) en su experiencia digital:
+      </p>
+      <ul>
+        <li><strong>Psicología del color cálida y relajante:</strong> Uso de tonos crema, beige y terracota que transmiten calidez y profesionalismo.</li>
+        <li><strong>Cotizador interactivo de suscripción mensual:</strong> Permite personalizar la nutrición según la etapa y peso exacto de la mascota, automatizando el despacho mensual.</li>
+        <li><strong>Transparencia en servicios:</strong> Detalle explícito de qué incluye cada sesión de spa y consulta médica, sin costos ocultos.</li>
+        <li><strong>Accesibilidad y rendimiento:</strong> Estructura ligera, libre de dependencias externas pesadas, garantizando carga rápida en dispositivos móviles.</li>
+      </ul>
+    </div>
+
+    <div class="inst-footer">
+      <strong>Universidad de Caldas · Programa Técnico en Programación Web · U en tu pueblo</strong><br>
+      Ingeniera Angela Andrea Suarez Arango · tecnicosfacingenierias@ucaldas.edu.co · 8781500 Ext. 13220
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PÁGINA 3: INTRODUCCIÓN Y ROLES PROFESIONALES DEL EQUIPO
+       ========================================================================= -->
+  <div class="doc-page">
+    <div class="inst-header">
+      <div class="header-logo-left">
+        <div class="logo-ucaldas-text">
+          <span>UCaldas</span>
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+        </div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="header-swoosh"></div>
+      </div>
+      <div class="header-logo-right">
+        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
+        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <h2>1. Introducción</h2>
+      <p>
+        <strong>Huellitas</strong> es un centro integral de bienestar para mascotas que ofrece spa sin jaulas, medicina preventiva veterinaria y una tienda especializada. Ante el crecimiento de tutores que buscan un trato digno y libre de miedo para sus animales, la marca requiere una presencia digital que no solo informe, sino que permita personalizar la alimentación mensual de cada perro o gato, visualizar el catálogo de productos y agilizar el contacto con especialistas.
+      </p>
+      <p>
+        El equipo de desarrollo conformado por <strong>Emmanuel Morales</strong> y <strong>Juan Ricardo Londoño</strong> asumió el reto de diseñar, construir y desplegar una plataforma robusta y adaptable que combine las buenas prácticas del frontend moderno con la calidez visual de la marca.
+      </p>
+
+      <h2>2. Equipo de desarrollo: roles profesionales</h2>
+      <p>
+        En la industria de software, un proyecto exitoso requiere la confluencia de responsabilidades especializadas:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 26%;">Rol profesional</th>
+            <th>Responsabilidades en Huellitas</th>
+            <th style="width: 28%;">Entregable o evidencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Product Owner</strong></td>
+            <td>Prioriza el valor del negocio: modelo de suscripción mensual, catálogo de 12 productos y política Fear-Free.</td>
+            <td>Backlog priorizado y criterios de aceptación.</td>
+          </tr>
+          <tr>
+            <td><strong>Business Analyst</strong></td>
+            <td>Levanta requerimientos con tutores y veterinarios; documenta historias de usuario de compra y agendamiento.</td>
+            <td>Especificación de requisitos funcionales y no funcionales.</td>
+          </tr>
+          <tr>
+            <td><strong>UX Designer</strong></td>
+            <td>Diseña el flujo del wizard de 3 pasos, la disposición del carrito drawer y la facilidad de navegación móvil.</td>
+            <td>Arquitectura de información y wireframes.</td>
+          </tr>
+          <tr>
+            <td><strong>UI Designer</strong></td>
+            <td>Crea el sistema de diseño: paleta cálida (beige, café, terracota), tipografía Nunito y medallón del logo.</td>
+            <td>Guía de estilos, componentes y mockups finales.</td>
+          </tr>
+          <tr>
+            <td><strong>Frontend Developer</strong></td>
+            <td>Codifica HTML5 semántico, CSS3 modular (Grid/Flexbox) y JavaScript ES6+ reactivo para el carrito y el wizard.</td>
+            <td>Código fuente limpio y ejecutable en navegador.</td>
+          </tr>
+          <tr>
+            <td><strong>Backend Developer</strong></td>
+            <td>Estructura la base de datos relacional MySQL y los endpoints PHP de autenticación y consulta de usuarios.</td>
+            <td>Esquema SQL (<code>huellitas_db</code>) y API REST.</td>
+          </tr>
+          <tr>
+            <td><strong>QA Tester</strong></td>
+            <td>Diseña y ejecuta el plan de pruebas: cálculos de ración, responsividad, validación de formularios y cross-browser.</td>
+            <td>Matriz de pruebas y reporte de casos aprobados.</td>
+          </tr>
+          <tr>
+            <td><strong>DevOps</strong></td>
+            <td>Administra el control de versiones con Git, sincroniza el repositorio GitHub y configura el entorno en Apache.</td>
+            <td>Repositorio GitHub y checklist de despliegue.</td>
+          </tr>
+          <tr>
+            <td><strong>Project Manager</strong></td>
+            <td>Coordina los hitos del proyecto guiado, seguimiento de tareas y asegura los estándares de entrega de la UCaldas.</td>
+            <td>Cronograma y documentación final en PDF.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout-box" style="margin-top: 4pt;">
+        <div class="callout-title">DISTRIBUCIÓN REAL EN EL EQUIPO</div>
+        <p class="callout-desc">
+          En este proyecto, <strong>Emmanuel Morales</strong> y <strong>Juan Ricardo Londoño</strong> asumieron roles cruzados: Emmanuel lideró la arquitectura de datos, backend PHP/MySQL, DevOps (Git/GitHub) y lógica de suscripción; Juan Ricardo lideró el diseño visual UI/UX, maquetación frontend, interactividad del carrito y aseguramiento de calidad (QA).
+        </p>
+      </div>
+    </div>
+
+    <div class="inst-footer">
+      <strong>Universidad de Caldas · Programa Técnico en Programación Web · U en tu pueblo</strong><br>
+      Ingeniera Angela Andrea Suarez Arango · tecnicosfacingenierias@ucaldas.edu.co · 8781500 Ext. 13220
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PÁGINA 4: ACTORES VS ROLES & FASE 1: ANÁLISIS
+       ========================================================================= -->
+  <div class="doc-page">
+    <div class="inst-header">
+      <div class="header-logo-left">
+        <div class="logo-ucaldas-text">
+          <span>UCaldas</span>
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+        </div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="header-swoosh"></div>
+      </div>
+      <div class="header-logo-right">
+        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
+        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <h2>Actores del sistema vs. roles del equipo</h2>
+      <p>
+        Es fundamental diferenciar los <strong>actores</strong> (quienes interactúan con la solución construida) de los <strong>roles del equipo</strong> (quienes planifican y programan la solución).
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 50%;">Actores del sistema (Usuarios)</th>
+            <th style="width: 50%;">Roles del equipo de desarrollo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              &bull; <strong>Tutor / Visitante:</strong> Consulta catálogo, calcula ración de su mascota, añade a carrito y contacta.<br>
+              &bull; <strong>Miembro Suscriptor:</strong> Cuenta activa con recurrencia mensual y beneficios exclusivos.<br>
+              &bull; <strong>Administrador:</strong> Consulta métricas de clientes y gestiona el inventario.
+            </td>
+            <td>
+              &bull; <strong>Product Owner &amp; Business Analyst:</strong> Negocio y alcance.<br>
+              &bull; <strong>UX &amp; UI Designer:</strong> Usabilidad y estética visual.<br>
+              &bull; <strong>Frontend &amp; Backend Dev:</strong> Implementación y lógica.<br>
+              &bull; <strong>QA, DevOps &amp; PM:</strong> Pruebas, despliegue y control.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. Fase 1: Análisis</h2>
+
+      <h3>3.1. Historias de usuario</h3>
+      <ul>
+        <li><strong>HU-01:</strong> Como tutor de mascota, quiero armar una caja de suscripción mensual según la especie y peso exacto de mi peludito, para recibir su comida y snacks a domicilio sin preocuparme por quedarme sin alimento.</li>
+        <li><strong>HU-02:</strong> Como visitante, quiero explorar los servicios de spa y veterinaria sin jaulas con precios claros, para programar una cita con total tranquilidad y transparencia.</li>
+        <li><strong>HU-03:</strong> Como usuario comprador, quiero un carrito reactivo donde pueda revisar subtotales y elegir entre Nequi, Daviplata o tarjeta de crédito para simular mi compra.</li>
+        <li><strong>HU-04:</strong> Como usuario o administrador, quiero contar con un acceso rápido interactivo para probar la plataforma con un solo clic con roles diferenciados.</li>
+      </ul>
+
+      <h3>3.2. Requisitos funcionales</h3>
+      <ul>
+        <li><strong>RF-01:</strong> Identidad visual oficial de Huellitas con logotipo enmarcado, eslogan e indicador de navegación activa.</li>
+        <li><strong>RF-02:</strong> Catálogo de 12 productos con filtros interactivos de categorías y desplegable "Ver más detalles".</li>
+        <li><strong>RF-03:</strong> Sección de servicios individuales de peluquería/spa y consulta médica Fear-Free con botón de adición directa.</li>
+        <li><strong>RF-04:</strong> Wizard de suscripción en 3 pasos con cálculo matemático de ración recomendada (g/día) en tiempo real.</li>
+        <li><strong>RF-05:</strong> Carrito de compras desplegable tipo drawer que persiste en cliente y calcula totales sin recargar.</li>
+        <li><strong>RF-06:</strong> Módulo de pago simulado multicanal con instrucciones dinámicas según el método de pago seleccionado.</li>
+        <li><strong>RF-07:</strong> Módulo de autenticación visual con pestañas (Login / Registro), detección de teléfono/correo y medidor de contraseña.</li>
+        <li><strong>RF-08:</strong> Panel de control administrativo con métricas y visualización de usuarios registrados.</li>
+      </ul>
+
+      <h3>3.3. Requisitos no funcionales</h3>
+      <ul>
+        <li><strong>RNF-01 (Adaptabilidad):</strong> Diseño 100% responsivo adaptable a smartphones, tablets y pantallas de escritorio.</li>
+        <li><strong>RNF-02 (Rendimiento):</strong> Carga inicial inferior a 2 segundos mediante optimización de imágenes y scripts ligeros.</li>
+        <li><strong>RNF-03 (Accesibilidad):</strong> Estructura semántica HTML5, contraste cromático WCAG y atributos ARIA en modales.</li>
+      </ul>
+    </div>
+
+    <div class="inst-footer">
+      <strong>Universidad de Caldas · Programa Técnico en Programación Web · U en tu pueblo</strong><br>
+      Ingeniera Angela Andrea Suarez Arango · tecnicosfacingenierias@ucaldas.edu.co · 8781500 Ext. 13220
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PÁGINA 5: SITEMAP, WIREFRAME Y ESTRUCTURA DEL DOM
+       ========================================================================= -->
+  <div class="doc-page">
+    <div class="inst-header">
+      <div class="header-logo-left">
+        <div class="logo-ucaldas-text">
+          <span>UCaldas</span>
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+        </div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="header-swoosh"></div>
+      </div>
+      <div class="header-logo-right">
+        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
+        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <h2>4. Fase 2: Sitemap (Arquitectura de Información)</h2>
+      <p>
+        El sitemap organiza las secciones de la página de forma intuitiva mediante anclas semánticas que permiten una navegación fluida en una sola página (Single Page Application orientada al usuario):
+      </p>
+
+      <pre class="code-block">
+Inicio (Huellitas: Spa, Veterinaria &amp; Tienda)
+├── #inicio ........... Hero principal con eslogan "Cero Miedo", badges de confianza y accesos rápidos
+├── #tienda ........... Catálogo oficial con 12 productos divididos en Alimento, Spa, Accesorios y Juguetes
+├── #servicios ........ Sesión Spa &amp; Corte a tijera ($50.000) y Consulta Veterinaria Fear-Free ($70.000)
+├── #suscripcion ...... Creador interactivo de Caja Mensual (Club Huellitas) con Wizard de 3 Pasos
+├── #galeria .......... Feed social interactivo multicanal (Instagram, TikTok, Facebook, X) con botón Me Gusta
+├── #mision-vision .... Propuesta institucional, filosofía de bienestar sin jaulas y pilares del cuidado
+├── #contacto ......... Canales de atención (WhatsApp directo), horarios y sedes en Medellín y Bogotá
+└── Modales de Superposición
+    ├── #authModalOverlay ..... Acceso / Registro interactivo con logotipo oficial y accesos Demo
+    ├── #cartDrawer ........... Carrito lateral reactivo con resumen de ítems y botón de checkout
+    ├── #paymentModalOverlay .. Pasarela simulada multicanal (Nequi, Daviplata, Bancolombia, PSE, Tarjeta)
+    └── #adminModalOverlay .... Panel de administración para visualización de usuarios y métricas
+      </pre>
+
+      <h2>5. Fase 3: Wireframe y Distribución Visual</h2>
+      <p>
+        El diseño prioriza la jerarquía visual: logotipo emblemático en cabecera fija, botones de acción inmediata ("call to action"), microinteracciones al pasar el cursor y modales no intrusivos que no interrumpen la navegación del usuario.
+      </p>
+
+      <h2>6. Fase 4: Estructura del DOM (Document Object Model)</h2>
+      <p>
+        El árbol de elementos HTML5 refleja una estricta semántica estándar para indexación y accesibilidad:
+      </p>
+
+      <pre class="code-block">
+body
+├── div.ambient-bg-stage (Slideshow de fondo suave en intervalo lento)
+├── header.header (Fijo con blur translúcido)
+│   ├── a.logo-wrapper (Emblema oficial de Huellitas enmarcado con halo dorado)
+│   ├── nav.nav-links (#inicio, #tienda, #servicios, #suscripcion, #galeria, #contacto)
+│   └── div.header-right-actions (Píldora de cuenta activa, atajo al Club y botón de Carrito)
+├── main
+│   ├── section.hero#inicio (Título h1, eslogan, píldoras estadísticas +2.400 mascotas)
+│   ├── section.productos#tienda (Filtros por categorías, 12 cards con details/summary)
+│   ├── section.servicios#servicios (Cards de Spa y Veterinaria con fotos reales)
+│   ├── section.suscripcion-section#suscripcion (Formulario Wizard de 3 pasos)
+│   │   ├── nav.wizard-progress-wrap (Barra de progreso visual animada: 33%, 66%, 100%)
+│   │   ├── div.wizard-step-pane (Paso 1: Perro vs Gato, sliders interactivos de peso)
+│   │   ├── div.wizard-step-pane (Paso 2: Selección de receta y día de entrega 5, 15 o 28)
+│   │   └── div.wizard-step-pane (Paso 3: Servicios adicionales de spa y resumen total)
+│   ├── section.galeria#galeria (Tarjetas de redes sociales con contadores de likes)
+│   └── section.contacto#contacto (Formulario de contacto, mapa y WhatsApp)
+├── footer.footer (Derechos de autor para Análisis y Diseño de Soluciones WEB)
+└── Componentes Flotantes (Botón dock de suscripción, Auth Modal, Cart Drawer, Modal Pago)
+      </pre>
+    </div>
+
+    <div class="inst-footer">
+      <strong>Universidad de Caldas · Programa Técnico en Programación Web · U en tu pueblo</strong><br>
+      Ingeniera Angela Andrea Suarez Arango · tecnicosfacingenierias@ucaldas.edu.co · 8781500 Ext. 13220
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PÁGINA 6: IMPLEMENTACIÓN HTML Y ESTILOS CSS
+       ========================================================================= -->
+  <div class="doc-page">
+    <div class="inst-header">
+      <div class="header-logo-left">
+        <div class="logo-ucaldas-text">
+          <span>UCaldas</span>
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+        </div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="header-swoosh"></div>
+      </div>
+      <div class="header-logo-right">
+        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
+        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <h2>7. Fase 5: Implementación HTML (Fragmento Semántico)</h2>
+      <p>
+        El código HTML utiliza elementos semánticos estándar de la W3C, asegurando legibilidad, accesibilidad para lectores de pantalla y soporte nativo de navegación por teclado:
+      </p>
+
+      <pre class="code-block">
+&lt;!-- Cabecera con Logo Oficial Protagonista y Navegación --&gt;
+&lt;header class="header"&gt;
+  &lt;div class="container header-container"&gt;
+    &lt;a href="#inicio" class="logo-wrapper" aria-label="Ir al inicio de Huellitas"&gt;
+      &lt;div class="brand-logo-frame"&gt;
+        &lt;span class="logo-halo-ring" aria-hidden="true"&gt;&lt;/span&gt;
+        &lt;img src="img/logo-huellitas.jpg" alt="Logo Oficial Huellitas" width="370" height="405" class="brand-logo-img"&gt;
+      &lt;/div&gt;
+      &lt;div class="logo-text-group"&gt;
+        &lt;span class="brand-pill-top"&gt;&lt;i class="fas fa-paw"&gt;&lt;/i&gt; Huellitas&lt;/span&gt;
+        &lt;span class="brand-subtitle"&gt;Spa &bull; Veterinaria &bull; Tienda&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
+    &lt;nav class="nav-links" id="navLinks" aria-label="Navegación principal"&gt;
+      &lt;a href="#inicio" class="nav-link active"&gt;Inicio&lt;/a&gt;
+      &lt;a href="#tienda" class="nav-link"&gt;Tienda&lt;/a&gt;
+      &lt;a href="#servicios" class="nav-link"&gt;Servicios&lt;/a&gt;
+      &lt;a href="#suscripcion" class="nav-link nav-link-highlight"&gt;&lt;i class="fas fa-crown"&gt;&lt;/i&gt; Suscripción&lt;/a&gt;
+      &lt;a href="#contacto" class="nav-link"&gt;Contacto&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+      </pre>
+
+      <h2>8. Fase 6: Estilos CSS (Sistema de Diseño y Variables)</h2>
+      <p>
+        La apariencia visual se fundamenta en un sistema de variables CSS (Custom Properties) que define la paleta <em>Fear-Free</em>, espaciados y curvaturas suaves:
+      </p>
+
+      <pre class="code-block">
+:root {
+  /* Paleta cromática oficial Huellitas (Fear-Free) */
+  --color-fondo: #FBF8F3;         /* Beige crema suave */
+  --color-hueso: #F5EFE6;         /* Arena claro para superficies */
+  --color-beige-oscuro: #E2D3BE;  /* Líneas sutiles de separación */
+  --color-texto: #4A3B32;         /* Café oscuro legible para lectura prolongada */
+  --color-texto-suave: #6F5E53;   /* Café intermedio para subtítulos y descripciones */
+  --color-texto-muted: #8E7A6E;   /* Tono atenuado para notas secundarias */
+  --color-acento: #E09F5E;        /* Terracota cálido de llamada a la acción */
+  --color-acento-hover: #C9823F;  /* Resalte interactivo al pasar el cursor */
+  --color-verde-menta: #68B0AB;   /* Verde médico para citas veterinarias */
+  --color-blanco: #FFFFFF;        /* Tarjetas y modales de contenido */
+
+  /* Tipografías y radios */
+  --font-principal: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset y caja flexible */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-principal);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+/* Rejilla de productos responsive con auto-fit */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .header-container { flex-wrap: wrap; }
+  .productos-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+      </pre>
+    </div>
+
+    <div class="inst-footer">
+      <strong>Universidad de Caldas · Programa Técnico en Programación Web · U en tu pueblo</strong><br>
+      Ingeniera Angela Andrea Suarez Arango · tecnicosfacingenierias@ucaldas.edu.co · 8781500 Ext. 13220
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PÁGINA 7: LÓGICA JAVASCRIPT Y PLAN DE PRUEBAS (QA)
+       ========================================================================= -->
+  <div class="doc-page">
+    <div class="inst-header">
+      <div class="header-logo-left">
+        <div class="logo-ucaldas-text">
+          <span>UCaldas</span>
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+        </div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="header-swoosh"></div>
+      </div>
+      <div class="header-logo-right">
+        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
+        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <h2>Lógica Interactiva con JavaScript (Frontend Reactivo)</h2>
+      <p>
+        El comportamiento dinámico se programa con JavaScript vanilla, manteniendo el código libre de sobrecargas:
+      </p>
+      <ul>
+        <li><strong>Motor del Carrito:</strong> Arreglo reactivo de objetos en memoria sincronizado con el DOM y persistido con almacenamiento local. Incrementa cantidades, recalcula subtotales y actualiza el contador de la cabecera en tiempo real.</li>
+        <li><strong>Wizard de Suscripción:</strong> Algoritmo de nutrición veterinaria que calcula la ración diaria: <code>Gramos = Peso (kg) &times; Factor (15g perro / 12g gato)</code>, actualizando insignias y resumen de pago de forma inmediata.</li>
+        <li><strong>Módulo de Autenticación Visual:</strong> Interfaz con cambio suave de pestañas, conmutador de contraseña, medidor de seguridad y accesos demo de un toque (Administrador y Cliente) que sincronizan la cabecera.</li>
+      </ul>
+
+      <h2>9. QA: Plan Mínimo de Pruebas</h2>
+      <p>
+        Se estructuró una matriz de pruebas de aseguramiento de calidad verificando funcionalidad, usabilidad y rendimiento:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 18%;">Módulo / Prueba</th>
+            <th style="width: 32%;">Resultado esperado</th>
+            <th>Evidencia / Método de verificación</th>
+            <th style="width: 14%;">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Navegación</strong></td>
+            <td>Los enlaces ancla (#tienda, #suscripcion, etc.) desplazan suavemente al usuario a la sección exacta.</td>
+            <td>Inspección de scroll y verificación de enlaces en cabecera y pie.</td>
+            <td><span class="badge-approved">APROBADO ✅</span></td>
+          </tr>
+          <tr>
+            <td><strong>Catálogo Tienda</strong></td>
+            <td>Se visualizan los 12 productos con foto, precio y menú desplegable "Ver qué incluye".</td>
+            <td>Prueba visual y toggle interactivo de los elementos details/summary.</td>
+            <td><span class="badge-approved">APROBADO ✅</span></td>
+          </tr>
+          <tr>
+            <td><strong>Carrito Drawer</strong></td>
+            <td>Al pulsar "Añadir al Carrito", se abre el drawer, suma el ítem y actualiza el total en COP.</td>
+            <td>Adición de múltiples productos, edición de cantidades y eliminación.</td>
+            <td><span class="badge-approved">APROBADO ✅</span></td>
+          </tr>
+          <tr>
+            <td><strong>Wizard Suscripción</strong></td>
+            <td>Al mover el slider de peso (ej. 12 kg), el badge calcula automáticamente 185 g/día.</td>
+            <td>Modificación dinámica del slider y avance a los pasos 2 y 3.</td>
+            <td><span class="badge-approved">APROBADO ✅</span></td>
+          </tr>
+          <tr>
+            <td><strong>Autenticación Visual</strong></td>
+            <td>El modal muestra el logo de Huellitas, permite alternar pestañas y usar accesos demo de 1 clic.</td>
+            <td>Prueba de inicio de sesión como Admin y Cliente; actualización de píldora.</td>
+            <td><span class="badge-approved">APROBADO ✅</span></td>
+          </tr>
+          <tr>
+            <td><strong>Pasarela de Pago</strong></td>
+            <td>Permite seleccionar Nequi, Daviplata o Tarjeta con instrucciones dinámicas y botón de confirmación.</td>
+            <td>Selección de medio de pago y generación de confirmación con toast.</td>
+            <td><span class="badge-approved">APROBADO ✅</span></td>
+          </tr>
+          <tr>
+            <td><strong>Adaptabilidad Móvil</strong></td>
+            <td>La interfaz se adapta a pantallas de 360px a 1440px sin desbordamiento horizontal.</td>
+            <td>Emulación de dispositivos en DevTools (iPhone, Galaxy y Desktop).</td>
+            <td><span class="badge-approved">APROBADO ✅</span></td>
+          </tr>
+          <tr>
+            <td><strong>Carga y Rendimiento</strong></td>
+            <td>Carga inmediata de estilos e imágenes con política de lazy loading para recursos diferidos.</td>
+            <td>Auditoría de red en navegador con tiempo de carga inferior a 2 segundos.</td>
+            <td><span class="badge-approved">APROBADO ✅</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="inst-footer">
+      <strong>Universidad de Caldas · Programa Técnico en Programación Web · U en tu pueblo</strong><br>
+      Ingeniera Angela Andrea Suarez Arango · tecnicosfacingenierias@ucaldas.edu.co · 8781500 Ext. 13220
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PÁGINA 8: DESPLIEGUE, ENTREGABLES Y CONCLUSIÓN
+       ========================================================================= -->
+  <div class="doc-page">
+    <div class="inst-header">
+      <div class="header-logo-left">
+        <div class="logo-ucaldas-text">
+          <span>UCaldas</span>
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+        </div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="header-swoosh"></div>
+      </div>
+      <div class="header-logo-right">
+        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
+        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <h2>10. Despliegue y entrega</h2>
+      <p>
+        Para asegurar la reproducibilidad y entrega formal del proyecto, se estableció un flujo de control de versiones y hosting estructurado:
+      </p>
+      <ol>
+        <li><strong>Control de Versiones:</strong> Repositorio Git inicializado con control estricto de commits descriptivos en rama <code>main</code>.</li>
+        <li><strong>Alojamiento en la Nube:</strong> Repositorio remoto público alojado en GitHub: <code>https://github.com/Emmanuel1614/huellitas</code>.</li>
+        <li><strong>Servidor Local de Pruebas:</strong> Despliegue sobre servidor Apache y base de datos MySQL en entorno XAMPP (<code>http://localhost/huellitas/</code>).</li>
+        <li><strong>Estrategia de Producción:</strong> Para la fase pública estática se cuenta con compatibilidad para GitHub Pages / Netlify; y para el backend transaccional PHP/MySQL, migración hacia servicio hosting LAMP con certificados SSL activos.</li>
+      </ol>
+
+      <h2>11. Entregables del proyecto</h2>
+      <ul>
+        <li><strong>Código Fuente Completo:</strong> Archivos estructurados <code>index.html</code>, <code>style.css</code> y <code>script.js</code> debidamente optimizados.</li>
+        <li><strong>Base de Datos Relacional:</strong> Scripts <code>api/db.php</code>, <code>api/auth.php</code> y esquema SQL con usuario administrador preconfigurado.</li>
+        <li><strong>Control de Versiones:</strong> Historial de cambios y confirmaciones versionadas en GitHub.</li>
+        <li><strong>Documento Técnico y Caso de Estudio:</strong> Especificación detallada en formato PDF bajo los estándares del programa.</li>
+      </ul>
+
+      <div class="callout-box">
+        <div class="callout-title">PREGUNTAS PARA REFLEXIONAR</div>
+        <p class="callout-desc">
+          <strong>1. ¿Por qué los actores del sistema no son lo mismo que los roles del equipo?</strong> Porque los actores representan los perfiles de usuario que disfrutan de la solución, mientras que los roles del equipo representan los oficios de ingeniería que la hacen posible.<br>
+          <strong>2. ¿Qué ventaja tiene validar la experiencia visual antes del acoplamiento a base de datos?</strong> Permite ajustar la usabilidad, la empatía y la retroalimentación visual con el cliente sin generar fricciones o bloqueos técnicos tempranos.<br>
+          <strong>3. ¿Cuál es el impacto de una arquitectura modular en CSS y JS?</strong> Garantiza que el código pueda escalar fácilmente de una sola página hacia una aplicación web progresiva completa sin rehacer la base.
+        </p>
+      </div>
+
+      <h2>12. Conclusión</h2>
+      <p>
+        El desarrollo de <strong>Huellitas</strong> demuestra cómo la combinación metódica entre análisis de negocio, diseño centrado en el usuario (UX/UI) y programación limpia produce soluciones profesionales de alto impacto. Un equipo no empieza programando al azar: investiga la necesidad, modela las historias de usuario, valida prototipos y verifica la calidad con rigor.
+      </p>
+
+      <div class="callout-box green" style="margin-top: 5pt;">
+        <div class="callout-title">IDEA FINAL</div>
+        <p class="callout-desc">
+          Una web de calidad para el cuidado animal no se define únicamente por líneas de código, sino por la capacidad del equipo de comprender la empatía entre el tutor y su mascota, traduciéndola en una experiencia digital cálida, intuitiva y transparente.
+        </p>
+      </div>
+    </div>
+
+    <div class="inst-footer">
+      <strong>Universidad de Caldas · Programa Técnico en Programación Web · U en tu pueblo</strong><br>
+      Ingeniera Angela Andrea Suarez Arango · tecnicosfacingenierias@ucaldas.edu.co · 8781500 Ext. 13220
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PÁGINA 9: CRÉDITOS Y HOJA DE ENTREGA FORMAL
+       ========================================================================= -->
+  <div class="doc-page">
+    <div class="inst-header">
+      <div class="header-logo-left">
+        <div class="logo-ucaldas-text">
+          <span>UCaldas</span>
+          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+        </div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="header-swoosh"></div>
+      </div>
+      <div class="header-logo-right">
+        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
+        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+      </div>
+    </div>
+
+    <div class="page-body" style="justify-content: center; align-items: center; text-align: center;">
+      <div style="width: 72px; height: 80px; margin: 0 auto 10pt; border-radius: 18px; border: 2px solid #C5A059; padding: 4px; background: #FFFFFF; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        <img src="img/logo-huellitas.jpg" alt="Logo Oficial Huellitas" style="width: 100%; height: 100%; object-fit: contain; border-radius: 12px;">
+      </div>
+
+      <h1 style="font-size: 16pt; color: #1A365D; margin-bottom: 4pt;">Constancia de Entrega de Solución Web</h1>
+      <p style="font-size: 9pt; color: #4A5568; max-width: 440px; margin: 0 auto 16pt;">
+        El presente documento certifica la formulación, diseño, implementación y pruebas de la plataforma web <strong>Huellitas: Spa, Veterinaria &amp; Tienda</strong> como evidencia de aprendizaje del curso.
+      </p>
+
+      <table class="data-table" style="max-width: 460px; margin: 0 auto 16pt; text-align: left;">
+        <tbody>
+          <tr>
+            <td style="font-weight: 700; width: 35%;">Asignatura:</td>
+            <td>Análisis y Diseño de Soluciones Web</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Programa:</td>
+            <td>Técnico en Programación Web &bull; U en tu pueblo</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Institución:</td>
+            <td>Universidad de Caldas (Facultad de Ingenierías)</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Docente a cargo:</td>
+            <td>Ingeniera Angela Andrea Suarez Arango</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Desarrolladores:</td>
+            <td><strong>Emmanuel Morales</strong> &amp; <strong>Juan Ricardo Londoño</strong></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Repositorio GitHub:</td>
+            <td><a href="https://github.com/Emmanuel1614/huellitas" target="_blank" style="color: #0077C8; font-weight: bold; text-decoration: none;">github.com/Emmanuel1614/huellitas</a></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Estado de entrega:</td>
+            <td><span class="badge-approved" style="font-size: 8pt;">COMPLETO Y COMPROBABLE ✅</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="display: flex; justify-content: center; gap: 40pt; margin-top: 25pt;">
+        <div style="border-top: 1px solid #718096; width: 170px; padding-top: 4pt; font-size: 8pt;">
+          <strong>Emmanuel Morales</strong><br>
+          <span style="color: #64748B;">Desarrollador Web</span>
+        </div>
+        <div style="border-top: 1px solid #718096; width: 170px; padding-top: 4pt; font-size: 8pt;">
+          <strong>Juan Ricardo Londoño</strong><br>
+          <span style="color: #64748B;">Desarrollador Web</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="inst-footer">
+      <strong>Universidad de Caldas · Programa Técnico en Programación Web · U en tu pueblo</strong><br>
+      Ingeniera Angela Andrea Suarez Arango · tecnicosfacingenierias@ucaldas.edu.co · 8781500 Ext. 13220
+    </div>
+  </div>
+
+</body>
+</html>
