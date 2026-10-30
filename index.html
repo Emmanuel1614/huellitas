@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Estilos Minimalistas Visual-First -->
-  <link rel="stylesheet" href="style.css?v=20261029v11">
+  <link rel="stylesheet" href="style.css?v=20261029v12">
 </head>
 <body>
 
@@ -86,9 +86,39 @@
         <a href="#galeria" class="nav-link">Redes Sociales</a>
         <a href="#mision-vision" class="nav-link">Nosotros</a>
         <a href="#contacto" class="nav-link">Contacto</a>
+        <a href="javascript:void(0)" class="nav-link nav-link-auth-mobile" id="navLinkAuthMobile"><i class="fas fa-user-circle" aria-hidden="true"></i> Mi Cuenta</a>
       </nav>
 
       <div class="header-right-actions">
+        <!-- BOTÓN DE INGRESO / REGISTRO / PERFIL DE USUARIO -->
+        <div class="header-user-wrap" id="headerUserWrap">
+          <button type="button" class="header-auth-btn" id="btnOpenAuthModal" aria-label="Iniciar sesión o registrarse">
+            <i class="fas fa-user-circle" aria-hidden="true"></i>
+            <span class="auth-btn-label">Ingresar</span>
+          </button>
+
+          <div class="user-logged-box" id="userLoggedBox" hidden>
+            <button type="button" class="user-profile-pill" id="userProfilePill" aria-expanded="false" aria-haspopup="true">
+              <span class="user-avatar-badge" id="userAvatarBadge">AD</span>
+              <span class="user-pill-name" id="userPillName">Admin</span>
+              <span class="user-pill-role" id="userPillRole">Admin</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="user-dropdown-menu" id="userDropdownMenu" hidden>
+              <div class="user-dropdown-header">
+                <strong id="dropdownUserName">Administrador</strong>
+                <small id="dropdownUserIdentifier">admin@huellitas.com</small>
+              </div>
+              <button type="button" class="dropdown-item" id="btnOpenAdminPanel" hidden>
+                <i class="fas fa-shield-cat" aria-hidden="true"></i> Panel Administrador
+              </button>
+              <button type="button" class="dropdown-item dropdown-item-danger" id="btnLogout">
+                <i class="fas fa-arrow-right-from-bracket" aria-hidden="true"></i> Cerrar Sesión
+              </button>
+            </div>
+          </div>
+        </div>
+
         <a href="#suscripcion" class="header-subs-quick-btn" aria-label="Ir rápido a Suscripción Mensual">
           <i class="fas fa-crown" aria-hidden="true"></i>
           <span>Club</span>
@@ -2097,6 +2127,147 @@
     </div>
   </div>
 
+  <!-- ================= MODAL DE REGISTRO E INICIO DE SESIÓN ================= -->
+  <div class="modal-overlay" id="authModalOverlay" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-box auth-modal-box">
+      <button type="button" class="modal-close-icon-btn" id="btnCloseAuthModal" aria-label="Cerrar ventana">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+
+      <div class="auth-modal-header">
+        <div class="auth-badge-icon">
+          <i class="fas fa-paw" aria-hidden="true"></i>
+        </div>
+        <h3 id="authModalTitle">Comunidad Huellitas</h3>
+        <p class="auth-modal-sub">Inicia sesión o regístrate con tu correo o tu teléfono</p>
+
+        <div class="auth-tabs-nav" role="tablist">
+          <button type="button" class="auth-tab-btn active" id="tabBtnLogin" role="tab" aria-selected="true">
+            <i class="fas fa-right-to-bracket" aria-hidden="true"></i> Iniciar Sesión
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabBtnRegister" role="tab" aria-selected="false">
+            <i class="fas fa-user-plus" aria-hidden="true"></i> Registrarse
+          </button>
+        </div>
+      </div>
+
+      <div class="auth-alert" id="authAlert" hidden></div>
+
+      <!-- FORMULARIO 1: INICIAR SESIÓN -->
+      <form class="auth-form active" id="formLogin" novalidate>
+        <div class="auth-input-group">
+          <label for="loginIdentificador"><i class="fas fa-user-tag" aria-hidden="true"></i> Correo electrónico o Celular</label>
+          <input type="text" id="loginIdentificador" name="identificador" placeholder="ej: admin@huellitas.com o 3001234567" required autocomplete="username">
+        </div>
+
+        <div class="auth-input-group">
+          <label for="loginPassword"><i class="fas fa-lock" aria-hidden="true"></i> Contraseña</label>
+          <div class="password-input-wrap">
+            <input type="password" id="loginPassword" name="password" placeholder="Tu contraseña" required autocomplete="current-password">
+            <button type="button" class="btn-toggle-pwd" data-target="loginPassword" aria-label="Mostrar contraseña"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="btnSubmitLogin">
+          <i class="fas fa-arrow-right-to-bracket" aria-hidden="true"></i> Entrar a mi Cuenta
+        </button>
+
+        <div class="auth-admin-hint">
+          <div class="admin-hint-title"><i class="fas fa-shield-halved" aria-hidden="true"></i> Usuario Administrador Preconfigurado:</div>
+          <p><strong>admin@huellitas.com</strong> &bull; Clave: <code>admin123</code></p>
+          <button type="button" class="btn-auto-admin" id="btnAutoFillAdmin">Autocompletar Administrador</button>
+        </div>
+      </form>
+
+      <!-- FORMULARIO 2: REGISTRO (CORREO O TELÉFONO) -->
+      <form class="auth-form" id="formRegister" novalidate>
+        <div class="auth-input-group">
+          <label for="regNombre"><i class="fas fa-id-card" aria-hidden="true"></i> Nombre completo</label>
+          <input type="text" id="regNombre" name="nombre" placeholder="ej: Laura Martínez" required autocomplete="name">
+        </div>
+
+        <div class="auth-input-group">
+          <label for="regIdentificador"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> Correo electrónico O Teléfono móvil</label>
+          <input type="text" id="regIdentificador" name="identificador" placeholder="ej: laura@correo.com o 3124567890" required>
+          <small class="auth-hint-text"><i class="fas fa-circle-info"></i> Puedes registrarte usando tu correo electrónico o tu número de celular (7 a 15 dígitos).</small>
+        </div>
+
+        <div class="auth-input-group">
+          <label for="regPassword"><i class="fas fa-key" aria-hidden="true"></i> Crea tu Contraseña</label>
+          <div class="password-input-wrap">
+            <input type="password" id="regPassword" name="password" placeholder="Mínimo 6 caracteres" required minlength="6" autocomplete="new-password">
+            <button type="button" class="btn-toggle-pwd" data-target="regPassword" aria-label="Mostrar contraseña"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+
+        <div class="auth-input-group">
+          <label for="regConfirmPassword"><i class="fas fa-check-double" aria-hidden="true"></i> Confirmar Contraseña</label>
+          <div class="password-input-wrap">
+            <input type="password" id="regConfirmPassword" name="confirm_password" placeholder="Repite tu contraseña" required minlength="6" autocomplete="new-password">
+            <button type="button" class="btn-toggle-pwd" data-target="regConfirmPassword" aria-label="Mostrar contraseña"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="btnSubmitRegister">
+          <i class="fas fa-user-plus" aria-hidden="true"></i> Crear mi Cuenta
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= MODAL DEL PANEL DE ADMINISTRADOR ================= -->
+  <div class="modal-overlay" id="adminModalOverlay" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle">
+    <div class="modal-box admin-modal-box">
+      <button type="button" class="modal-close-icon-btn" id="btnCloseAdminModal" aria-label="Cerrar panel de administración">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+
+      <div class="admin-panel-head">
+        <div class="admin-badge"><i class="fas fa-shield-cat"></i> Control Huellitas MySQL</div>
+        <h3 id="adminModalTitle">Panel de Usuarios Registrados</h3>
+        <p>Datos en tiempo real almacenados en la base de datos <code>huellitas_db</code></p>
+      </div>
+
+      <div class="admin-metrics-grid">
+        <div class="admin-metric-card">
+          <span class="m-val" id="metricTotalUsers">0</span>
+          <span class="m-lbl">Usuarios Totales</span>
+        </div>
+        <div class="admin-metric-card">
+          <span class="m-val" id="metricTotalClients">0</span>
+          <span class="m-lbl">Clientes</span>
+        </div>
+        <div class="admin-metric-card">
+          <span class="m-val" id="metricTotalAdmins">0</span>
+          <span class="m-lbl">Administradores</span>
+        </div>
+      </div>
+
+      <div class="admin-users-table-wrap">
+        <table class="admin-users-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Identificador</th>
+              <th>Tipo</th>
+              <th>Rol</th>
+              <th>Fecha de Registro</th>
+            </tr>
+          </thead>
+          <tbody id="adminUsersTableBody">
+            <tr><td colspan="6" style="text-align:center; padding:18px;">Cargando usuarios desde MySQL...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="admin-panel-footer">
+        <small><i class="fas fa-database"></i> Conectado a MySQL en <code>localhost:3306</code> (huellitas_db &bull; tabla usuarios)</small>
+        <button type="button" class="btn btn-sm btn-outline" id="btnRefreshAdminUsers"><i class="fas fa-rotate"></i> Actualizar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- BOTÓN FLOTANTE DE ACCESO FÁCIL A SUSCRIPCIÓN (ESCRITORIO Y MÓVIL) -->
   <a href="#suscripcion" class="floating-subs-dock" id="floatingSubsDock" aria-label="Ir rápido al creador de Suscripción Mensual Huellitas">
     <span class="floating-subs-crown" aria-hidden="true"><i class="fas fa-crown"></i></span>
@@ -2108,6 +2279,6 @@
   </a>
 
   <!-- Script interactivo -->
-  <script src="script.js?v=20261029v11"></script>
+  <script src="script.js?v=20261029v12"></script>
 </body>
 </html>

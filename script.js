@@ -1696,6 +1696,376 @@ document.addEventListener('DOMContentLoaded', () => {
     startAmbientTimer();
   }
 
+  // =========================================================================
+  // SISTEMA DE AUTENTICACIÓN, REGISTRO (CORREO O TELÉFONO) Y PANEL ADMIN
+  // =========================================================================
+  const authModalOverlay = document.getElementById('authModalOverlay');
+  const btnCloseAuthModal = document.getElementById('btnCloseAuthModal');
+  const btnOpenAuthModal = document.getElementById('btnOpenAuthModal');
+  const navLinkAuthMobile = document.getElementById('navLinkAuthMobile');
+  const tabBtnLogin = document.getElementById('tabBtnLogin');
+  const tabBtnRegister = document.getElementById('tabBtnRegister');
+  const formLogin = document.getElementById('formLogin');
+  const formRegister = document.getElementById('formRegister');
+  const authAlert = document.getElementById('authAlert');
+  const btnAutoFillAdmin = document.getElementById('btnAutoFillAdmin');
+
+  // Elementos de usuario logueado en la cabecera
+  const userLoggedBox = document.getElementById('userLoggedBox');
+  const userProfilePill = document.getElementById('userProfilePill');
+  const userAvatarBadge = document.getElementById('userAvatarBadge');
+  const userPillName = document.getElementById('userPillName');
+  const userPillRole = document.getElementById('userPillRole');
+  const userDropdownMenu = document.getElementById('userDropdownMenu');
+  const dropdownUserName = document.getElementById('dropdownUserName');
+  const dropdownUserIdentifier = document.getElementById('dropdownUserIdentifier');
+  const btnOpenAdminPanel = document.getElementById('btnOpenAdminPanel');
+  const btnLogout = document.getElementById('btnLogout');
+
+  // Modal del panel de administración
+  const adminModalOverlay = document.getElementById('adminModalOverlay');
+  const btnCloseAdminModal = document.getElementById('btnCloseAdminModal');
+  const btnRefreshAdminUsers = document.getElementById('btnRefreshAdminUsers');
+  const metricTotalUsers = document.getElementById('metricTotalUsers');
+  const metricTotalClients = document.getElementById('metricTotalClients');
+  const metricTotalAdmins = document.getElementById('metricTotalAdmins');
+  const adminUsersTableBody = document.getElementById('adminUsersTableBody');
+
+  let currentUser = null;
+
+  function setAuthAlert(msg, type = 'error') {
+    if (!authAlert) return;
+    if (!msg) {
+      authAlert.hidden = true;
+      authAlert.textContent = '';
+      authAlert.className = 'auth-alert';
+      return;
+    }
+    authAlert.hidden = false;
+    authAlert.className = `auth-alert ${type}`;
+    authAlert.innerHTML = `<i class="fas fa-${type === 'error' ? 'circle-exclamation' : 'circle-check'}"></i> <span>${escapeHTML(msg)}</span>`;
+  }
+
+  function switchAuthTab(tab) {
+    setAuthAlert('');
+    if (tab === 'login') {
+      tabBtnLogin?.classList.add('active');
+      tabBtnLogin?.setAttribute('aria-selected', 'true');
+      tabBtnRegister?.classList.remove('active');
+      tabBtnRegister?.setAttribute('aria-selected', 'false');
+      formLogin?.classList.add('active');
+      formRegister?.classList.remove('active');
+    } else {
+      tabBtnRegister?.classList.add('active');
+      tabBtnRegister?.setAttribute('aria-selected', 'true');
+      tabBtnLogin?.classList.remove('active');
+      tabBtnLogin?.setAttribute('aria-selected', 'false');
+      formRegister?.classList.add('active');
+      formLogin?.classList.remove('active');
+    }
+  }
+
+  function openAuthModal(tab = 'login') {
+    switchAuthTab(tab);
+    authModalOverlay?.classList.add('active');
+  }
+
+  function closeAuthModal() {
+    authModalOverlay?.classList.remove('active');
+    setAuthAlert('');
+  }
+
+  function openAdminModal() {
+    if (userDropdownMenu) userDropdownMenu.hidden = true;
+    adminModalOverlay?.classList.add('active');
+    fetchAdminUsers();
+  }
+
+  function closeAdminModal() {
+    adminModalOverlay?.classList.remove('active');
+  }
+
+  function updateLoggedUI(user) {
+    currentUser = user;
+    if (user) {
+      if (btnOpenAuthModal) btnOpenAuthModal.hidden = true;
+      if (userLoggedBox) userLoggedBox.hidden = false;
+
+      const names = (user.nombre || '').trim().split(' ');
+      const initials = (names[0] ? names[0][0] : '') + (names[1] ? names[1][0] : '');
+      if (userAvatarBadge) userAvatarBadge.textContent = (initials || 'US').toUpperCase();
+
+      if (userPillName) userPillName.textContent = names[0] || 'Mi Cuenta';
+
+      if (userPillRole) {
+        userPillRole.textContent = user.rol === 'admin' ? 'Admin' : 'Cliente';
+        userPillRole.className = `user-pill-role ${user.rol === 'admin' ? 'admin' : ''}`;
+      }
+
+      if (dropdownUserName) dropdownUserName.textContent = user.nombre;
+      if (dropdownUserIdentifier) dropdownUserIdentifier.textContent = user.identificador;
+
+      if (btnOpenAdminPanel) {
+        btnOpenAdminPanel.hidden = user.rol !== 'admin';
+      }
+
+      if (navLinkAuthMobile) {
+        navLinkAuthMobile.innerHTML = `<i class="fas fa-user-check"></i> ${escapeHTML(names[0])} (${user.rol === 'admin' ? 'Admin' : 'Mi Cuenta'})`;
+      }
+    } else {
+      if (btnOpenAuthModal) btnOpenAuthModal.hidden = false;
+      if (userLoggedBox) userLoggedBox.hidden = true;
+      if (userDropdownMenu) userDropdownMenu.hidden = true;
+      if (btnOpenAdminPanel) btnOpenAdminPanel.hidden = true;
+      if (navLinkAuthMobile) {
+        navLinkAuthMobile.innerHTML = `<i class="fas fa-user-circle"></i> Mi Cuenta`;
+      }
+    }
+  }
+
+  async function checkSession() {
+    try {
+      const res = await fetch('api/auth.php?action=check_session');
+      const data = await res.json();
+      if (data.success && data.authenticated && data.user) {
+        updateLoggedUI(data.user);
+      } else {
+        updateLoggedUI(null);
+      }
+    } catch (err) {
+      console.warn('Error verificando sesión:', err);
+    }
+  }
+
+  async function fetchAdminUsers() {
+    if (!adminUsersTableBody) return;
+    adminUsersTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:18px;"><i class="fas fa-spinner fa-spin"></i> Cargando usuarios desde MySQL...</td></tr>`;
+
+    try {
+      const res = await fetch('api/auth.php?action=list_users');
+      const data = await res.json();
+
+      if (!data.success) {
+        adminUsersTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#DC2626; padding:18px;">${escapeHTML(data.error || 'Error al obtener usuarios.')}</td></tr>`;
+        return;
+      }
+
+      if (metricTotalUsers) metricTotalUsers.textContent = String(data.stats?.total || 0);
+      if (metricTotalClients) metricTotalClients.textContent = String(data.stats?.clientes || 0);
+      if (metricTotalAdmins) metricTotalAdmins.textContent = String(data.stats?.admins || 0);
+
+      const users = data.users || [];
+      if (users.length === 0) {
+        adminUsersTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:18px;">No hay usuarios registrados aún.</td></tr>`;
+        return;
+      }
+
+      adminUsersTableBody.innerHTML = '';
+      users.forEach((u) => {
+        const tr = document.createElement('tr');
+        const tipoLabel = u.tipo_identificador === 'correo' ? '<i class="fas fa-envelope"></i> Correo' : '<i class="fas fa-phone"></i> Teléfono';
+        const tipoClass = u.tipo_identificador === 'correo' ? 'correo' : 'telefono';
+        const rolClass = u.rol === 'admin' ? 'admin' : 'cliente';
+
+        tr.innerHTML = `
+          <td><strong>#${u.id}</strong></td>
+          <td>${escapeHTML(u.nombre)}</td>
+          <td><code>${escapeHTML(u.identificador)}</code></td>
+          <td><span class="user-type-chip ${tipoClass}">${tipoLabel}</span></td>
+          <td><span class="user-role-chip ${rolClass}">${escapeHTML(u.rol).toUpperCase()}</span></td>
+          <td><small>${escapeHTML(u.fecha_registro)}</small></td>
+        `;
+        adminUsersTableBody.appendChild(tr);
+      });
+    } catch (err) {
+      adminUsersTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#DC2626; padding:18px;">Error al conectar con la base de datos MySQL.</td></tr>`;
+    }
+  }
+
+  // Event Listeners de Autenticación
+  btnOpenAuthModal?.addEventListener('click', () => openAuthModal('login'));
+  navLinkAuthMobile?.addEventListener('click', () => {
+    if (currentUser) {
+      if (currentUser.rol === 'admin') openAdminModal();
+      else showToast(`Sesión activa: ${currentUser.nombre}`);
+    } else {
+      openAuthModal('login');
+    }
+  });
+
+  btnCloseAuthModal?.addEventListener('click', closeAuthModal);
+  authModalOverlay?.addEventListener('click', (e) => {
+    if (e.target === authModalOverlay) closeAuthModal();
+  });
+
+  tabBtnLogin?.addEventListener('click', () => switchAuthTab('login'));
+  tabBtnRegister?.addEventListener('click', () => switchAuthTab('register'));
+
+  btnAutoFillAdmin?.addEventListener('click', () => {
+    const identInput = document.getElementById('loginIdentificador');
+    const pwdInput = document.getElementById('loginPassword');
+    if (identInput) identInput.value = 'admin@huellitas.com';
+    if (pwdInput) pwdInput.value = 'admin123';
+    showToast('Credenciales de Administrador cargadas.');
+  });
+
+  // Mostrar / ocultar contraseña
+  document.querySelectorAll('.btn-toggle-pwd').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const input = document.getElementById(targetId);
+      if (input) {
+        const isPwd = input.type === 'password';
+        input.type = isPwd ? 'text' : 'password';
+        const icon = btn.querySelector('i');
+        if (icon) {
+          icon.className = isPwd ? 'fas fa-eye-slash' : 'fas fa-eye';
+        }
+      }
+    });
+  });
+
+  // Envío Formulario Iniciar Sesión
+  formLogin?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setAuthAlert('');
+    const btnSubmit = document.getElementById('btnSubmitLogin');
+    const originalText = btnSubmit?.innerHTML || '';
+
+    const identificador = document.getElementById('loginIdentificador')?.value.trim();
+    const password = document.getElementById('loginPassword')?.value;
+
+    if (!identificador || !password) {
+      setAuthAlert('Por favor completa todos los campos.');
+      return;
+    }
+
+    try {
+      if (btnSubmit) {
+        btnSubmit.disabled = true;
+        btnSubmit.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Entrando...`;
+      }
+
+      const res = await fetch('api/auth.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'login', identificador, password })
+      });
+      const data = await res.json();
+
+      if (data.success && data.user) {
+        updateLoggedUI(data.user);
+        closeAuthModal();
+        showToast(data.message || '¡Sesión iniciada con éxito!');
+        if (data.user.rol === 'admin') {
+          setTimeout(() => showToast('¡Bienvenido Administrador! Tienes acceso al Panel de Control.'), 1200);
+        }
+      } else {
+        setAuthAlert(data.error || 'Credenciales incorrectas.');
+      }
+    } catch (err) {
+      setAuthAlert('Error al conectar con el servidor.');
+    } finally {
+      if (btnSubmit) {
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = originalText;
+      }
+    }
+  });
+
+  // Envío Formulario Registro
+  formRegister?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setAuthAlert('');
+    const btnSubmit = document.getElementById('btnSubmitRegister');
+    const originalText = btnSubmit?.innerHTML || '';
+
+    const nombre = document.getElementById('regNombre')?.value.trim();
+    const identificador = document.getElementById('regIdentificador')?.value.trim();
+    const password = document.getElementById('regPassword')?.value;
+    const confirm_password = document.getElementById('regConfirmPassword')?.value;
+
+    if (!nombre || !identificador || !password || !confirm_password) {
+      setAuthAlert('Por favor completa todos los campos del registro.');
+      return;
+    }
+
+    if (password.length < 6) {
+      setAuthAlert('La contraseña debe tener al menos 6 caracteres.');
+      return;
+    }
+
+    if (password !== confirm_password) {
+      setAuthAlert('Las contraseñas no coinciden.');
+      return;
+    }
+
+    try {
+      if (btnSubmit) {
+        btnSubmit.disabled = true;
+        btnSubmit.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Registrando...`;
+      }
+
+      const res = await fetch('api/auth.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'register', nombre, identificador, password, confirm_password })
+      });
+      const data = await res.json();
+
+      if (data.success && data.user) {
+        updateLoggedUI(data.user);
+        closeAuthModal();
+        showToast(data.message || '¡Registro exitoso! Bienvenido a Huellitas.');
+      } else {
+        setAuthAlert(data.error || 'Error al procesar el registro.');
+      }
+    } catch (err) {
+      setAuthAlert('Error al conectar con la base de datos MySQL.');
+    } finally {
+      if (btnSubmit) {
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = originalText;
+      }
+    }
+  });
+
+  // Toggle Dropdown de perfil
+  userProfilePill?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (userDropdownMenu) {
+      userDropdownMenu.hidden = !userDropdownMenu.hidden;
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (userDropdownMenu && !userDropdownMenu.hidden && !e.target.closest('#headerUserWrap')) {
+      userDropdownMenu.hidden = true;
+    }
+  });
+
+  // Cerrar sesión
+  btnLogout?.addEventListener('click', async () => {
+    try {
+      await fetch('api/auth.php?action=logout');
+      updateLoggedUI(null);
+      showToast('Sesión cerrada correctamente.');
+    } catch (err) {
+      updateLoggedUI(null);
+    }
+  });
+
+  // Abrir y cerrar Panel Admin
+  btnOpenAdminPanel?.addEventListener('click', openAdminModal);
+  btnCloseAdminModal?.addEventListener('click', closeAdminModal);
+  adminModalOverlay?.addEventListener('click', (e) => {
+    if (e.target === adminModalOverlay) closeAdminModal();
+  });
+  btnRefreshAdminUsers?.addEventListener('click', fetchAdminUsers);
+
+  // Comprobar sesión al inicio
+  checkSession();
+
   // Inicializar componentes
   syncWeightSlider();
   updateSubsSummary();
