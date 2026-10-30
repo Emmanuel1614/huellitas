@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Estilos Minimalistas Visual-First -->
-  <link rel="stylesheet" href="style.css?v=20261029v13">
+  <link rel="stylesheet" href="style.css?v=20261029v14">
 </head>
 <body>
 
@@ -106,8 +106,13 @@
             </button>
             <div class="user-dropdown-menu" id="userDropdownMenu" hidden>
               <div class="user-dropdown-header">
-                <strong id="dropdownUserName">Administrador</strong>
-                <small id="dropdownUserIdentifier">admin@huellitas.com</small>
+                <div class="dropdown-user-info">
+                  <strong id="dropdownUserName">Administrador</strong>
+                  <small id="dropdownUserIdentifier">admin@huellitas.com</small>
+                </div>
+                <button type="button" class="dropdown-close-btn" id="btnCloseUserDropdown" aria-label="Cerrar menú desplegable">
+                  <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
               </div>
               <a href="#suscripcion" class="dropdown-item" id="btnDropdownSubs">
                 <i class="fas fa-crown" aria-hidden="true"></i> Mi Suscripción Club
@@ -2378,6 +2383,6 @@
   </a>
 
   <!-- Script interactivo -->
-  <script src="script.js?v=20261029v13"></script>
+  <script src="script.js?v=20261029v14"></script>
 </body>
 </html>

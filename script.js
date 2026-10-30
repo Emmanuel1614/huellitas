@@ -1443,6 +1443,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnOpenAdminPanel = document.getElementById('btnOpenAdminPanel');
   const btnLogout = document.getElementById('btnLogout');
   const btnDropdownSubs = document.getElementById('btnDropdownSubs');
+  const btnCloseUserDropdown = document.getElementById('btnCloseUserDropdown');
 
   // Modal del panel de administración
   const adminModalOverlay = document.getElementById('adminModalOverlay');
@@ -1454,6 +1455,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const adminUsersTableBody = document.getElementById('adminUsersTableBody');
 
   let currentUser = null;
+
+  function openUserDropdown() {
+    if (!userDropdownMenu || !userProfilePill) return;
+    userDropdownMenu.hidden = false;
+    userDropdownMenu.classList.add('is-open');
+    userProfilePill.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeUserDropdown() {
+    if (!userDropdownMenu || !userProfilePill) return;
+    userDropdownMenu.hidden = true;
+    userDropdownMenu.classList.remove('is-open');
+    userProfilePill.setAttribute('aria-expanded', 'false');
+  }
+
+  function toggleUserDropdown() {
+    if (!userDropdownMenu) return;
+    const isOpen = !userDropdownMenu.hidden && userDropdownMenu.classList.contains('is-open');
+    if (isOpen) {
+      closeUserDropdown();
+    } else {
+      openUserDropdown();
+    }
+  }
 
   function setAuthAlert(msg, type = 'error') {
     if (!authAlert) return;
@@ -1500,7 +1525,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openAdminModal() {
-    if (userDropdownMenu) userDropdownMenu.hidden = true;
+    closeUserDropdown();
     adminModalOverlay?.classList.add('active');
     document.body.style.overflow = 'hidden';
     fetchAdminUsers();
@@ -1520,8 +1545,17 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('Storage unavailable:', e);
       }
 
-      if (btnOpenAuthModal) btnOpenAuthModal.hidden = true;
-      if (userLoggedBox) userLoggedBox.hidden = false;
+      // Ocultar estrictamente el botón de Ingresar
+      if (btnOpenAuthModal) {
+        btnOpenAuthModal.hidden = true;
+        btnOpenAuthModal.style.setProperty('display', 'none', 'important');
+      }
+      // Mostrar la píldora de perfil del usuario logueado
+      if (userLoggedBox) {
+        userLoggedBox.hidden = false;
+        userLoggedBox.style.setProperty('display', 'inline-flex', 'important');
+      }
+      closeUserDropdown();
 
       const names = (user.nombre || '').trim().split(' ');
       const initials = (names[0] ? names[0][0] : '') + (names[1] ? names[1][0] : '');
@@ -1549,9 +1583,17 @@ document.addEventListener('DOMContentLoaded', () => {
         sessionStorage.removeItem('huellitas_demo_user');
       } catch (e) {}
 
-      if (btnOpenAuthModal) btnOpenAuthModal.hidden = false;
-      if (userLoggedBox) userLoggedBox.hidden = true;
-      if (userDropdownMenu) userDropdownMenu.hidden = true;
+      // Mostrar botón Ingresar y ocultar píldora y menú
+      if (btnOpenAuthModal) {
+        btnOpenAuthModal.hidden = false;
+        btnOpenAuthModal.style.removeProperty('display');
+      }
+      if (userLoggedBox) {
+        userLoggedBox.hidden = true;
+        userLoggedBox.style.setProperty('display', 'none', 'important');
+      }
+      closeUserDropdown();
+
       if (btnOpenAdminPanel) btnOpenAdminPanel.hidden = true;
       if (navLinkAuthMobile) {
         navLinkAuthMobile.innerHTML = `<i class="fas fa-user-circle"></i> Mi Cuenta`;
@@ -1938,26 +1980,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   });
 
-  // Toggle Dropdown de perfil
+  // Control interactivo y cierre del Dropdown de perfil
   userProfilePill?.addEventListener('click', (e) => {
     e.stopPropagation();
-    if (userDropdownMenu) {
-      userDropdownMenu.hidden = !userDropdownMenu.hidden;
-    }
+    toggleUserDropdown();
+  });
+
+  btnCloseUserDropdown?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeUserDropdown();
   });
 
   btnDropdownSubs?.addEventListener('click', () => {
-    if (userDropdownMenu) userDropdownMenu.hidden = true;
+    closeUserDropdown();
   });
 
+  // Cerrar al hacer clic fuera del menú de usuario
   document.addEventListener('click', (e) => {
     if (userDropdownMenu && !userDropdownMenu.hidden && !e.target.closest('#headerUserWrap')) {
-      userDropdownMenu.hidden = true;
+      closeUserDropdown();
+    }
+  });
+
+  // Cerrar con tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && userDropdownMenu && !userDropdownMenu.hidden) {
+      closeUserDropdown();
     }
   });
 
   // Cerrar sesión
-  btnLogout?.addEventListener('click', () => {
+  btnLogout?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeUserDropdown();
     fetch('api/auth.php?action=logout').catch(() => {});
     updateLoggedUI(null);
     showToast('Has cerrado sesión correctamente. ¡Hasta pronto!');
