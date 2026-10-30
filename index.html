@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpeg" href="img/logo-huellitas.jpg">
+  <title>Huellitas &bull; Spa, Veterinaria &amp; Boutique Minimalista</title>
+  <meta name="description" content="Huellitas: clínica veterinaria libre de miedo, spa y peluquería para perros y gatos, tienda especializada y suscripción mensual en Colombia.">
+
+  <!-- Tipografías Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Estilos Minimalistas Visual-First -->
+  <link rel="stylesheet" href="style.css?v=20261029v11">
+</head>
+<body>
+
+  <!-- ESCENARIO DE FONDO DINÁMICO EN INTERVALO LENTO (EL LOCAL + PERROS + GATOS + MARCA DE AGUA OFICIAL) -->
+  <div class="ambient-bg-stage" id="ambientBgStage" aria-hidden="true">
+    <div class="ambient-bg-slide is-active" data-bg-label="Nuestro Local">
+      <img src="img/local-recepcion-tienda.jpg" alt="" width="1376" height="768" decoding="async" class="ambient-bg-img">
+    </div>
+    <div class="ambient-bg-slide" data-bg-label="Perros Felices">
+      <img src="img/hero-mascotas.jpg" alt="" width="800" height="534" fetchpriority="low" decoding="async" class="ambient-bg-img">
+    </div>
+    <div class="ambient-bg-slide" data-bg-label="Spa Felino">
+      <img src="img/spa-gato-cepillado-real.jpg" alt="" width="1200" height="896" fetchpriority="low" decoding="async" class="ambient-bg-img">
+    </div>
+    <div class="ambient-bg-slide" data-bg-label="Sala Huellitas">
+      <img src="img/local-sala-espera.jpg" alt="" width="1376" height="768" fetchpriority="low" decoding="async" class="ambient-bg-img">
+    </div>
+    <div class="ambient-bg-slide" data-bg-label="Baño &amp; Spa Canino">
+      <img src="img/spa-bano-espuma-perro.jpg" alt="" width="1200" height="896" fetchpriority="low" decoding="async" class="ambient-bg-img">
+    </div>
+    <div class="ambient-bg-slide" data-bg-label="Gatos con Estilo">
+      <img src="img/social-gato-feliz-bandana.jpg" alt="" width="896" height="1200" fetchpriority="low" decoding="async" class="ambient-bg-img">
+    </div>
+    <div class="ambient-bg-slide" data-bg-label="Salón &amp; Peluquería">
+      <img src="img/local-peluqueria-spa.jpg" alt="" width="1376" height="768" fetchpriority="low" decoding="async" class="ambient-bg-img">
+    </div>
+    <div class="ambient-bg-slide" data-bg-label="Clínica Libre de Miedo">
+      <img src="img/local-consultorio-vet.jpg" alt="" width="1376" height="768" fetchpriority="low" decoding="async" class="ambient-bg-img">
+    </div>
+    <div class="ambient-bg-veil"></div>
+    <div class="logo-watermark-bg"></div>
+  </div>
+
+  <!-- BARRA SUPERIOR COMPACTA (SE OCULTA EN MÓVIL PARA MAYOR LIMPIEZA VISUAL) -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span><i class="fas fa-location-dot" aria-hidden="true"></i> Medellín &amp; Bogotá</span>
+        <span><i class="fas fa-phone" aria-hidden="true"></i> +57 (604) 444 8355</span>
+        <span><i class="fas fa-clock" aria-hidden="true"></i> Lun - Sáb: 8:00 AM - 7:00 PM</span>
+      </div>
+      <div class="topbar-actions">
+        <span><i class="fas fa-heart" aria-hidden="true"></i> Perros &amp; Gatos &bull; Cero Miedo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CABECERA PRINCIPAL CON EL LOGO OFICIAL ENCAJADO Y PROTAGONISTA -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#inicio" class="logo-wrapper" aria-label="Ir al inicio de Huellitas">
+        <div class="brand-logo-frame">
+          <span class="logo-halo-ring" aria-hidden="true"></span>
+          <img src="img/logo-huellitas.jpg" alt="Logo Oficial Huellitas" width="370" height="405" class="brand-logo-img">
+        </div>
+        <div class="logo-text-group">
+          <span class="brand-pill-top"><i class="fas fa-paw" aria-hidden="true"></i> Huellitas</span>
+          <span class="brand-subtitle">Spa &bull; Veterinaria &bull; Tienda</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link active">Inicio</a>
+        <a href="#tienda" class="nav-link">Tienda</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#suscripcion" class="nav-link nav-link-highlight"><i class="fas fa-crown" aria-hidden="true"></i> Suscripción <span class="subs-live-dot" aria-hidden="true"></span></a>
+        <a href="#galeria" class="nav-link">Redes Sociales</a>
+        <a href="#mision-vision" class="nav-link">Nosotros</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-right-actions">
+        <a href="#suscripcion" class="header-subs-quick-btn" aria-label="Ir rápido a Suscripción Mensual">
+          <i class="fas fa-crown" aria-hidden="true"></i>
+          <span>Club</span>
+        </a>
+
+        <button type="button" class="cart-trigger-btn" id="cartTriggerBtn" aria-label="Abrir carrito de compras">
+          <i class="fas fa-basket-shopping" aria-hidden="true"></i>
+          <span class="cart-badge-count" id="cartBadgeCount">0</span>
+        </button>
+
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú móvil">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO MINIMALISTA: SLOGAN PROTAGONISTA + IMAGEN DOMINANTE -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Confianza, amor y <span class="highlight">cero miedo</span></h1>
+          <p>Veterinaria gentil, spa sin jaulas y nutrición natural a domicilio.</p>
+
+          <div class="hero-buttons">
+            <a href="#suscripcion" class="btn btn-subs-spotlight">
+              <i class="fas fa-crown" aria-hidden="true"></i> Suscripción Mensual
+            </a>
+            <a href="#tienda" class="btn btn-outline">
+              <i class="fas fa-bag-shopping" aria-hidden="true"></i> Ver Tienda
+            </a>
+          </div>
+
+          <div class="hero-stats-pills">
+            <span class="hero-stat-pill"><strong>+2.400</strong> Mascotas</span>
+            <span class="hero-stat-pill"><strong>100%</strong> Sin Miedo</span>
+            <span class="hero-stat-pill"><strong>4.9 ★</strong> Familias</span>
+          </div>
+        </div>
+
+        <div class="hero-image-wrap">
+          <img src="img/hero-mascotas.jpg"
+               alt="Perritos Corgi y Yorkshire corriendo alegres al aire libre"
+               width="800"
+               height="533"
+               fetchpriority="high"
+               class="hero-main-img">
+
+          <div class="floating-badge badge-1">
+            <i class="fas fa-heart-circle-check" aria-hidden="true"></i>
+            <span>Protocolo Sin Jaulas</span>
+          </div>
+
+          <div class="floating-badge badge-2">
+            <i class="fas fa-crown" aria-hidden="true"></i>
+            <span>70% Proteína Natural</span>
+          </div>
+
+          <div class="hero-corner-logo-seal" aria-hidden="true">
+            <img src="img/logo-huellitas.jpg" alt="" width="370" height="405" class="hero-seal-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCESO RÁPIDO INTERACTIVO AL SISTEMA DE SUSCRIPCIÓN (ESCRITORIO Y MÓVIL) -->
+    <section class="subs-quick-ribbon" aria-label="Acceso rápido a suscripción mensual">
+      <div class="container">
+        <div class="subs-ribbon-card">
+          <div class="subs-ribbon-left">
+            <span class="subs-ribbon-logo-seal" aria-hidden="true">
+              <img src="img/logo-huellitas.jpg" alt="" width="370" height="405">
+            </span>
+            <span class="subs-ribbon-crown"><i class="fas fa-crown" aria-hidden="true"></i></span>
+            <div class="subs-ribbon-copy">
+              <strong>Club Mensual Huellitas &bull; Desde $50.000/mes</strong>
+              <span>Alimento a domicilio + regalo gratis + Spa y Veterinaria opcional</span>
+            </div>
+          </div>
+
+          <div class="subs-ribbon-actions">
+            <button type="button" class="subs-quick-pet-btn" data-quick-pet="perro">
+              <img src="img/hero-mascotas.jpg" alt="" width="64" height="64">
+              <span>Armar Plan Perro <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </button>
+            <button type="button" class="subs-quick-pet-btn" data-quick-pet="gato">
+              <img src="img/social-gatito-chequeo.jpg" alt="" width="64" height="64">
+              <span>Armar Plan Gato <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTO ESTRELLA VISUAL CON MENÚ DESPLEGABLE "VER MÁS" -->
+    <section class="producto-destacado-sec" id="destacado">
+      <div class="container">
+        <div class="cuido-banner">
+          <div class="cuido-image-wrap">
+            <span class="cuido-badge-tag"><i class="fas fa-crown" aria-hidden="true"></i> Producto Estrella</span>
+            <img src="img/cuido-huellitas-10kg.jpg"
+                 alt="Bulto oficial Cuido Premium Huellitas de 10 Kg con salmón y pollo"
+                 width="1024"
+                 height="1024"
+                 loading="lazy"
+                 class="cuido-img">
+          </div>
+
+          <div class="cuido-info">
+            <div class="pill-badge estrella"><i class="fas fa-star" aria-hidden="true"></i> Nutrición de la Casa</div>
+            <h2>Cuido Premium Huellitas (10 Kg)</h2>
+            <div class="cuido-price-highlight">$145.000 COP</div>
+
+            <div class="cuido-quick-chips">
+              <span class="cuido-chip"><i class="fas fa-drumstick-bite" aria-hidden="true"></i> Salmón &amp; Pollo</span>
+              <span class="cuido-chip"><i class="fas fa-wheat-awn-circle-exclamation" aria-hidden="true"></i> Sin Granos</span>
+              <span class="cuido-chip"><i class="fas fa-paw" aria-hidden="true"></i> Perros &amp; Gatos</span>
+            </div>
+
+            <details class="prod-details">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más beneficios</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Receta holística con 70% proteína animal real, prebióticos activos para digestión sana, glucosamina articular y ácidos grasos Omega 3 y 6 para pelaje brillante.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Aliento fresco</span>
+                  <span class="prod-mini-chip">Articulaciones fuertes</span>
+                  <span class="prod-mini-chip">Bulto ahorro 10 Kg</span>
+                </div>
+              </div>
+            </details>
+
+            <div class="hero-buttons">
+              <button type="button" class="btn btn-primary btn-add-cart"
+                      data-title="Bulto Cuido Premium Huellitas (10 Kg)"
+                      data-price="145000"
+                      data-img="img/cuido-huellitas-10kg.jpg">
+                <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir al Carrito
+              </button>
+              <a href="#suscripcion" class="btn btn-white">
+                <i class="fas fa-repeat" aria-hidden="true"></i> Suscribir Mensual
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIENDA OFICIAL: 12 PRODUCTOS MINIMALISTAS CON MENÚ DESPLEGABLE "VER MÁS" -->
+    <section class="productos" id="tienda">
+      <div class="container">
+        <div class="section-header">
+          <div class="pill-badge"><i class="fas fa-store" aria-hidden="true"></i> Tienda Oficial</div>
+          <h2>Catálogo Perros &amp; Gatos</h2>
+          <p>Toca <strong>Ver más</strong> en cualquier artículo para desplegar su descripción.</p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="productos-grid">
+
+          <!-- 1. Bulto Cuido Premium Huellitas 10 Kg -->
+          <article class="producto-card">
+            <span class="producto-tag"><i class="fas fa-star" aria-hidden="true"></i> Estrella</span>
+            <div class="producto-img-wrap">
+              <img src="img/cuido-huellitas-10kg.jpg" alt="Bulto Cuido Premium Huellitas de 10 Kg con salmón y pollo" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Nutrición</span>
+              <h3>Cuido Premium (10 Kg)</h3>
+            </div>
+            <div class="producto-precio">$145.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Bulto familiar de 10 Kg libre de granos con salmón fresco, pollo de granja y prebióticos digestivos para perros y gatos.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">70% Proteína</span>
+                  <span class="prod-mini-chip">Omega 3 y 6</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Cuido Premium Huellitas (10 Kg)"
+                    data-price="145000"
+                    data-img="img/cuido-huellitas-10kg.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 2. Empaque Cuido Premium Huellitas 3 Kg -->
+          <article class="producto-card">
+            <span class="producto-tag">Práctico</span>
+            <div class="producto-img-wrap">
+              <img src="img/cuido-huellitas-3kg.jpg" alt="Bolsa resellable Cuido Premium Huellitas de 3 Kg junto a plato de cerámica con croquetas" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Nutrición</span>
+              <h3>Cuido Premium (3 Kg)</h3>
+            </div>
+            <div class="producto-precio">$58.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Empaque resellable de 3 Kg con cierre hermético que conserva todo el aroma y crocancia de las croquetas naturales.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Cierre Zip</span>
+                  <span class="prod-mini-chip">Razas pequeñas</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Cuido Premium Huellitas (3 Kg)"
+                    data-price="58000"
+                    data-img="img/cuido-huellitas-3kg.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 3. Arnés Ergonómico Antitirones -->
+          <article class="producto-card">
+            <div class="producto-img-wrap">
+              <img src="img/arnes-ergonomico.jpg" alt="Arnés ergonómico antitirones acolchado verde bosque con costuras reflectivas" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Paseo</span>
+              <h3>Arnés Antitirones</h3>
+            </div>
+            <div class="producto-precio">$48.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Pechera acolchada transpirable que protege la tráquea, con doble argolla metálica, asa superior y bandas reflectivas nocturnas.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Reflectivo</span>
+                  <span class="prod-mini-chip">Ajustable</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Arnés Ergonómico Antitirones"
+                    data-price="48000"
+                    data-img="img/arnes-ergonomico.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 4. Chaleco Térmico Acolchado Beige -->
+          <article class="producto-card">
+            <div class="producto-img-wrap">
+              <img src="img/chaqueta-termica.jpg" alt="Perrito Cavalier vistiendo chaleco térmico acolchado beige con cuello polar cálido" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Abrigo</span>
+              <h3>Chaleco Térmico Beige</h3>
+            </div>
+            <div class="producto-precio">$42.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Chaleco rompevientos impermeable ligero con cuello interior de ovejero cálido y ajuste cómodo para mañanas o noches frías.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Cuello polar</span>
+                  <span class="prod-mini-chip">Lavable</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Chaleco Térmico Acolchado Beige"
+                    data-price="42000"
+                    data-img="img/chaqueta-termica.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 5. Cama Ortopédica Circular Beige -->
+          <article class="producto-card">
+            <div class="producto-img-wrap">
+              <img src="img/cama-ortopedica.jpg" alt="Cama ortopédica circular beige de felpa suave y cojín central de lino" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Descanso</span>
+              <h3>Cama Ortopédica Beige</h3>
+            </div>
+            <div class="producto-precio">$89.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Nido circular antiestrés con borde elevado en felpa suave para apoyar la cabeza y cojín central de lino desenfundable.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Perros y gatos</span>
+                  <span class="prod-mini-chip">Antiestrés</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Cama Ortopédica Circular Beige"
+                    data-price="89000"
+                    data-img="img/cama-ortopedica.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 6. Galletas & Bocaditos de Salmón -->
+          <article class="producto-card">
+            <div class="producto-img-wrap">
+              <img src="img/snacks-saludables.jpg" alt="Tazón con galletas horneadas en forma de huesito y cubitos naturales de salmón" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Snacks</span>
+              <h3>Bocaditos de Salmón</h3>
+            </div>
+            <div class="producto-precio">$26.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Mix artesanal de galletas integrales horneadas y cubitos blandos de salmón real, ideales para entrenamiento y refuerzo positivo.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">100% Natural</span>
+                  <span class="prod-mini-chip">Sin azúcar</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Galletas & Bocaditos de Salmón"
+                    data-price="26000"
+                    data-img="img/snacks-saludables.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 7. Shampoo Orgánico Manzanilla & Avena -->
+          <article class="producto-card">
+            <div class="producto-img-wrap">
+              <img src="img/shampoo-mascotas.jpg" alt="Frasco ámbar dispensador de shampoo orgánico de manzanilla y avena para mascotas" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Spa en Casa</span>
+              <h3>Shampoo Avena &amp; Manzanilla</h3>
+            </div>
+            <div class="producto-precio">$34.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Fórmula dermocosmética de 300 ml con pH neutro, extracto botánico de manzanilla y avena coloidal que calma pieles sensibles.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Hipoalergénico</span>
+                  <span class="prod-mini-chip">Sin parabenos</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Shampoo Orgánico Manzanilla & Avena"
+                    data-price="34000"
+                    data-img="img/shampoo-mascotas.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 8. Pelota Dental Dispensadora -->
+          <article class="producto-card">
+            <div class="producto-img-wrap">
+              <img src="img/pelota-dental.jpg" alt="Pelota dental de caucho turquesa con ranuras limpiadoras rellenas de croquetas" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Salud Dental</span>
+              <h3>Pelota Dental Interactiva</h3>
+            </div>
+            <div class="producto-precio">$28.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Esfera de caucho natural no tóxico con ranuras que masajean las encías y limpian el sarro mientras buscan sus croquetas.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Caucho natural</span>
+                  <span class="prod-mini-chip">Antisarro</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Pelota Dental Dispensadora"
+                    data-price="28000"
+                    data-img="img/pelota-dental.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 9. Torre Rascador & Mirador Felino -->
+          <article class="producto-card">
+            <span class="producto-tag">Gatos</span>
+            <div class="producto-img-wrap">
+              <img src="img/rascador-torre-gato.jpg" alt="Torre rascador de tres niveles en madera, cuerda de sisal natural, cueva y cama superior beige" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Mundo Felino</span>
+              <h3>Torre Rascador 3 Niveles</h3>
+            </div>
+            <div class="producto-precio">$135.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Centro vertical de 3 pisos con postes de sisal natural para afilar uñas, cueva inferior de descanso, pompón y cama mirador.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Sisal natural</span>
+                  <span class="prod-mini-chip">Base estable</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Torre Rascador & Mirador Felino"
+                    data-price="135000"
+                    data-img="img/rascador-torre-gato.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 10. Comedero Doble Elevado en Bambú -->
+          <article class="producto-card">
+            <div class="producto-img-wrap">
+              <img src="img/comedero-doble-elevado.jpg" alt="Soporte elevado de madera de bambú con dos platos hondos de cerámica crema para agua y alimento" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Comederos</span>
+              <h3>Comedero Elevado Bambú</h3>
+            </div>
+            <div class="producto-precio">$64.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Soporte ergonómico en madera de bambú resistente a la humedad con dos platos hondos de cerámica esmaltada que cuidan el cuello.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Cerámica + Bambú</span>
+                  <span class="prod-mini-chip">Ergonómico</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Comedero Doble Elevado en Bambú"
+                    data-price="64000"
+                    data-img="img/comedero-doble-elevado.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 11. Kit Spa de Cepillado en Bambú -->
+          <article class="producto-card">
+            <div class="producto-img-wrap">
+              <img src="img/kit-cepillado-mascotas.jpg" alt="Kit de cepillo de cerdas redondeadas en bambú, peine desenredante de madera y toalla de lino beige" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Pelaje</span>
+              <h3>Kit Cepillado en Bambú</h3>
+            </div>
+            <div class="producto-precio">$38.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Set de 3 piezas: cepillo masajeador de puntas redondeadas, peine antiestático de madera y toalla suave de lino natural.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">Anticaída</span>
+                  <span class="prod-mini-chip">Perros y gatos</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Kit Spa de Cepillado en Bambú"
+                    data-price="38000"
+                    data-img="img/kit-cepillado-mascotas.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+          <!-- 12. Set Juguetes Catnip & Sisal (x4) -->
+          <article class="producto-card">
+            <span class="producto-tag">Gatos</span>
+            <div class="producto-img-wrap">
+              <img src="img/juguete-raton-catnip-gato.jpg" alt="Set de dos pelotas tejidas en sisal con plumas naturales y dos ratoncitos de lino con catnip" width="1024" height="1024" loading="lazy" class="producto-img">
+            </div>
+            <div class="producto-header-row">
+              <span class="producto-categoria">Juego Felino</span>
+              <h3>Set Catnip &amp; Sisal (x4)</h3>
+            </div>
+            <div class="producto-precio">$29.000 COP</div>
+            <details class="prod-details" name="catalogo-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Incluye 2 esferas tejidas en sisal con plumas suaves y 2 ratoncitos de lino rellenos de catnip orgánico estimulante.</p>
+                <div class="prod-details-tags">
+                  <span class="prod-mini-chip">4 Piezas</span>
+                  <span class="prod-mini-chip">Catnip orgánico</span>
+                </div>
+              </div>
+            </details>
+            <button type="button" class="btn btn-primary btn-sm btn-block btn-add-cart"
+                    data-title="Set Juguetes Catnip & Sisal (x4)"
+                    data-price="29000"
+                    data-img="img/juguete-raton-catnip-gato.jpg">
+              <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS ESPECIALIZADOS: FOTOS GRANDES + DESPLEGABLE "VER MÁS" -->
+    <section class="servicios" id="servicios">
+      <div class="container">
+        <div class="section-header">
+          <div class="pill-badge"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Servicios</div>
+          <h2>Spa, Veterinaria &amp; Boutique</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="servicios-grid">
+          <!-- Servicio 1: Peluquería & Spa -->
+          <article class="servicio-card">
+            <div class="servicio-img-wrap">
+              <img src="img/spa-bano-espuma-perro.jpg"
+                   alt="Estilista bañando con espuma tibia y ducha suave a un Golden Retriever feliz en tina de acero"
+                   width="1200"
+                   height="896"
+                   loading="lazy">
+              <span class="servicio-price-pill">$50.000 COP</span>
+            </div>
+            <div class="servicio-body">
+              <h3>Peluquería &amp; Spa</h3>
+              <p class="servicio-sub">Baño tibio relajante y corte sin jaulas.</p>
+              <details class="prod-details" name="servicios-huellitas">
+                <summary class="prod-summary">
+                  <span class="summary-more">Ver más</span>
+                  <span class="summary-less">Ver menos</span>
+                  <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+                </summary>
+                <div class="prod-details-body">
+                  <p>Espuma hipoalergénica de avena y manzanilla, corte a tijera por raza, cepillado felino delicado, higiene de oídos y masaje antiestrés.</p>
+                </div>
+              </details>
+              <a href="#contratar-servicio" class="btn btn-white btn-sm btn-block">Agendar Spa</a>
+            </div>
+          </article>
+
+          <!-- Servicio 2: Medicina Veterinaria -->
+          <article class="servicio-card">
+            <div class="servicio-img-wrap">
+              <img src="img/vet-consulta-perro-real.jpg"
+                   alt="Doctora veterinaria en uniforme auscultando con estetoscopio a un Golden Retriever tranquilo en consultorio"
+                   width="1200"
+                   height="896"
+                   loading="lazy">
+              <span class="servicio-price-pill">$70.000 COP</span>
+            </div>
+            <div class="servicio-body">
+              <h3>Medicina Veterinaria</h3>
+              <p class="servicio-sub">Consulta preventiva con protocolo Fear-Free.</p>
+              <details class="prod-details" name="servicios-huellitas">
+                <summary class="prod-summary">
+                  <span class="summary-more">Ver más</span>
+                  <span class="summary-less">Ver menos</span>
+                  <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+                </summary>
+                <div class="prod-details-body">
+                  <p>Auscultación completa sobre mantas suaves, plan vacunal, desparasitación, ecografía sin sedación e historia clínica digital.</p>
+                </div>
+              </details>
+              <a href="#contratar-servicio" class="btn btn-white btn-sm btn-block">Agendar Consulta</a>
+            </div>
+          </article>
+
+          <!-- Servicio 3: Boutique Especializada -->
+          <article class="servicio-card">
+            <div class="servicio-img-wrap">
+              <img src="img/local-boutique-estantes.jpg"
+                   alt="Estanterías de madera iluminadas de la Boutique Huellitas con alimentos naturales, shampoos y camas"
+                   width="644"
+                   height="644"
+                   loading="lazy">
+              <span class="servicio-price-pill">Envío Hoy</span>
+            </div>
+            <div class="servicio-body">
+              <h3>Boutique Física &amp; Web</h3>
+              <p class="servicio-sub">Nutrición holística y accesorios selectos.</p>
+              <details class="prod-details" name="servicios-huellitas">
+                <summary class="prod-summary">
+                  <span class="summary-more">Ver más</span>
+                  <span class="summary-less">Ver menos</span>
+                  <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+                </summary>
+                <div class="prod-details-body">
+                  <p>Asesoría nutricional en sede o entrega a domicilio de alimento fresco, camas ortopédicas, rascadores y dermocosmética natural.</p>
+                </div>
+              </details>
+              <a href="#tienda" class="btn btn-white btn-sm btn-block">Explorar Catálogo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTRATACIÓN PUNTUAL DE SERVICIOS CON IMAGEN AMPLIA + "VER MÁS" -->
+    <section class="contratacion-directa" id="contratar-servicio">
+      <div class="container">
+        <div class="contratacion-box">
+          <div style="text-align:center;">
+            <div class="pill-badge"><i class="fas fa-calendar-check" aria-hidden="true"></i> Cita Individual</div>
+            <h2>Reserva una Sesión Puntual</h2>
+          </div>
+
+          <div class="contratacion-options">
+            <!-- Sesión Individual Peluquería -->
+            <div class="single-service-card">
+              <img src="img/spa-corte-tijera-poodle.jpg"
+                   alt="Estilista canina realizando corte a tijera a un Poodle blanco en mesa de peluquería"
+                   width="1200"
+                   height="896"
+                   loading="lazy"
+                   class="single-service-thumb">
+              <div class="single-service-content">
+                <div class="single-service-header">
+                  <h3><i class="fas fa-bath" style="color:var(--color-acento);" aria-hidden="true"></i> Sesión Spa &amp; Corte</h3>
+                  <span class="service-direct-price">$50.000 COP</span>
+                </div>
+                <details class="prod-details" name="agendar-huellitas">
+                  <summary class="prod-summary">
+                    <span class="summary-more">Ver qué incluye</span>
+                    <span class="summary-less">Ver menos</span>
+                    <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+                  </summary>
+                  <div class="prod-details-body">
+                    <p>Baño hipoalergénico tibio, cepillado profundo, corte estético o higiénico a tijera, limpieza de oídos, corte de uñas y pañoleta.</p>
+                  </div>
+                </details>
+                <button type="button" class="btn btn-primary btn-add-cart btn-block"
+                        data-title="Servicio Individual: Peluquería & Spa"
+                        data-price="50000"
+                        data-img="img/spa-corte-tijera-poodle.jpg">
+                  <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir Sesión Spa
+                </button>
+              </div>
+            </div>
+
+            <!-- Sesión Individual Veterinaria -->
+            <div class="single-service-card">
+              <img src="img/vet-consulta-gato-real.jpg"
+                   alt="Doctora veterinaria examinando con ternura a un gato atigrado sobre manta suave en consultorio"
+                   width="1200"
+                   height="896"
+                   loading="lazy"
+                   class="single-service-thumb">
+              <div class="single-service-content">
+                <div class="single-service-header">
+                  <h3><i class="fas fa-user-doctor" style="color:var(--color-acento);" aria-hidden="true"></i> Consulta Veterinaria</h3>
+                  <span class="service-direct-price">$70.000 COP</span>
+                </div>
+                <details class="prod-details" name="agendar-huellitas">
+                  <summary class="prod-summary">
+                    <span class="summary-more">Ver qué incluye</span>
+                    <span class="summary-less">Ver menos</span>
+                    <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+                  </summary>
+                  <div class="prod-details-body">
+                    <p>Valoración médica integral para perro o gato con especialista Fear-Free, control de peso, signos vitales, piel, dentadura y plan preventivo.</p>
+                  </div>
+                </details>
+                <button type="button" class="btn btn-primary btn-add-cart btn-block"
+                        data-title="Servicio Individual: Consulta Veterinaria"
+                        data-price="70000"
+                        data-img="img/vet-consulta-gato-real.jpg">
+                  <i class="fas fa-cart-plus" aria-hidden="true"></i> Añadir Consulta Vet
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SISTEMA INTERACTIVO DE SUSCRIPCIÓN MENSUAL: CLUB HUELLITAS -->
+    <section class="suscripcion-section" id="suscripcion">
+      <div class="container">
+        <div class="section-header subs-section-header">
+          <div class="subs-header-logo-crest">
+            <img src="img/logo-huellitas.jpg" alt="Escudo Club Oficial Huellitas" width="370" height="405" loading="lazy">
+          </div>
+          <div class="pill-badge estrella"><i class="fas fa-crown" aria-hidden="true"></i> Club Oficial Huellitas</div>
+          <h2>Arma la Caja Mensual de tu Mascota</h2>
+          <div class="subs-perks-strip">
+            <span class="subs-perk-chip"><i class="fas fa-truck-fast" aria-hidden="true"></i> Domicilio Gratis</span>
+            <span class="subs-perk-chip"><i class="fas fa-gift" aria-hidden="true"></i> Snack de Regalo</span>
+            <span class="subs-perk-chip"><i class="fas fa-unlock-keyhole" aria-hidden="true"></i> Sin Permanencia</span>
+          </div>
+        </div>
+
+        <form class="wizard-container" id="subsWizardForm" action="#suscripcion" method="POST">
+          <!-- Barra de Progreso Interactiva de 3 Pasos -->
+          <nav class="wizard-progress-wrap" aria-label="Progreso de suscripción">
+            <div class="wizard-progress-track" aria-hidden="true">
+              <div class="wizard-progress-fill" id="wizardProgressFill"></div>
+            </div>
+            <div class="wizard-nav-tabs">
+              <button type="button" class="wizard-tab-btn active" data-step="1" aria-current="step">
+                <span class="tab-badge-num"><span class="step-num-txt">1</span><i class="fas fa-check step-check-ico" aria-hidden="true"></i></span>
+                <span class="tab-label-txt">Tu Mascota</span>
+              </button>
+              <button type="button" class="wizard-tab-btn" data-step="2">
+                <span class="tab-badge-num"><span class="step-num-txt">2</span><i class="fas fa-check step-check-ico" aria-hidden="true"></i></span>
+                <span class="tab-label-txt">Receta ($50k)</span>
+              </button>
+              <button type="button" class="wizard-tab-btn" data-step="3">
+                <span class="tab-badge-num"><span class="step-num-txt">3</span><i class="fas fa-check step-check-ico" aria-hidden="true"></i></span>
+                <span class="tab-label-txt">Spa &amp; Vet</span>
+              </button>
+            </div>
+          </nav>
+
+          <div class="wizard-content-layout">
+            <div class="wizard-steps-container">
+
+              <!-- PASO 1: PERFIL VISUAL INTERACTIVO -->
+              <div class="wizard-step-pane active" data-step="1">
+                <div class="wizard-step-header">
+                  <h3>1. ¿A quién vamos a consentir cada mes?</h3>
+                  <span class="step-live-pill" id="stepOnePortionBadge"><i class="fas fa-bowl-food" aria-hidden="true"></i> Ración ideal: <strong id="dailyGramsVal">185 g/día</strong></span>
+                </div>
+
+                <!-- Tarjetas Visuales con Foto Real: Perro vs Gato -->
+                <div class="pet-interactive-grid" role="group" aria-label="Especie de tu mascota">
+                  <button type="button" class="pet-interactive-card selected" data-pet="perro" aria-pressed="true">
+                    <span class="pet-selected-check" aria-hidden="true"><i class="fas fa-check"></i></span>
+                    <div class="pet-photo-ring">
+                      <img src="img/hero-mascotas.jpg" alt="Perro feliz" width="160" height="160" loading="lazy" class="pet-card-photo">
+                    </div>
+                    <div class="pet-card-meta">
+                      <h4><i class="fas fa-dog" aria-hidden="true"></i> Perro</h4>
+                      <span>Razas mini, medianas o grandes</span>
+                    </div>
+                  </button>
+
+                  <button type="button" class="pet-interactive-card" data-pet="gato" aria-pressed="false">
+                    <span class="pet-selected-check" aria-hidden="true"><i class="fas fa-check"></i></span>
+                    <div class="pet-photo-ring">
+                      <img src="img/social-gatito-chequeo.jpg" alt="Gato feliz" width="160" height="160" loading="lazy" class="pet-card-photo">
+                    </div>
+                    <div class="pet-card-meta">
+                      <h4><i class="fas fa-cat" aria-hidden="true"></i> Gato</h4>
+                      <span>Gatitos, adultos o indoor</span>
+                    </div>
+                  </button>
+                </div>
+
+                <div class="pet-sliders-grid">
+                  <!-- Nombre -->
+                  <div class="interactive-input-card">
+                    <label for="petNameInput">Nombre de tu Mascota</label>
+                    <input type="text" id="petNameInput" name="pet_name" placeholder="Ej: Max, Luna, Mía..." value="Max" maxlength="32" enterkeyhint="next" autocomplete="off">
+                  </div>
+
+                  <!-- Etapa de Vida en Botones de 1 Toque -->
+                  <div class="interactive-input-card">
+                    <span class="field-group-label" id="petStageLabel">Etapa de Vida</span>
+                    <input type="hidden" id="petAgeInput" name="pet_stage" value="Adulto (1 - 7 años)">
+                    <div class="stage-pills-group" role="group" aria-labelledby="petStageLabel">
+                      <button type="button" class="stage-pill-btn" data-stage="Cachorro" data-age-label="Cachorro (< 1 año)">Cachorro</button>
+                      <button type="button" class="stage-pill-btn active" data-stage="Adulto" data-age-label="Adulto (1 - 7 años)">Adulto</button>
+                      <button type="button" class="stage-pill-btn" data-stage="Senior" data-age-label="Senior (+7 años)">Senior +7</button>
+                    </div>
+                  </div>
+
+                  <!-- Deslizador Interactivo de Peso al 100% + Atajos Rápidos -->
+                  <div class="interactive-input-card weight-full-card">
+                    <div class="weight-card-top">
+                      <label for="petWeightInput">
+                        <span>Peso de <strong id="weightPetNameRef">Max</strong></span>
+                      </label>
+                      <div class="weight-live-badges">
+                        <span class="size-auto-chip" id="autoSizeChip">Mediano</span>
+                        <span class="dynamic-val" id="petWeightDisplay">12 kg</span>
+                      </div>
+                    </div>
+
+                    <select id="petSizeInput" name="pet_size" class="visually-hidden-select" tabindex="-1" aria-hidden="true">
+                      <option value="pequeño">Pequeño</option>
+                      <option value="mediano" selected>Mediano</option>
+                      <option value="grande">Grande</option>
+                    </select>
+
+                    <input type="range"
+                           class="range-weight-slider"
+                           id="petWeightInput"
+                           name="pet_weight"
+                           min="1"
+                           max="60"
+                           value="12"
+                           step="1"
+                           aria-valuetext="12 kilogramos, tamaño mediano, ración sugerida 185 gramos por día">
+
+                    <div class="slider-scale-labels" aria-hidden="true">
+                      <span>1 kg</span>
+                      <span>15 kg</span>
+                      <span>30 kg</span>
+                      <span>45 kg</span>
+                      <span>60 kg</span>
+                    </div>
+
+                    <div class="weight-quick-presets" role="group" aria-label="Atajos rápidos de peso">
+                      <button type="button" class="weight-preset-chip" data-weight="4">Mini &bull; 4 kg</button>
+                      <button type="button" class="weight-preset-chip active" data-weight="12">Mediano &bull; 12 kg</button>
+                      <button type="button" class="weight-preset-chip" data-weight="25">Grande &bull; 25 kg</button>
+                      <button type="button" class="weight-preset-chip" data-weight="40">XL &bull; 40 kg</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wizard-action-btns step-end-only">
+                  <button type="button" class="btn btn-primary btn-next-step" data-next="2">
+                    Elegir su Alimento <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- PASO 2: RECETAS CON FOTOGRAFÍAS REALES + DÍA DE ENTREGA -->
+              <div class="wizard-step-pane" data-step="2">
+                <div class="wizard-step-header">
+                  <h3>2. Elige su Receta Base ($50.000 COP/mes)</h3>
+                  <span class="step-live-pill"><i class="fas fa-sparkles" aria-hidden="true"></i> Sugerida según su etapa</span>
+                </div>
+
+                <div class="food-options-interactive" role="group" aria-label="Fórmula de alimento mensual">
+                  <button type="button" class="food-card-interactive selected" data-brand="Cuido Premium Huellitas (Estrella)" data-rec-stage="Adulto,Senior" data-food-img="img/cuido-huellitas-10kg.jpg" aria-pressed="true">
+                    <span class="food-estrella-pill" id="recBadgeEstrella"><i class="fas fa-crown" aria-hidden="true"></i> Recomendado</span>
+                    <div class="food-card-thumb-wrap">
+                      <img src="img/cuido-huellitas-10kg.jpg" alt="Cuido Premium Huellitas" width="240" height="240" loading="lazy" class="food-card-thumb">
+                    </div>
+                    <div class="food-card-copy">
+                      <h4>Cuido Premium Huellitas</h4>
+                      <p>70% salmón y pollo real, cero granos.</p>
+                      <span class="food-mini-tag">Incluido en base</span>
+                    </div>
+                  </button>
+
+                  <button type="button" class="food-card-interactive" data-brand="Alimento Natural Adulto Equilibrado" data-rec-stage="Senior" data-food-img="img/cuido-huellitas-3kg.jpg" aria-pressed="false">
+                    <div class="food-card-thumb-wrap">
+                      <img src="img/cuido-huellitas-3kg.jpg" alt="Fórmula Adulto Vitalidad" width="240" height="240" loading="lazy" class="food-card-thumb">
+                    </div>
+                    <div class="food-card-copy">
+                      <h4>Adulto Vitalidad</h4>
+                      <p>Proteína magra, fibra y Omega 3-6.</p>
+                      <span class="food-mini-tag">Incluido en base</span>
+                    </div>
+                  </button>
+
+                  <button type="button" class="food-card-interactive" data-brand="Fórmula Cachorros & Gatitos DHA" data-rec-stage="Cachorro" data-food-img="img/snacks-saludables.jpg" aria-pressed="false">
+                    <span class="food-estrella-pill rec-stage-pill" id="recBadgePuppy" hidden><i class="fas fa-sparkles" aria-hidden="true"></i> Ideal Cachorro</span>
+                    <div class="food-card-thumb-wrap">
+                      <img src="img/snacks-saludables.jpg" alt="Fórmula Cachorros y Kitten con DHA" width="240" height="240" loading="lazy" class="food-card-thumb">
+                    </div>
+                    <div class="food-card-copy">
+                      <h4>Cachorros &amp; Kitten</h4>
+                      <p>DHA, calcio y bocaditos suaves.</p>
+                      <span class="food-mini-tag">Incluido en base</span>
+                    </div>
+                  </button>
+                </div>
+
+                <!-- Selector Interactivo de Día de Entrega -->
+                <div class="delivery-schedule-bar">
+                  <span class="delivery-label"><i class="fas fa-calendar-day" aria-hidden="true"></i> Día de entrega cada mes:</span>
+                  <div class="delivery-pills" role="group" aria-label="Día del mes para entrega">
+                    <button type="button" class="delivery-day-btn active" data-day="Día 5 de cada mes">Día 5</button>
+                    <button type="button" class="delivery-day-btn" data-day="Día 15 de cada mes">Día 15</button>
+                    <button type="button" class="delivery-day-btn" data-day="Día 28 de cada mes">Día 28</button>
+                  </div>
+                </div>
+
+                <div class="wizard-action-btns">
+                  <button type="button" class="btn btn-outline btn-prev-step" data-prev="1">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i> Mascota
+                  </button>
+                  <button type="button" class="btn btn-primary btn-next-step" data-next="3">
+                    Sumar Spa o Vet <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- PASO 3: EXTRAS CON FOTOS DINÁMICAS (PERRO/GATO) + PACK VIP 1-TOQUE -->
+              <div class="wizard-step-pane" data-step="3">
+                <div class="wizard-step-header">
+                  <h3>3. Suma Cuidado Mensual Prioritario</h3>
+                  <button type="button" class="vip-combo-btn" id="btnToggleVipCombo">
+                    <i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> <span id="vipComboBtnTxt">Activar Pack VIP Completo</span>
+                  </button>
+                </div>
+
+                <div class="extras-interactive-list">
+                  <div class="extra-interactive-card" id="extraPeluqueria" role="button" tabindex="0" aria-pressed="false">
+                    <div class="extra-left-box">
+                      <img src="img/spa-bano-espuma-perro.jpg" alt="Sesión de Spa mensual" width="120" height="120" loading="lazy" class="extra-service-thumb" id="subsSpaThumb">
+                      <div>
+                        <h4>Peluquería &amp; Spa Mensual</h4>
+                        <p id="subsSpaDesc">Baño tibio con avena, cepillado y corte sin jaulas.</p>
+                      </div>
+                    </div>
+                    <div class="extra-right-box">
+                      <span class="extra-price-tag">+ $50.000 COP</span>
+                      <span class="extra-switch-ui" aria-hidden="true"><span class="extra-switch-knob"><i class="extra-check-icon"></i></span></span>
+                    </div>
+                  </div>
+
+                  <div class="extra-interactive-card" id="extraVeterinaria" role="button" tabindex="0" aria-pressed="false">
+                    <div class="extra-left-box">
+                      <img src="img/vet-consulta-perro-real.jpg" alt="Consulta Veterinaria mensual" width="120" height="120" loading="lazy" class="extra-service-thumb" id="subsVetThumb">
+                      <div>
+                        <h4>Chequeo Veterinario Mensual</h4>
+                        <p id="subsVetDesc">Consulta preventiva sin estrés, control de peso y vacunas.</p>
+                      </div>
+                    </div>
+                    <div class="extra-right-box">
+                      <span class="extra-price-tag">+ $70.000 COP</span>
+                      <span class="extra-switch-ui" aria-hidden="true"><span class="extra-switch-knob"><i class="extra-check-icon"></i></span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wizard-action-btns">
+                  <button type="button" class="btn btn-outline btn-prev-step" data-prev="2">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i> Cambiar Receta
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- TARJETA VISUAL EN TIEMPO REAL: TU CAJA MENSUAL HUELLITAS -->
+            <div class="wizard-summary-col" id="subsSummaryAnchor">
+              <div class="subs-summary-card">
+                <div class="subs-pass-header">
+                  <img src="img/hero-mascotas.jpg" alt="Avatar de tu mascota" width="96" height="96" loading="lazy" class="subs-pass-avatar" id="sumPetAvatar">
+                  <div class="subs-pass-meta">
+                    <span class="subs-tier-badge" id="sumClubTier"><i class="fas fa-medal" aria-hidden="true"></i> Club Esencial</span>
+                    <h3 id="sumPetType">Caja de Max (PERRO)</h3>
+                    <p id="sumPetDetails">Adulto &bull; Mediano &bull; 12 kg &bull; 185 g/día</p>
+                  </div>
+                </div>
+
+                <!-- Contenido Visual de la Caja Mensual -->
+                <div class="box-visual-list">
+                  <div class="box-visual-item">
+                    <img src="img/cuido-huellitas-10kg.jpg" alt="" width="64" height="64" loading="lazy" class="box-item-thumb" id="sumFoodThumb">
+                    <div class="box-item-info">
+                      <strong id="sumFood">Cuido Premium Huellitas (Estrella)</strong>
+                      <span id="sumDeliveryDay">Entrega: Día 5 de cada mes</span>
+                    </div>
+                    <span class="box-item-price">$50.000</span>
+                  </div>
+
+                  <div class="box-visual-item gift-item">
+                    <img src="img/snacks-saludables.jpg" alt="" width="64" height="64" loading="lazy" class="box-item-thumb">
+                    <div class="box-item-info">
+                      <strong>Bocaditos de Salmón</strong>
+                      <span>Regalo mensual del Club</span>
+                    </div>
+                    <span class="box-item-free">GRATIS</span>
+                  </div>
+
+                  <div class="box-visual-item addon-anim-item" id="sumExtraPeluqueria" hidden>
+                    <img src="img/spa-bano-espuma-perro.jpg" alt="" width="64" height="64" loading="lazy" class="box-item-thumb" id="sumSpaMiniThumb">
+                    <div class="box-item-info">
+                      <strong>Sesión Spa &amp; Peluquería</strong>
+                      <span>1 cita prioritaria al mes</span>
+                    </div>
+                    <span class="box-item-price">+$50.000</span>
+                  </div>
+
+                  <div class="box-visual-item addon-anim-item" id="sumExtraVeterinaria" hidden>
+                    <img src="img/vet-consulta-perro-real.jpg" alt="" width="64" height="64" loading="lazy" class="box-item-thumb" id="sumVetMiniThumb">
+                    <div class="box-item-info">
+                      <strong>Consulta Veterinaria</strong>
+                      <span>Chequeo mensual Fear-Free</span>
+                    </div>
+                    <span class="box-item-price">+$70.000</span>
+                  </div>
+                </div>
+
+                <div class="summary-rows">
+                  <div class="summary-row total-row">
+                    <span>Total Mensual:</span>
+                    <span class="price-val" id="sumTotal" aria-live="polite">$50.000 COP</span>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-subs-spotlight btn-block" id="btnSubmitSubs">
+                  <i class="fas fa-wallet" aria-hidden="true"></i> <span id="btnSubmitSubsTxt">Activar Plan &bull; $50.000 COP</span>
+                </button>
+
+                <div class="summary-badge-guarantee">
+                  <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                  <span>Paga con Nequi, Daviplata, Bancolombia, Davivienda o Tarjeta.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BARRA COMPACTA EN VIVO PARA MÓVIL/TABLET DENTRO DEL CREADOR -->
+          <div class="mobile-wizard-livebar" aria-label="Resumen rápido del plan">
+            <div class="m-livebar-left">
+              <img src="img/hero-mascotas.jpg" alt="" width="48" height="48" loading="lazy" class="m-livebar-avatar" id="mLivePetAvatar">
+              <div class="m-livebar-copy">
+                <span class="m-livebar-pet" id="mLivePetLabel">Caja de Max</span>
+                <strong class="m-livebar-total" id="mLiveTotalVal">$50.000 COP/mes</strong>
+              </div>
+            </div>
+            <button type="button" class="btn btn-subs-spotlight btn-sm" id="btnMobileQuickActivate">
+              <i class="fas fa-bolt" aria-hidden="true"></i> Activar
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- COMUNIDAD EN REDES SOCIALES: 16 PUBLICACIONES INTACTAS EN SUS MARCOS OFICIALES -->
+    <section class="galeria" id="galeria">
+      <div class="container">
+        <div class="section-header">
+          <div class="pill-badge"><i class="fas fa-hashtag" aria-hidden="true"></i> Redes Sociales</div>
+          <h2>Comunidad Huellitas</h2>
+          <p>Spa, veterinaria y nuestros consentidos en cada red social.</p>
+          <div class="divider"></div>
+        </div>
+
+        <!-- Pestañas de filtro por Red Social -->
+        <div class="social-tabs">
+          <button type="button" class="social-tab active" data-network="todas"><i class="fas fa-layer-group" aria-hidden="true"></i> Todas (16)</button>
+          <button type="button" class="social-tab" data-network="instagram"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram (4)</button>
+          <button type="button" class="social-tab" data-network="tiktok"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok (4)</button>
+          <button type="button" class="social-tab" data-network="facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook (4)</button>
+          <button type="button" class="social-tab" data-network="x-twitter"><i class="fab fa-x-twitter" aria-hidden="true"></i> X / Twitter (4)</button>
+        </div>
+
+        <div class="galeria-grid">
+
+          <!-- 1. INSTAGRAM | Spa & Peluquería Canina (Corte a tijera Poodle) -->
+          <article class="galeria-item social-card-ig" data-network="instagram">
+            <header class="ig-card-header">
+              <div class="ig-user-info">
+                <div class="ig-avatar-ring">
+                  <img src="img/logo-huellitas.jpg" alt="Avatar Huellitas Instagram" width="84" height="84" loading="lazy" class="ig-avatar">
+                </div>
+                <div class="ig-meta-text">
+                  <span class="ig-username">huellitas_col <i class="fas fa-circle-check ig-verified" aria-hidden="true"></i></span>
+                  <span class="ig-location">Spa &amp; Peluquería &bull; Bogotá</span>
+                </div>
+              </div>
+              <button type="button" class="ig-more-btn" aria-label="Opciones Instagram"><i class="fas fa-ellipsis" aria-hidden="true"></i></button>
+            </header>
+
+            <div class="social-media-container">
+              <img src="img/spa-corte-tijera-poodle.jpg"
+                   alt="Estilista recortando con tijeras el pelaje esponjoso de un Poodle blanco en el salón Huellitas"
+                   width="1200"
+                   height="896"
+                   loading="lazy"
+                   class="social-post-img">
+              <span class="social-type-badge"><i class="fas fa-scissors" aria-hidden="true"></i> Spa &amp; Peluquería</span>
+            </div>
+
+            <div class="ig-card-body">
+              <div class="ig-actions">
+                <div class="ig-left-actions">
+                  <button type="button" class="social-act-btn ig-heart-act" aria-label="Me gusta"><i class="fas fa-heart" aria-hidden="true"></i></button>
+                  <button type="button" class="social-act-btn" aria-label="Comentar"><i class="far fa-comment" aria-hidden="true"></i></button>
+                  <button type="button" class="social-act-btn" aria-label="Compartir"><i class="far fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+                <button type="button" class="social-act-btn" aria-label="Guardar"><i class="far fa-bookmark" aria-hidden="true"></i></button>
+              </div>
+              <div class="ig-likes">Les gusta a <strong>poodle_lovers_co</strong> y <strong>2.840 más</strong></div>
+              <div class="ig-caption">
+                <strong>huellitas_col</strong> Corte redondo a tijera para Copito 🐩✂️ Con pausas de caricias y cosmética hipoalergénica.
+                <div class="ig-tags">#PeluqueriaCanina #SpaHuellitas</div>
+              </div>
+              <div class="ig-time">Hace 2 horas</div>
+            </div>
+          </article>
+
+          <!-- 2. TIKTOK | Spa & Baño de Espuma (Golden Retriever en tina) -->
+          <article class="galeria-item social-card-tt" data-network="tiktok">
+            <div class="tt-container">
+              <img src="img/spa-bano-espuma-perro.jpg"
+                   alt="Golden Retriever sonriente recibiendo baño de espuma tibia con ducha en tina de acero"
+                   width="1200"
+                   height="896"
+                   loading="lazy"
+                   class="tt-bg-img">
+              <div class="tt-top-overlay">
+                <span class="tt-badge"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok</span>
+                <span class="tt-feed-tabs">Siguiendo <strong>Para ti</strong></span>
+              </div>
+
+              <div class="tt-side-actions">
+                <div class="tt-avatar-box">
+                  <img src="img/logo-huellitas.jpg" alt="Huellitas TikTok" width="88" height="88" loading="lazy" class="tt-avatar">
+                  <span class="tt-follow-plus"><i class="fas fa-plus" aria-hidden="true"></i></span>
+                </div>
+                <div class="tt-action-btn"><i class="fas fa-heart tt-heart-icon" aria-hidden="true"></i><span>64.2K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-comment-dots" aria-hidden="true"></i><span>1.9K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-bookmark" aria-hidden="true"></i><span>5.4K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-share" aria-hidden="true"></i><span>2.1K</span></div>
+              </div>
+
+              <div class="tt-bottom-overlay">
+                <div class="tt-author">@huellitas_oficial <i class="fas fa-circle-check tt-verified" aria-hidden="true"></i></div>
+                <p class="tt-desc">La sonrisa de Max en su baño tibio de avena y manzanilla 🛁🐕💛 #spacanino #huellitas</p>
+                <div class="tt-music-row">
+                  <div class="tt-music-left">
+                    <i class="fas fa-music" aria-hidden="true"></i>
+                    <span class="tt-music-marquee">Sonido original - Spa Relajante Huellitas</span>
+                  </div>
+                  <div class="tt-disc-wrap">
+                    <img src="img/logo-huellitas.jpg" alt="Audio Huellitas" width="60" height="60" loading="lazy" class="tt-disc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. FACEBOOK | Medicina Veterinaria Canina (Doctora + Estetoscopio + Golden) -->
+          <article class="galeria-item social-card-fb" data-network="facebook">
+            <header class="fb-card-header">
+              <img src="img/logo-huellitas.jpg" alt="Huellitas Facebook" width="84" height="84" loading="lazy" class="fb-avatar">
+              <div class="fb-author-meta">
+                <div class="fb-page-title">Huellitas - Veterinaria &amp; Spa <i class="fas fa-circle-check fb-blue-check" aria-hidden="true"></i></div>
+                <div class="fb-time">Hace 3 horas &bull; <i class="fas fa-earth-americas" aria-hidden="true"></i></div>
+              </div>
+            </header>
+
+            <div class="fb-post-text">
+              🩺 <strong>Chequeo Preventivo Sin Estrés:</strong> Toby feliz en su control semestral con premios naturales. 🐕💛
+            </div>
+
+            <div class="social-media-container fb-media">
+              <img src="img/vet-consulta-perro-real.jpg"
+                   alt="Doctora veterinaria sonriente auscultando con estetoscopio a un perro Golden Retriever"
+                   width="1200"
+                   height="896"
+                   loading="lazy"
+                   class="social-post-img">
+              <span class="social-type-badge vet"><i class="fas fa-stethoscope" aria-hidden="true"></i> Veterinaria Canina</span>
+            </div>
+
+            <div class="fb-engagement-row">
+              <div class="fb-reactions">
+                <span class="fb-react-icon fb-like-badge"><i class="fas fa-thumbs-up" aria-hidden="true"></i></span>
+                <span class="fb-react-icon fb-heart-badge"><i class="fas fa-heart" aria-hidden="true"></i></span>
+                <span class="fb-react-count">742</span>
+              </div>
+              <div class="fb-stats-right">86 comentarios &bull; 41 compartidos</div>
+            </div>
+
+            <footer class="fb-card-footer">
+              <button type="button" class="fb-btn"><i class="far fa-thumbs-up" aria-hidden="true"></i> Me gusta</button>
+              <button type="button" class="fb-btn"><i class="far fa-comment" aria-hidden="true"></i> Comentar</button>
+              <button type="button" class="fb-btn"><i class="fas fa-share" aria-hidden="true"></i> Compartir</button>
+            </footer>
+          </article>
+
+          <!-- 4. X / TWITTER | Medicina Veterinaria Felina (Doctora + Gato Atigrado) -->
+          <article class="galeria-item social-card-x" data-network="x-twitter">
+            <header class="x-card-header">
+              <div class="x-author-group">
+                <img src="img/logo-huellitas.jpg" alt="Huellitas X" width="84" height="84" loading="lazy" class="x-avatar">
+                <div class="x-name-col">
+                  <div class="x-name-row">
+                    <span class="x-author-name">Huellitas Oficial</span>
+                    <i class="fas fa-circle-check x-blue-badge" aria-hidden="true"></i>
+                  </div>
+                  <span class="x-handle">@HuellitasCol &bull; 4h</span>
+                </div>
+              </div>
+              <i class="fab fa-x-twitter x-logo-top" aria-hidden="true"></i>
+            </header>
+
+            <div class="x-tweet-text">
+              Consultorio exclusivo Cat-Friendly 🐱🩺 Silencio acústico y feromonas relajantes para nuestros pacientes felinos. <span class="x-hashtag">#VeterinariaFelina</span> <span class="x-hashtag">#CeroMiedo</span>
+            </div>
+
+            <div class="x-media-box">
+              <img src="img/vet-consulta-gato-real.jpg"
+                   alt="Doctora veterinaria examinando suavemente a un gato gris atigrado en consultorio"
+                   width="1200"
+                   height="896"
+                   loading="lazy"
+                   class="x-post-img">
+            </div>
+
+            <footer class="x-card-actions">
+              <div class="x-act-item"><i class="far fa-comment" aria-hidden="true"></i> <span>48</span></div>
+              <div class="x-act-item"><i class="fas fa-retweet" aria-hidden="true"></i> <span>126</span></div>
+              <div class="x-act-item x-heart-act"><i class="far fa-heart" aria-hidden="true"></i> <span>934</span></div>
+              <div class="x-act-item"><i class="fas fa-chart-simple" aria-hidden="true"></i> <span>24.5K</span></div>
+              <div class="x-act-item"><i class="far fa-bookmark" aria-hidden="true"></i></div>
+            </footer>
+          </article>
+
+          <!-- 5. INSTAGRAM | Spa & Cepillado Felino (Gato Ragdoll en Spa) -->
+          <article class="galeria-item social-card-ig" data-network="instagram">
+            <header class="ig-card-header">
+              <div class="ig-user-info">
+                <div class="ig-avatar-ring">
+                  <img src="img/logo-huellitas.jpg" alt="Avatar Huellitas Instagram" width="84" height="84" loading="lazy" class="ig-avatar">
+                </div>
+                <div class="ig-meta-text">
+                  <span class="ig-username">huellitas_col <i class="fas fa-circle-check ig-verified" aria-hidden="true"></i></span>
+                  <span class="ig-location">Cabina Spa Felino &bull; Medellín</span>
+                </div>
+              </div>
+              <button type="button" class="ig-more-btn" aria-label="Opciones Instagram"><i class="fas fa-ellipsis" aria-hidden="true"></i></button>
+            </header>
+
+            <div class="social-media-container">
+              <img src="img/spa-gato-cepillado-real.jpg"
+                   alt="Especialista de spa cepillando con cepillo de bambú a un gato de pelo largo sobre toalla beige"
+                   width="1200"
+                   height="896"
+                   loading="lazy"
+                   class="social-post-img">
+              <span class="social-type-badge"><i class="fas fa-cat" aria-hidden="true"></i> Spa Felino</span>
+            </div>
+
+            <div class="ig-card-body">
+              <div class="ig-actions">
+                <div class="ig-left-actions">
+                  <button type="button" class="social-act-btn ig-heart-act" aria-label="Me gusta"><i class="fas fa-heart" aria-hidden="true"></i></button>
+                  <button type="button" class="social-act-btn" aria-label="Comentar"><i class="far fa-comment" aria-hidden="true"></i></button>
+                  <button type="button" class="social-act-btn" aria-label="Compartir"><i class="far fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+                <button type="button" class="social-act-btn" aria-label="Guardar"><i class="far fa-bookmark" aria-hidden="true"></i></button>
+              </div>
+              <div class="ig-likes">Les gusta a <strong>michis_medellin</strong> y <strong>3.190 más</strong></div>
+              <div class="ig-caption">
+                <strong>huellitas_col</strong> Deslanado suave con cepillo de bambú para Mía mientras ronronea 🐱🪮
+                <div class="ig-tags">#SpaParaGatos #CuidadoFelino</div>
+              </div>
+              <div class="ig-time">Hace 6 horas</div>
+            </div>
+          </article>
+
+          <!-- 6. TIKTOK | Spa Post-Baño (Bulldog Francés en Bata de Toalla) -->
+          <article class="galeria-item social-card-tt" data-network="tiktok">
+            <div class="tt-container">
+              <img src="img/spa-secado-bulldog-toalla.jpg"
+                   alt="Bulldog Francés envuelto tiernamente en bata de toalla crema con capucha tras su baño de spa"
+                   width="1200"
+                   height="896"
+                   loading="lazy"
+                   class="tt-bg-img">
+              <div class="tt-top-overlay">
+                <span class="tt-badge"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok</span>
+                <span class="tt-feed-tabs">Siguiendo <strong>Para ti</strong></span>
+              </div>
+
+              <div class="tt-side-actions">
+                <div class="tt-avatar-box">
+                  <img src="img/logo-huellitas.jpg" alt="Huellitas TikTok" width="88" height="88" loading="lazy" class="tt-avatar">
+                  <span class="tt-follow-plus"><i class="fas fa-plus" aria-hidden="true"></i></span>
+                </div>
+                <div class="tt-action-btn"><i class="fas fa-heart tt-heart-icon" aria-hidden="true"></i><span>118K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-comment-dots" aria-hidden="true"></i><span>3.4K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-bookmark" aria-hidden="true"></i><span>14.2K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-share" aria-hidden="true"></i><span>6.8K</span></div>
+              </div>
+
+              <div class="tt-bottom-overlay">
+                <div class="tt-author">@huellitas_oficial <i class="fas fa-circle-check tt-verified" aria-hidden="true"></i></div>
+                <p class="tt-desc">Bruno saliendo del hidromasaje en su bata térmica con capucha 🧖‍♂️🐶 #bulldogfrances #petspa</p>
+                <div class="tt-music-row">
+                  <div class="tt-music-left">
+                    <i class="fas fa-music" aria-hidden="true"></i>
+                    <span class="tt-music-marquee">Sonido original - Día de Spa VIP</span>
+                  </div>
+                  <div class="tt-disc-wrap">
+                    <img src="img/logo-huellitas.jpg" alt="Audio Huellitas" width="60" height="60" loading="lazy" class="tt-disc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. FACEBOOK | Veterinaria & Ecografía Diagnóstica -->
+          <article class="galeria-item social-card-fb" data-network="facebook">
+            <header class="fb-card-header">
+              <img src="img/logo-huellitas.jpg" alt="Huellitas Facebook" width="84" height="84" loading="lazy" class="fb-avatar">
+              <div class="fb-author-meta">
+                <div class="fb-page-title">Huellitas - Veterinaria &amp; Spa <i class="fas fa-circle-check fb-blue-check" aria-hidden="true"></i></div>
+                <div class="fb-time">Ayer &bull; <i class="fas fa-earth-americas" aria-hidden="true"></i></div>
+              </div>
+            </header>
+
+            <div class="fb-post-text">
+              🏥 <strong>Ecografía sin Sedación:</strong> Diagnóstico de alta resolución en ambiente tranquilo y seguro.
+            </div>
+
+            <div class="social-media-container fb-media">
+              <img src="img/local-consultorio-vet.jpg"
+                   alt="Doctora veterinaria junto a equipo de ecografía y Golden Retriever en consultorio certificado Fear Free"
+                   width="1376"
+                   height="768"
+                   loading="lazy"
+                   class="social-post-img">
+              <span class="social-type-badge vet"><i class="fas fa-laptop-medical" aria-hidden="true"></i> Ecografía &amp; Clínica</span>
+            </div>
+
+            <div class="fb-engagement-row">
+              <div class="fb-reactions">
+                <span class="fb-react-icon fb-like-badge"><i class="fas fa-thumbs-up" aria-hidden="true"></i></span>
+                <span class="fb-react-icon fb-heart-badge"><i class="fas fa-heart" aria-hidden="true"></i></span>
+                <span class="fb-react-count">528</span>
+              </div>
+              <div class="fb-stats-right">54 comentarios &bull; 33 compartidos</div>
+            </div>
+
+            <footer class="fb-card-footer">
+              <button type="button" class="fb-btn"><i class="far fa-thumbs-up" aria-hidden="true"></i> Me gusta</button>
+              <button type="button" class="fb-btn"><i class="far fa-comment" aria-hidden="true"></i> Comentar</button>
+              <button type="button" class="fb-btn"><i class="fas fa-share" aria-hidden="true"></i> Compartir</button>
+            </footer>
+          </article>
+
+          <!-- 8. X / TWITTER | Mascota Gato con Pañoleta tras Peluquería -->
+          <article class="galeria-item social-card-x" data-network="x-twitter">
+            <header class="x-card-header">
+              <div class="x-author-group">
+                <img src="img/logo-huellitas.jpg" alt="Huellitas X" width="84" height="84" loading="lazy" class="x-avatar">
+                <div class="x-name-col">
+                  <div class="x-name-row">
+                    <span class="x-author-name">Huellitas Oficial</span>
+                    <i class="fas fa-circle-check x-blue-badge" aria-hidden="true"></i>
+                  </div>
+                  <span class="x-handle">@HuellitasCol &bull; 9h</span>
+                </div>
+              </div>
+              <i class="fab fa-x-twitter x-logo-top" aria-hidden="true"></i>
+            </header>
+
+            <div class="x-tweet-text">
+              Simba estrenando pañoleta ámbar recién salido de su sesión de higiene felina 🐱🧣 <span class="x-hashtag">#GatosColombia</span> <span class="x-hashtag">#HuellitasSpa</span>
+            </div>
+
+            <div class="x-media-box">
+              <img src="img/social-gato-feliz-bandana.jpg"
+                   alt="Gato atigrado sentado con porte elegante usando pañoleta ámbar en salón de peluquería"
+                   width="896"
+                   height="1200"
+                   loading="lazy"
+                   class="x-post-img">
+            </div>
+
+            <footer class="x-card-actions">
+              <div class="x-act-item"><i class="far fa-comment" aria-hidden="true"></i> <span>91</span></div>
+              <div class="x-act-item"><i class="fas fa-retweet" aria-hidden="true"></i> <span>215</span></div>
+              <div class="x-act-item x-heart-act"><i class="far fa-heart" aria-hidden="true"></i> <span>1.4K</span></div>
+              <div class="x-act-item"><i class="fas fa-chart-simple" aria-hidden="true"></i> <span>38.2K</span></div>
+              <div class="x-act-item"><i class="far fa-bookmark" aria-hidden="true"></i></div>
+            </footer>
+          </article>
+
+          <!-- 9. INSTAGRAM | Diversas Mascotas: Gatito Sonriente con Pañoleta -->
+          <article class="galeria-item social-card-ig" data-network="instagram">
+            <header class="ig-card-header">
+              <div class="ig-user-info">
+                <div class="ig-avatar-ring">
+                  <img src="img/logo-huellitas.jpg" alt="Avatar Huellitas Instagram" width="84" height="84" loading="lazy" class="ig-avatar">
+                </div>
+                <div class="ig-meta-text">
+                  <span class="ig-username">huellitas_col <i class="fas fa-circle-check ig-verified" aria-hidden="true"></i></span>
+                  <span class="ig-location">Club Mensual Huellitas</span>
+                </div>
+              </div>
+              <button type="button" class="ig-more-btn" aria-label="Opciones Instagram"><i class="fas fa-ellipsis" aria-hidden="true"></i></button>
+            </header>
+
+            <div class="social-media-container">
+              <img src="img/social-gatito-chequeo.jpg"
+                   alt="Gatito blanco y atigrado con pañoleta amarilla mirando hacia arriba con gran sonrisa"
+                   width="800"
+                   height="1200"
+                   loading="lazy"
+                   class="social-post-img">
+              <span class="social-type-badge"><i class="fas fa-face-laugh-beam" aria-hidden="true"></i> Mascota Feliz</span>
+            </div>
+
+            <div class="ig-card-body">
+              <div class="ig-actions">
+                <div class="ig-left-actions">
+                  <button type="button" class="social-act-btn ig-heart-act" aria-label="Me gusta"><i class="fas fa-heart" aria-hidden="true"></i></button>
+                  <button type="button" class="social-act-btn" aria-label="Comentar"><i class="far fa-comment" aria-hidden="true"></i></button>
+                  <button type="button" class="social-act-btn" aria-label="Compartir"><i class="far fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+                <button type="button" class="social-act-btn" aria-label="Guardar"><i class="far fa-bookmark" aria-hidden="true"></i></button>
+              </div>
+              <div class="ig-likes">Les gusta a <strong>catlovers_bogota</strong> y <strong>4.120 más</strong></div>
+              <div class="ig-caption">
+                <strong>huellitas_col</strong> La cara de Félix cuando llega su caja mensual de Cuido Premium 😻📦✨
+                <div class="ig-tags">#MichiFeliz #ClubHuellitas</div>
+              </div>
+              <div class="ig-time">Hace 1 día</div>
+            </div>
+          </article>
+
+          <!-- 10. TIKTOK | Salón de Peluquería y Rampas Antideslizantes -->
+          <article class="galeria-item social-card-tt" data-network="tiktok">
+            <div class="tt-container">
+              <img src="img/local-peluqueria-spa.jpg"
+                   alt="Salón de peluquería Huellitas con Golden Retriever subiendo rampa a bañera y Bichón Frisé en mesa"
+                   width="1376"
+                   height="768"
+                   loading="lazy"
+                   class="tt-bg-img">
+              <div class="tt-top-overlay">
+                <span class="tt-badge"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok</span>
+                <span class="tt-feed-tabs">Siguiendo <strong>Para ti</strong></span>
+              </div>
+
+              <div class="tt-side-actions">
+                <div class="tt-avatar-box">
+                  <img src="img/logo-huellitas.jpg" alt="Huellitas TikTok" width="88" height="88" loading="lazy" class="tt-avatar">
+                  <span class="tt-follow-plus"><i class="fas fa-plus" aria-hidden="true"></i></span>
+                </div>
+                <div class="tt-action-btn"><i class="fas fa-heart tt-heart-icon" aria-hidden="true"></i><span>52.7K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-comment-dots" aria-hidden="true"></i><span>1.3K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-bookmark" aria-hidden="true"></i><span>4.8K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-share" aria-hidden="true"></i><span>1.6K</span></div>
+              </div>
+
+              <div class="tt-bottom-overlay">
+                <div class="tt-author">@huellitas_oficial <i class="fas fa-circle-check tt-verified" aria-hidden="true"></i></div>
+                <p class="tt-desc">Rampas antideslizantes para cuidar sus articulaciones ✨🐕🐩 #groomingcolombia #perros</p>
+                <div class="tt-music-row">
+                  <div class="tt-music-left">
+                    <i class="fas fa-music" aria-hidden="true"></i>
+                    <span class="tt-music-marquee">Sonido original - Tour Instalaciones Huellitas</span>
+                  </div>
+                  <div class="tt-disc-wrap">
+                    <img src="img/logo-huellitas.jpg" alt="Audio Huellitas" width="60" height="60" loading="lazy" class="tt-disc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 11. FACEBOOK | Sala de Bienvenida Perros y Gatos -->
+          <article class="galeria-item social-card-fb" data-network="facebook">
+            <header class="fb-card-header">
+              <img src="img/logo-huellitas.jpg" alt="Huellitas Facebook" width="84" height="84" loading="lazy" class="fb-avatar">
+              <div class="fb-author-meta">
+                <div class="fb-page-title">Huellitas - Veterinaria &amp; Spa <i class="fas fa-circle-check fb-blue-check" aria-hidden="true"></i></div>
+                <div class="fb-time">Hace 2 días &bull; <i class="fas fa-earth-americas" aria-hidden="true"></i></div>
+              </div>
+            </header>
+
+            <div class="fb-post-text">
+              🐾 <strong>Sedes Amplias e Iluminadas:</strong> Zonas tranquilas y diferenciadas para perros y gatos. 🐶🐱
+            </div>
+
+            <div class="social-media-container fb-media">
+              <img src="img/local-sala-espera.jpg"
+                   alt="Sala de recepción amplia e iluminada de Huellitas con tutores, perros y gatos tranquilos"
+                   width="1376"
+                   height="768"
+                   loading="lazy"
+                   class="social-post-img">
+              <span class="social-type-badge"><i class="fas fa-building-shield" aria-hidden="true"></i> Sede Oficial</span>
+            </div>
+
+            <div class="fb-engagement-row">
+              <div class="fb-reactions">
+                <span class="fb-react-icon fb-like-badge"><i class="fas fa-thumbs-up" aria-hidden="true"></i></span>
+                <span class="fb-react-icon fb-heart-badge"><i class="fas fa-heart" aria-hidden="true"></i></span>
+                <span class="fb-react-count">689</span>
+              </div>
+              <div class="fb-stats-right">73 comentarios &bull; 38 compartidos</div>
+            </div>
+
+            <footer class="fb-card-footer">
+              <button type="button" class="fb-btn"><i class="far fa-thumbs-up" aria-hidden="true"></i> Me gusta</button>
+              <button type="button" class="fb-btn"><i class="far fa-comment" aria-hidden="true"></i> Comentar</button>
+              <button type="button" class="fb-btn"><i class="fas fa-share" aria-hidden="true"></i> Compartir</button>
+            </footer>
+          </article>
+
+          <!-- 12. X / TWITTER | Diversas Mascotas: Pastor Australiano Sonriente -->
+          <article class="galeria-item social-card-x" data-network="x-twitter">
+            <header class="x-card-header">
+              <div class="x-author-group">
+                <img src="img/logo-huellitas.jpg" alt="Huellitas X" width="84" height="84" loading="lazy" class="x-avatar">
+                <div class="x-name-col">
+                  <div class="x-name-row">
+                    <span class="x-author-name">Huellitas Oficial</span>
+                    <i class="fas fa-circle-check x-blue-badge" aria-hidden="true"></i>
+                  </div>
+                  <span class="x-handle">@HuellitasCol &bull; 2d</span>
+                </div>
+              </div>
+              <i class="fab fa-x-twitter x-logo-top" aria-hidden="true"></i>
+            </header>
+
+            <div class="x-tweet-text">
+              Dentadura limpia, pelaje brillante y energía al 100% 🐕☀️ ¡Feliz paseo, Lucas! <span class="x-hashtag">#PerrosFelices</span> <span class="x-hashtag">#SaludCanina</span>
+            </div>
+
+            <div class="x-media-box">
+              <img src="img/social-perro-dental.jpg"
+                   alt="Perro Pastor Australiano sonriendo feliz al aire libre con pelaje brillante y dientes sanos"
+                   width="800"
+                   height="533"
+                   loading="lazy"
+                   class="x-post-img">
+            </div>
+
+            <footer class="x-card-actions">
+              <div class="x-act-item"><i class="far fa-comment" aria-hidden="true"></i> <span>37</span></div>
+              <div class="x-act-item"><i class="fas fa-retweet" aria-hidden="true"></i> <span>84</span></div>
+              <div class="x-act-item x-heart-act"><i class="far fa-heart" aria-hidden="true"></i> <span>692</span></div>
+              <div class="x-act-item"><i class="fas fa-chart-simple" aria-hidden="true"></i> <span>17.4K</span></div>
+              <div class="x-act-item"><i class="far fa-bookmark" aria-hidden="true"></i></div>
+            </footer>
+          </article>
+
+          <!-- 13. INSTAGRAM | Cabinas de Hidromasaje Spa -->
+          <article class="galeria-item social-card-ig" data-network="instagram">
+            <header class="ig-card-header">
+              <div class="ig-user-info">
+                <div class="ig-avatar-ring">
+                  <img src="img/logo-huellitas.jpg" alt="Avatar Huellitas Instagram" width="84" height="84" loading="lazy" class="ig-avatar">
+                </div>
+                <div class="ig-meta-text">
+                  <span class="ig-username">huellitas_col <i class="fas fa-circle-check ig-verified" aria-hidden="true"></i></span>
+                  <span class="ig-location">Zona Hidroterapia &bull; Huellitas</span>
+                </div>
+              </div>
+              <button type="button" class="ig-more-btn" aria-label="Opciones Instagram"><i class="fas fa-ellipsis" aria-hidden="true"></i></button>
+            </header>
+
+            <div class="social-media-container">
+              <img src="img/local-spa-hidromasaje.jpg"
+                   alt="Estaciones de hidromasaje en acero inoxidable con rampas, toallas blancas enrolladas y frascos botánicos"
+                   width="1200"
+                   height="896"
+                   loading="lazy"
+                   class="social-post-img">
+              <span class="social-type-badge"><i class="fas fa-water" aria-hidden="true"></i> Hidromasaje Spa</span>
+            </div>
+
+            <div class="ig-card-body">
+              <div class="ig-actions">
+                <div class="ig-left-actions">
+                  <button type="button" class="social-act-btn ig-heart-act" aria-label="Me gusta"><i class="fas fa-heart" aria-hidden="true"></i></button>
+                  <button type="button" class="social-act-btn" aria-label="Comentar"><i class="far fa-comment" aria-hidden="true"></i></button>
+                  <button type="button" class="social-act-btn" aria-label="Compartir"><i class="far fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+                <button type="button" class="social-act-btn" aria-label="Guardar"><i class="far fa-bookmark" aria-hidden="true"></i></button>
+              </div>
+              <div class="ig-likes">Les gusta a <strong>vet_estetica_co</strong> y <strong>2.150 más</strong></div>
+              <div class="ig-caption">
+                <strong>huellitas_col</strong> Bañeras terapéuticas con agua regulada y toallas esterilizadas 🧴🛁
+                <div class="ig-tags">#HidroterapiaCanina #BienestarAnimal</div>
+              </div>
+              <div class="ig-time">Hace 2 días</div>
+            </div>
+          </article>
+
+          <!-- 14. TIKTOK | Masaje Capilar Relajante (Golden en Baño) -->
+          <article class="galeria-item social-card-tt" data-network="tiktok">
+            <div class="tt-container">
+              <img src="img/peluqueria-perro.jpg"
+                   alt="Manos de estilista realizando masaje relajante con shampoo natural a un perro Golden Retriever feliz"
+                   width="700"
+                   height="467"
+                   loading="lazy"
+                   class="tt-bg-img">
+              <div class="tt-top-overlay">
+                <span class="tt-badge"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok</span>
+                <span class="tt-feed-tabs">Siguiendo <strong>Para ti</strong></span>
+              </div>
+
+              <div class="tt-side-actions">
+                <div class="tt-avatar-box">
+                  <img src="img/logo-huellitas.jpg" alt="Huellitas TikTok" width="88" height="88" loading="lazy" class="tt-avatar">
+                  <span class="tt-follow-plus"><i class="fas fa-plus" aria-hidden="true"></i></span>
+                </div>
+                <div class="tt-action-btn"><i class="fas fa-heart tt-heart-icon" aria-hidden="true"></i><span>79.5K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-comment-dots" aria-hidden="true"></i><span>2.2K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-bookmark" aria-hidden="true"></i><span>8.1K</span></div>
+                <div class="tt-action-btn"><i class="fas fa-share" aria-hidden="true"></i><span>3.0K</span></div>
+              </div>
+
+              <div class="tt-bottom-overlay">
+                <div class="tt-author">@huellitas_oficial <i class="fas fa-circle-check tt-verified" aria-hidden="true"></i></div>
+                <p class="tt-desc">El masaje craneal durante el baño que deja dormidos a nuestros peludos 🫧🐶 #masajecanino</p>
+                <div class="tt-music-row">
+                  <div class="tt-music-left">
+                    <i class="fas fa-music" aria-hidden="true"></i>
+                    <span class="tt-music-marquee">Sonido original - Música Calmante 432Hz</span>
+                  </div>
+                  <div class="tt-disc-wrap">
+                    <img src="img/logo-huellitas.jpg" alt="Audio Huellitas" width="60" height="60" loading="lazy" class="tt-disc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 15. FACEBOOK | Unidad Quirúrgica y Monitoreo Veterinario -->
+          <article class="galeria-item social-card-fb" data-network="facebook">
+            <header class="fb-card-header">
+              <img src="img/logo-huellitas.jpg" alt="Huellitas Facebook" width="84" height="84" loading="lazy" class="fb-avatar">
+              <div class="fb-author-meta">
+                <div class="fb-page-title">Huellitas - Veterinaria &amp; Spa <i class="fas fa-circle-check fb-blue-check" aria-hidden="true"></i></div>
+                <div class="fb-time">Hace 3 días &bull; <i class="fas fa-earth-americas" aria-hidden="true"></i></div>
+              </div>
+            </header>
+
+            <div class="fb-post-text">
+              🔬 <strong>Seguridad Clínica:</strong> Sala estéril y anestesia inhalatoria monitoreada para perros y gatos.
+            </div>
+
+            <div class="social-media-container fb-media">
+              <img src="img/local-veterinaria-quirofano.jpg"
+                   alt="Quirófano veterinario estéril con lámparas quirúrgicas y monitores multiparámetro"
+                   width="728"
+                   height="528"
+                   loading="lazy"
+                   class="social-post-img">
+              <span class="social-type-badge vet"><i class="fas fa-heart-pulse" aria-hidden="true"></i> Unidad Clínica</span>
+            </div>
+
+            <div class="fb-engagement-row">
+              <div class="fb-reactions">
+                <span class="fb-react-icon fb-like-badge"><i class="fas fa-thumbs-up" aria-hidden="true"></i></span>
+                <span class="fb-react-icon fb-heart-badge"><i class="fas fa-heart" aria-hidden="true"></i></span>
+                <span class="fb-react-count">415</span>
+              </div>
+              <div class="fb-stats-right">39 comentarios &bull; 27 compartidos</div>
+            </div>
+
+            <footer class="fb-card-footer">
+              <button type="button" class="fb-btn"><i class="far fa-thumbs-up" aria-hidden="true"></i> Me gusta</button>
+              <button type="button" class="fb-btn"><i class="far fa-comment" aria-hidden="true"></i> Comentar</button>
+              <button type="button" class="fb-btn"><i class="fas fa-share" aria-hidden="true"></i> Compartir</button>
+            </footer>
+          </article>
+
+          <!-- 16. X / TWITTER | Diversas Mascotas: Salud Ocular y Pelaje Felino -->
+          <article class="galeria-item social-card-x" data-network="x-twitter">
+            <header class="x-card-header">
+              <div class="x-author-group">
+                <img src="img/logo-huellitas.jpg" alt="Huellitas X" width="84" height="84" loading="lazy" class="x-avatar">
+                <div class="x-name-col">
+                  <div class="x-name-row">
+                    <span class="x-author-name">Huellitas Oficial</span>
+                    <i class="fas fa-circle-check x-blue-badge" aria-hidden="true"></i>
+                  </div>
+                  <span class="x-handle">@HuellitasCol &bull; 4d</span>
+                </div>
+              </div>
+              <i class="fab fa-x-twitter x-logo-top" aria-hidden="true"></i>
+            </header>
+
+            <div class="x-tweet-text">
+              Dato veterinario 🐱✨: La taurina natural del salmón cuida la vista y el corazón de tu gato. <span class="x-hashtag">#NutricionFelina</span> <span class="x-hashtag">#GatosSanos</span>
+            </div>
+
+            <div class="x-media-box">
+              <img src="img/social-gato-veterinaria.jpg"
+                   alt="Primer plano de un gato atigrado sano de ojos verdes brillantes y pelaje reluciente"
+                   width="800"
+                   height="800"
+                   loading="lazy"
+                   class="x-post-img">
+            </div>
+
+            <footer class="x-card-actions">
+              <div class="x-act-item"><i class="far fa-comment" aria-hidden="true"></i> <span>63</span></div>
+              <div class="x-act-item"><i class="fas fa-retweet" aria-hidden="true"></i> <span>178</span></div>
+              <div class="x-act-item x-heart-act"><i class="far fa-heart" aria-hidden="true"></i> <span>1.1K</span></div>
+              <div class="x-act-item"><i class="fas fa-chart-simple" aria-hidden="true"></i> <span>29.7K</span></div>
+              <div class="x-act-item"><i class="far fa-bookmark" aria-hidden="true"></i></div>
+            </footer>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FRANJA MINIMALISTA DE ESENCIA (MISIÓN, VISIÓN Y 3 CLAVES CON "VER MÁS") -->
+    <section class="esencia-minimal" id="mision-vision">
+      <div class="container">
+        <div class="esencia-grid">
+
+          <div class="esencia-card">
+            <div class="esencia-head">
+              <div class="esencia-icon"><i class="fas fa-heart" aria-hidden="true"></i></div>
+              <div>
+                <h2>Nuestra Misión</h2>
+                <p class="esencia-short">Seguridad, calma y cero miedo.</p>
+              </div>
+            </div>
+            <details class="prod-details" name="esencia-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Cada perro o gato recibe manejo gentil con feromonas relajantes, mantas térmicas, secado silencioso sin jaulas y refuerzo positivo.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="esencia-card">
+            <div class="esencia-head">
+              <div class="esencia-icon"><i class="fas fa-eye" aria-hidden="true"></i></div>
+              <div>
+                <h2>Nuestra Visión</h2>
+                <p class="esencia-short">Ecosistema especializado a 5 años.</p>
+              </div>
+            </div>
+            <details class="prod-details" name="esencia-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>Sedes amplias con cabinas Cat-Friendly libres de ladridos, estaciones ergonómicas por tamaño y nutrición mensual programada en Colombia.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="esencia-card">
+            <div class="esencia-head">
+              <div class="esencia-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></div>
+              <div>
+                <h2>3 Claves Huellitas</h2>
+                <p class="esencia-short">Hábitos para una vida larga y sana.</p>
+              </div>
+            </div>
+            <details class="prod-details" name="esencia-huellitas">
+              <summary class="prod-summary">
+                <span class="summary-more">Ver más</span>
+                <span class="summary-less">Ver menos</span>
+                <i class="fas fa-chevron-down summary-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="prod-details-body">
+                <p>1) Porción diaria exacta según su peso. 2) Cepillado y visitas amables sin prisa. 3) Chequeo veterinario preventivo periódico.</p>
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER MINIMALISTA CON EL LOGO OFICIAL COMPLETO -->
+  <footer class="footer" id="contacto">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <div class="footer-logo-badge">
+            <span class="footer-logo-kicker"><i class="fas fa-paw" aria-hidden="true"></i> Sello Oficial</span>
+            <img src="img/logo-huellitas.jpg" alt="Logo Oficial Huellitas" width="370" height="405" loading="lazy" class="footer-logo-img">
+          </div>
+          <p class="footer-brand-tagline">Veterinaria, Spa &amp; Nutrición &bull; Perros y Gatos</p>
+          <div class="footer-social-icons">
+            <a href="#galeria" class="social-circle-btn" aria-label="Instagram Huellitas"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="#galeria" class="social-circle-btn" aria-label="TikTok Huellitas"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+            <a href="#galeria" class="social-circle-btn" aria-label="Facebook Huellitas"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#galeria" class="social-circle-btn" aria-label="X Twitter Huellitas"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Explorar</h3>
+          <ul class="footer-links">
+            <li><a href="#inicio"><i class="fas fa-chevron-right" aria-hidden="true"></i> Inicio</a></li>
+            <li><a href="#tienda"><i class="fas fa-chevron-right" aria-hidden="true"></i> Tienda (12 Productos)</a></li>
+            <li><a href="#servicios"><i class="fas fa-chevron-right" aria-hidden="true"></i> Spa &amp; Veterinaria</a></li>
+            <li><a href="#suscripcion"><i class="fas fa-chevron-right" aria-hidden="true"></i> Suscripción Mensual</a></li>
+            <li><a href="#galeria"><i class="fas fa-chevron-right" aria-hidden="true"></i> Redes Sociales</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contacto</h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fas fa-location-dot" aria-hidden="true"></i>
+              <span>Laureles (Medellín) &bull; Chicó (Bogotá)</span>
+            </li>
+            <li>
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <span>+57 (604) 444 8355 &bull; +57 312 890 4421</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span>contacto@huellitasmascotas.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRANJA DE COPYRIGHT Y DERECHOS DE AUTOR -->
+    <div class="footer-bottom-strip">
+      <div class="container footer-bottom">
+        <p>&copy; 2026 Análisis y Diseño de Soluciones WEB. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= CARRITO DE COMPRAS INTERACTIVO OFF-CANVAS ================= -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+    <div class="cart-drawer">
+      <!-- Marca de agua difuminada del logo oficial Huellitas en el fondo del menú del carrito -->
+      <div class="cart-drawer-logo-bg" aria-hidden="true"></div>
+
+      <div class="cart-drawer-header">
+        <div class="cart-header-brand">
+          <div class="cart-header-mini-logo">
+            <img src="img/logo-huellitas.jpg" alt="Sello Oficial Huellitas" width="370" height="405" loading="lazy">
+          </div>
+          <div class="cart-header-titles">
+            <h3 id="cartDrawerTitle">Tu Carrito</h3>
+            <span class="cart-units-pill" id="cartUnitsSummary">0 unidades</span>
+          </div>
+        </div>
+
+        <div class="cart-header-actions">
+          <button type="button" class="cart-clear-btn" id="btnClearCart" hidden aria-label="Vaciar todo el carrito">
+            <i class="fas fa-trash-can" aria-hidden="true"></i> Vaciar
+          </button>
+          <button type="button" class="close-cart-btn" id="closeCartBtn" aria-label="Cerrar carrito">
+            <i class="fas fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra interactiva de Envío Gratis VIP + Snack de Regalo -->
+      <div class="cart-goal-banner" id="cartGoalBanner">
+        <div class="cart-goal-top">
+          <span class="cart-goal-text" id="cartGoalText"><i class="fas fa-truck-fast" aria-hidden="true"></i> Agrega <strong>$120.000 COP</strong> para <strong>Envío Gratis VIP</strong></span>
+          <span class="cart-goal-pct" id="cartGoalPct">0%</span>
+        </div>
+        <progress class="cart-goal-progress" id="cartGoalProgress" max="120000" value="0" aria-label="Progreso hacia envío gratis">0%</progress>
+      </div>
+
+      <!-- Cuerpo desplazable sobre el logo difuminado: productos seleccionados -->
+      <div class="cart-items-body" id="cartItemsBody">
+        <div class="cart-items-list" id="cartItemsList" aria-live="polite"></div>
+      </div>
+
+      <div class="cart-drawer-footer">
+        <div class="cart-summary-meta">
+          <div class="cart-meta-line">
+            <span>Subtotal (<span id="cartFooterUnits">0</span> uds.):</span>
+            <span id="cartRawSubtotalVal">$0 COP</span>
+          </div>
+          <div class="cart-meta-line">
+            <span>Domicilio:</span>
+            <span class="cart-ship-badge" id="cartShippingVal">Por calcular</span>
+          </div>
+        </div>
+        <div class="cart-subtotal-row">
+          <span>Total a pagar:</span>
+          <span class="val" id="cartSubtotalVal">$0 COP</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="btnCheckoutCart">
+          <i class="fas fa-credit-card" aria-hidden="true"></i> <span id="btnCheckoutCartLabel">Elegir Medio de Pago y Comprar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICACIÓN TOAST FLOTANTE -->
+  <div class="toast-msg" id="toastMsg">
+    <i class="fas fa-circle-check" aria-hidden="true"></i>
+    <span id="toastText">¡Producto añadido al carrito!</span>
+  </div>
+
+  <!-- ================= MODAL DE PASARELA DE PAGOS MULTICANAL COLOMBIA ================= -->
+  <div class="modal-overlay" id="paymentModalOverlay">
+    <div class="modal-box">
+      <button type="button" class="modal-close-icon-btn" id="btnClosePaymentModal" aria-label="Cerrar pasarela de pago">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+
+      <div style="text-align:center; margin-bottom:14px;">
+        <div style="width:52px; height:52px; border-radius:50%; background:#FFF5EA; color:var(--color-acento-hover); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 8px;">
+          <i class="fas fa-lock" aria-hidden="true"></i>
+        </div>
+        <h3 style="font-size:1.35rem; margin-bottom:2px;">Pasarela de Pago Segura</h3>
+        <p style="font-size:0.84rem; color:var(--color-texto-suave);">Elige tu medio de pago preferido:</p>
+      </div>
+
+      <div id="paymentSummaryBox"></div>
+
+      <h4 style="font-size:0.95rem; margin-bottom:8px;"><i class="fas fa-wallet" style="color:var(--color-acento);" aria-hidden="true"></i> Medio de Pago:</h4>
+      <div class="payment-methods-grid">
+        <div class="payment-method-card" data-method="tarjeta">
+          <div class="method-icon"><i class="fas fa-credit-card" aria-hidden="true"></i></div>
+          <div>
+            <h5>Tarjeta Crédito / Débito</h5>
+            <p>Visa, Mastercard, Amex</p>
+          </div>
+        </div>
+
+        <div class="payment-method-card selected" data-method="nequi">
+          <div class="method-icon" style="color:#FF0055;"><i class="fas fa-mobile-screen" aria-hidden="true"></i></div>
+          <div>
+            <h5>Nequi</h5>
+            <p>Transferencia / Cobro Push</p>
+          </div>
+        </div>
+
+        <div class="payment-method-card" data-method="daviplata">
+          <div class="method-icon" style="color:#ED1C24;"><i class="fas fa-wallet" aria-hidden="true"></i></div>
+          <div>
+            <h5>Daviplata</h5>
+            <p>Monedero / Transfiya</p>
+          </div>
+        </div>
+
+        <div class="payment-method-card" data-method="bancolombia">
+          <div class="method-icon" style="color:#E0A800;"><i class="fas fa-building-columns" aria-hidden="true"></i></div>
+          <div>
+            <h5>Bancolombia</h5>
+            <p>Transferencia App / QR</p>
+          </div>
+        </div>
+
+        <div class="payment-method-card" data-method="davivienda" style="grid-column: 1 / -1;">
+          <div class="method-icon" style="color:#ED1C24;"><i class="fas fa-landmark" aria-hidden="true"></i></div>
+          <div>
+            <h5>Davivienda / PSE</h5>
+            <p>Cuenta de ahorros o corriente</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-details-box" id="paymentInstructionsBox"></div>
+
+      <button type="button" class="btn btn-primary btn-block" id="btnProcessPayment">
+        <i class="fas fa-shield-halved" aria-hidden="true"></i> Confirmar y Pagar
+      </button>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE DE ACCESO FÁCIL A SUSCRIPCIÓN (ESCRITORIO Y MÓVIL) -->
+  <a href="#suscripcion" class="floating-subs-dock" id="floatingSubsDock" aria-label="Ir rápido al creador de Suscripción Mensual Huellitas">
+    <span class="floating-subs-crown" aria-hidden="true"><i class="fas fa-crown"></i></span>
+    <span class="floating-subs-text">
+      <strong>Suscripción Club</strong>
+      <small>Desde $50.000/mes &bull; Crear Plan</small>
+    </span>
+    <i class="fas fa-arrow-right floating-subs-arrow" aria-hidden="true"></i>
+  </a>
+
+  <!-- Script interactivo -->
+  <script src="script.js?v=20261029v11"></script>
+</body>
+</html>
