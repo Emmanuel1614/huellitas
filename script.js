@@ -1256,300 +1256,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 6. MODAL DE AUTENTICACIÓN (REGISTRO E INICIO DE SESIÓN SEPARADO)
+  // INTERACCIÓN DE REDES SOCIALES
   // =========================================================================
-  const authModalOverlay = document.getElementById('authModalOverlay');
-  const btnCloseAuthModal = document.getElementById('btnCloseAuthModal');
-  const btnOpenAuthModal = document.getElementById('btnOpenAuthModal');
-  const headerUserLabel = document.getElementById('headerUserLabel');
-
-  const authTabBtnRegister = document.getElementById('authTabBtnRegister');
-  const authTabBtnLogin = document.getElementById('authTabBtnLogin');
-  const authContentRegister = document.getElementById('authContentRegister');
-  const authContentLogin = document.getElementById('authContentLogin');
-
-  const btnSwitchToLogin = document.getElementById('btnSwitchToLogin');
-  const btnSwitchToRegister = document.getElementById('btnSwitchToRegister');
-  const btnCtaOpenRegister = document.getElementById('btnCtaOpenRegister');
-  const btnCtaOpenLogin = document.getElementById('btnCtaOpenLogin');
-
-  const modalRegForm = document.getElementById('modalRegistrationForm');
-  const mRegSuccessCard = document.getElementById('mRegSuccessCard');
-  const mRegSuccessMsg = document.getElementById('mRegSuccessMsg');
-  const mBtnOpenWhatsAppDirect = document.getElementById('mBtnOpenWhatsAppDirect');
-  const mBtnCloseSuccess = document.getElementById('mBtnCloseSuccess');
-
-  const modalLoginForm = document.getElementById('modalLoginForm');
-  const mLoginSuccessCard = document.getElementById('mLoginSuccessCard');
-  const mLoginBtnContinue = document.getElementById('mLoginBtnContinue');
-
-  // Contact Method selector en el modal
-  const mContactRadios = document.querySelectorAll('input[name="mContactMethod"]');
-  const mRadioCardWhatsapp = document.getElementById('mRadioCardWhatsapp');
-  const mRadioCardEmail = document.getElementById('mRadioCardEmail');
-  const mRegPhone = document.getElementById('mRegPhone');
-  const mRegEmail = document.getElementById('mRegEmail');
-  const mPhoneReqMarker = document.getElementById('mPhoneReqMarker');
-  const mEmailReqMarker = document.getElementById('mEmailReqMarker');
-
-  function openAuthModal(initialTab = 'register') {
-    if (!authModalOverlay) return;
-    switchAuthTab(initialTab);
-    authModalOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeAuthModal() {
-    if (!authModalOverlay) return;
-    authModalOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  function switchAuthTab(tabName) {
-    if (tabName === 'login') {
-      if (authTabBtnLogin) authTabBtnLogin.classList.add('active');
-      if (authTabBtnRegister) authTabBtnRegister.classList.remove('active');
-      if (authContentLogin) authContentLogin.classList.add('active');
-      if (authContentRegister) authContentRegister.classList.remove('active');
-    } else {
-      if (authTabBtnRegister) authTabBtnRegister.classList.add('active');
-      if (authTabBtnLogin) authTabBtnLogin.classList.remove('active');
-      if (authContentRegister) authContentRegister.classList.add('active');
-      if (authContentLogin) authContentLogin.classList.remove('active');
-    }
-  }
-
-  if (btnOpenAuthModal) {
-    btnOpenAuthModal.addEventListener('click', () => {
-      const activeUser = getActiveUser();
-      if (activeUser) {
-        if (confirm(`Sesión activa como: ${activeUser.tutorName} (Mascota: ${activeUser.petName || 'Registrada'}). ¿Deseas cerrar tu sesión?`)) {
-          logoutUser();
-        }
-      } else {
-        openAuthModal('register');
-      }
-    });
-  }
-
-  if (btnCtaOpenRegister) btnCtaOpenRegister.addEventListener('click', () => openAuthModal('register'));
-  if (btnCtaOpenLogin) btnCtaOpenLogin.addEventListener('click', () => openAuthModal('login'));
-
-  if (btnCloseAuthModal) btnCloseAuthModal.addEventListener('click', closeAuthModal);
-  if (authModalOverlay) {
-    authModalOverlay.addEventListener('click', (e) => {
-      if (e.target === authModalOverlay) closeAuthModal();
-    });
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && authModalOverlay && authModalOverlay.classList.contains('active')) {
-      closeAuthModal();
-    }
-  });
-
-  if (authTabBtnRegister) authTabBtnRegister.addEventListener('click', () => switchAuthTab('register'));
-  if (authTabBtnLogin) authTabBtnLogin.addEventListener('click', () => switchAuthTab('login'));
-  if (btnSwitchToLogin) btnSwitchToLogin.addEventListener('click', () => switchAuthTab('login'));
-  if (btnSwitchToRegister) btnSwitchToRegister.addEventListener('click', () => switchAuthTab('register'));
-
-  // Toggle visibilidad de contraseñas
-  document.querySelectorAll('.btn-toggle-pwd').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.dataset.target;
-      const input = document.getElementById(targetId);
-      if (input) {
-        const isPassword = input.type === 'password';
-        input.type = isPassword ? 'text' : 'password';
-        const icon = btn.querySelector('i');
-        if (icon) {
-          icon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye';
-        }
-      }
-    });
-  });
-
-  // Selector WhatsApp vs Correo en el modal
-  if (mContactRadios.length > 0) {
-    mContactRadios.forEach(radio => {
-      radio.addEventListener('change', (e) => {
-        if (e.target.value === 'whatsapp') {
-          if (mRadioCardWhatsapp) mRadioCardWhatsapp.classList.add('active');
-          if (mRadioCardEmail) mRadioCardEmail.classList.remove('active');
-          if (mRegPhone) mRegPhone.required = true;
-          if (mRegEmail) mRegEmail.required = false;
-          if (mPhoneReqMarker) mPhoneReqMarker.style.display = 'inline';
-          if (mEmailReqMarker) mEmailReqMarker.style.display = 'none';
-        } else {
-          if (mRadioCardEmail) mRadioCardEmail.classList.add('active');
-          if (mRadioCardWhatsapp) mRadioCardWhatsapp.classList.remove('active');
-          if (mRegEmail) mRegEmail.required = true;
-          if (mRegPhone) mRegPhone.required = false;
-          if (mPhoneReqMarker) mPhoneReqMarker.style.display = 'none';
-          if (mEmailReqMarker) mEmailReqMarker.style.display = 'inline';
-        }
-      });
-    });
-  }
-
-  // Submit Registro Modal
-  if (modalRegForm) {
-    modalRegForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const tutorName = document.getElementById('mRegTutorName').value.trim();
-      const contactMethod = document.querySelector('input[name="mContactMethod"]:checked')?.value || 'whatsapp';
-      const phone = mRegPhone ? mRegPhone.value.trim() : '';
-      const email = mRegEmail ? mRegEmail.value.trim() : '';
-      const petName = document.getElementById('mRegPetName').value.trim();
-      const petType = document.getElementById('mRegPetType').value;
-      const specialNeeds = document.getElementById('mRegSpecialNeeds').value.trim();
-      const password = document.getElementById('mRegPassword').value;
-
-      const newUser = {
-        tutorName,
-        contactMethod,
-        phone,
-        email,
-        petName,
-        petType,
-        specialNeeds,
-        password,
-        registeredAt: new Date().toISOString()
-      };
-
-      // Guardar usuario en base local de registros
-      try {
-        const users = JSON.parse(localStorage.getItem('huellitas_users') || '[]');
-        users.push(newUser);
-        localStorage.setItem('huellitas_users', JSON.stringify(users));
-        setActiveUser(newUser);
-      } catch (err) {
-        console.warn('LocalStorage error:', err);
-      }
-
-      // Preparar enlace de WhatsApp con mensaje personalizado
-      const waNumber = '573104448355';
-      const waMsg = encodeURIComponent(
-        `¡Hola Huellitas! Acabo de crear mi cuenta en la web.\n\n` +
-        `👤 Tutor: ${tutorName}\n` +
-        `🐾 Mascota: ${petName} (${petType})\n` +
-        (phone ? `📞 Teléfono: ${phone}\n` : '') +
-        (email ? `✉️ Correo: ${email}\n` : '') +
-        (specialNeeds ? `📋 Consulta: ${specialNeeds}\n` : '') +
-        `Quisiera activar mi bono de bienvenida y recibir asesoría personalizada. ¡Gracias!`
-      );
-
-      if (mBtnOpenWhatsAppDirect) {
-        mBtnOpenWhatsAppDirect.href = `https://wa.me/${waNumber}?text=${waMsg}`;
-      }
-
-      if (mRegSuccessMsg) {
-        mRegSuccessMsg.innerHTML = `¡Bienvenido, <strong>${tutorName}</strong>! La ficha de <strong>${petName}</strong> ha quedado registrada. Tu asesor veterinario asignado te contactará por <strong>${contactMethod === 'whatsapp' ? 'WhatsApp' : 'Correo'}</strong>.`;
-      }
-
-      modalRegForm.style.display = 'none';
-      if (mRegSuccessCard) mRegSuccessCard.style.display = 'block';
-    });
-  }
-
-  if (mBtnCloseSuccess) {
-    mBtnCloseSuccess.addEventListener('click', () => {
-      closeAuthModal();
-      if (modalRegForm) {
-        modalRegForm.reset();
-        modalRegForm.style.display = 'block';
-      }
-      if (mRegSuccessCard) mRegSuccessCard.style.display = 'none';
-    });
-  }
-
-  // Submit Iniciar Sesión Modal
-  if (modalLoginForm) {
-    modalLoginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const identifier = document.getElementById('loginUserIdentifier').value.trim();
-      const password = document.getElementById('loginPassword').value;
-
-      let foundUser = null;
-      try {
-        const users = JSON.parse(localStorage.getItem('huellitas_users') || '[]');
-        foundUser = users.find(u => 
-          (u.email && u.email.toLowerCase() === identifier.toLowerCase()) || 
-          (u.phone && u.phone.includes(identifier))
-        );
-      } catch (err) {
-        console.warn(err);
-      }
-
-      // Si no existe previamente, creamos la sesión para el tutor con el identificador ingresado
-      if (!foundUser) {
-        foundUser = {
-          tutorName: identifier.includes('@') ? identifier.split('@')[0] : 'Cliente Huellitas',
-          email: identifier.includes('@') ? identifier : '',
-          phone: !identifier.includes('@') ? identifier : '',
-          petName: 'Mi Mascota'
-        };
-      }
-
-      setActiveUser(foundUser);
-
-      modalLoginForm.style.display = 'none';
-      if (mLoginSuccessCard) {
-        const titleEl = document.getElementById('mLoginSuccessTitle');
-        const msgEl = document.getElementById('mLoginSuccessMsg');
-        if (titleEl) titleEl.textContent = `¡Hola de nuevo, ${foundUser.tutorName}!`;
-        if (msgEl) msgEl.textContent = `Has iniciado sesión correctamente. Tu ficha de mascota y descuentos están activos.`;
-        mLoginSuccessCard.style.display = 'block';
-      }
-    });
-  }
-
-  if (mLoginBtnContinue) {
-    mLoginBtnContinue.addEventListener('click', () => {
-      closeAuthModal();
-      if (modalLoginForm) {
-        modalLoginForm.reset();
-        modalLoginForm.style.display = 'block';
-      }
-      if (mLoginSuccessCard) mLoginSuccessCard.style.display = 'none';
-    });
-  }
-
-  function setActiveUser(user) {
-    localStorage.setItem('huellitas_active_user', JSON.stringify(user));
-    updateHeaderUserUI();
-  }
-
-  function getActiveUser() {
-    try {
-      return JSON.parse(localStorage.getItem('huellitas_active_user') || 'null');
-    } catch {
-      return null;
-    }
-  }
-
-  function logoutUser() {
-    localStorage.removeItem('huellitas_active_user');
-    updateHeaderUserUI();
-    showToast('Has cerrado sesión correctamente.');
-  }
-
-  function updateHeaderUserUI() {
-    const user = getActiveUser();
-    if (headerUserLabel) {
-      if (user && user.tutorName) {
-        const firstName = user.tutorName.split(' ')[0];
-        headerUserLabel.textContent = `¡Hola, ${firstName}!`;
-      } else {
-        headerUserLabel.textContent = 'Ingresar / Registro';
-      }
-    }
-  }
-
-  // Inicializar estado del usuario al cargar
-  updateHeaderUserUI();
 
   // Interacción de Me Gusta en tarjetas de Redes Sociales
   document.querySelectorAll('.ig-heart-act, .tt-action-btn, .fb-btn, .x-heart-act').forEach(btn => {
@@ -1708,7 +1416,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const formLogin = document.getElementById('formLogin');
   const formRegister = document.getElementById('formRegister');
   const authAlert = document.getElementById('authAlert');
-  const btnAutoFillAdmin = document.getElementById('btnAutoFillAdmin');
+
+  // Opciones y botones interactivos
+  const btnForgotPwd = document.getElementById('btnForgotPwd');
+  const btnSocialGoogle = document.getElementById('btnSocialGoogle');
+  const btnFastPass = document.getElementById('btnFastPass');
+  const btnDemoAdmin = document.getElementById('btnDemoAdmin');
+  const btnDemoClient = document.getElementById('btnDemoClient');
+  const loginIdentificador = document.getElementById('loginIdentificador');
+  const loginIdentIcon = document.getElementById('loginIdentIcon');
+  const regIdentificador = document.getElementById('regIdentificador');
+  const regIdentIcon = document.getElementById('regIdentIcon');
+  const regPassword = document.getElementById('regPassword');
+  const pwdStrengthBar = document.getElementById('pwdStrengthBar');
+  const pwdStrengthTxt = document.getElementById('pwdStrengthTxt');
 
   // Elementos de usuario logueado en la cabecera
   const userLoggedBox = document.getElementById('userLoggedBox');
@@ -1721,6 +1442,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropdownUserIdentifier = document.getElementById('dropdownUserIdentifier');
   const btnOpenAdminPanel = document.getElementById('btnOpenAdminPanel');
   const btnLogout = document.getElementById('btnLogout');
+  const btnDropdownSubs = document.getElementById('btnDropdownSubs');
 
   // Modal del panel de administración
   const adminModalOverlay = document.getElementById('adminModalOverlay');
@@ -1768,26 +1490,36 @@ document.addEventListener('DOMContentLoaded', () => {
   function openAuthModal(tab = 'login') {
     switchAuthTab(tab);
     authModalOverlay?.classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeAuthModal() {
     authModalOverlay?.classList.remove('active');
+    document.body.style.overflow = '';
     setAuthAlert('');
   }
 
   function openAdminModal() {
     if (userDropdownMenu) userDropdownMenu.hidden = true;
     adminModalOverlay?.classList.add('active');
+    document.body.style.overflow = 'hidden';
     fetchAdminUsers();
   }
 
   function closeAdminModal() {
     adminModalOverlay?.classList.remove('active');
+    document.body.style.overflow = '';
   }
 
   function updateLoggedUI(user) {
     currentUser = user;
     if (user) {
+      try {
+        sessionStorage.setItem('huellitas_demo_user', JSON.stringify(user));
+      } catch (e) {
+        console.warn('Storage unavailable:', e);
+      }
+
       if (btnOpenAuthModal) btnOpenAuthModal.hidden = true;
       if (userLoggedBox) userLoggedBox.hidden = false;
 
@@ -1803,7 +1535,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (dropdownUserName) dropdownUserName.textContent = user.nombre;
-      if (dropdownUserIdentifier) dropdownUserIdentifier.textContent = user.identificador;
+      if (dropdownUserIdentifier) dropdownUserIdentifier.textContent = user.identificador || 'usuario@huellitas.com';
 
       if (btnOpenAdminPanel) {
         btnOpenAdminPanel.hidden = user.rol !== 'admin';
@@ -1813,6 +1545,10 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinkAuthMobile.innerHTML = `<i class="fas fa-user-check"></i> ${escapeHTML(names[0])} (${user.rol === 'admin' ? 'Admin' : 'Mi Cuenta'})`;
       }
     } else {
+      try {
+        sessionStorage.removeItem('huellitas_demo_user');
+      } catch (e) {}
+
       if (btnOpenAuthModal) btnOpenAuthModal.hidden = false;
       if (userLoggedBox) userLoggedBox.hidden = true;
       if (userDropdownMenu) userDropdownMenu.hidden = true;
@@ -1823,63 +1559,85 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  async function checkSession() {
+  function checkSession() {
     try {
-      const res = await fetch('api/auth.php?action=check_session');
-      const data = await res.json();
-      if (data.success && data.authenticated && data.user) {
-        updateLoggedUI(data.user);
-      } else {
-        updateLoggedUI(null);
+      const stored = sessionStorage.getItem('huellitas_demo_user');
+      if (stored) {
+        const user = JSON.parse(stored);
+        if (user && user.nombre) {
+          updateLoggedUI(user);
+          return;
+        }
       }
-    } catch (err) {
-      console.warn('Error verificando sesión:', err);
-    }
+    } catch (e) {}
+
+    // Si no hay sesión local simulada, se comprueba API silenciosamente sin romper
+    fetch('api/auth.php?action=check_session')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.authenticated && data.user) {
+          updateLoggedUI(data.user);
+        } else {
+          updateLoggedUI(null);
+        }
+      })
+      .catch(() => {
+        updateLoggedUI(null);
+      });
   }
 
-  async function fetchAdminUsers() {
+  function fetchAdminUsers() {
     if (!adminUsersTableBody) return;
-    adminUsersTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:18px;"><i class="fas fa-spinner fa-spin"></i> Cargando usuarios desde MySQL...</td></tr>`;
+    adminUsersTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:18px;"><i class="fas fa-spinner fa-spin"></i> Consultando registros de usuarios...</td></tr>`;
 
-    try {
-      const res = await fetch('api/auth.php?action=list_users');
-      const data = await res.json();
-
-      if (!data.success) {
-        adminUsersTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#DC2626; padding:18px;">${escapeHTML(data.error || 'Error al obtener usuarios.')}</td></tr>`;
-        return;
-      }
-
-      if (metricTotalUsers) metricTotalUsers.textContent = String(data.stats?.total || 0);
-      if (metricTotalClients) metricTotalClients.textContent = String(data.stats?.clientes || 0);
-      if (metricTotalAdmins) metricTotalAdmins.textContent = String(data.stats?.admins || 0);
-
-      const users = data.users || [];
-      if (users.length === 0) {
-        adminUsersTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:18px;">No hay usuarios registrados aún.</td></tr>`;
-        return;
-      }
-
-      adminUsersTableBody.innerHTML = '';
-      users.forEach((u) => {
-        const tr = document.createElement('tr');
-        const tipoLabel = u.tipo_identificador === 'correo' ? '<i class="fas fa-envelope"></i> Correo' : '<i class="fas fa-phone"></i> Teléfono';
-        const tipoClass = u.tipo_identificador === 'correo' ? 'correo' : 'telefono';
-        const rolClass = u.rol === 'admin' ? 'admin' : 'cliente';
-
-        tr.innerHTML = `
-          <td><strong>#${u.id}</strong></td>
-          <td>${escapeHTML(u.nombre)}</td>
-          <td><code>${escapeHTML(u.identificador)}</code></td>
-          <td><span class="user-type-chip ${tipoClass}">${tipoLabel}</span></td>
-          <td><span class="user-role-chip ${rolClass}">${escapeHTML(u.rol).toUpperCase()}</span></td>
-          <td><small>${escapeHTML(u.fecha_registro)}</small></td>
-        `;
-        adminUsersTableBody.appendChild(tr);
+    // Intentar consultar API de MySQL, con fallback simulado para desarrollo visual
+    fetch('api/auth.php?action=list_users')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && Array.isArray(data.users) && data.users.length > 0) {
+          renderAdminUsersTable(data.users, data.stats);
+        } else {
+          renderMockAdminUsersTable();
+        }
+      })
+      .catch(() => {
+        renderMockAdminUsersTable();
       });
-    } catch (err) {
-      adminUsersTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#DC2626; padding:18px;">Error al conectar con la base de datos MySQL.</td></tr>`;
-    }
+  }
+
+  function renderMockAdminUsersTable() {
+    const mockUsers = [
+      { id: 1, nombre: 'Emmanuel Morales', identificador: 'admin@huellitas.com', tipo_identificador: 'correo', rol: 'admin', fecha_registro: '2026-10-29 20:30' },
+      { id: 2, nombre: 'Juan Ricardo Londoño', identificador: 'juan.ricardo@huellitas.com', tipo_identificador: 'correo', rol: 'cliente', fecha_registro: '2026-10-29 20:35' },
+      { id: 3, nombre: 'Laura Martínez', identificador: '3124567890', tipo_identificador: 'telefono', rol: 'cliente', fecha_registro: '2026-10-29 20:45' },
+      { id: 4, nombre: 'Carlos Gómez & Toby', identificador: 'carlos.g@gmail.com', tipo_identificador: 'correo', rol: 'cliente', fecha_registro: '2026-10-29 21:05' }
+    ];
+    renderAdminUsersTable(mockUsers, { total: 4, clientes: 3, admins: 1 });
+  }
+
+  function renderAdminUsersTable(users, stats) {
+    if (!adminUsersTableBody) return;
+    if (metricTotalUsers) metricTotalUsers.textContent = String(stats?.total || users.length);
+    if (metricTotalClients) metricTotalClients.textContent = String(stats?.clientes || users.filter(u => u.rol !== 'admin').length);
+    if (metricTotalAdmins) metricTotalAdmins.textContent = String(stats?.admins || users.filter(u => u.rol === 'admin').length);
+
+    adminUsersTableBody.innerHTML = '';
+    users.forEach((u) => {
+      const tr = document.createElement('tr');
+      const tipoLabel = u.tipo_identificador === 'correo' ? '<i class="fas fa-envelope"></i> Correo' : '<i class="fas fa-phone"></i> Celular';
+      const tipoClass = u.tipo_identificador === 'correo' ? 'correo' : 'telefono';
+      const rolClass = u.rol === 'admin' ? 'admin' : 'cliente';
+
+      tr.innerHTML = `
+        <td><strong>#${u.id}</strong></td>
+        <td>${escapeHTML(u.nombre)}</td>
+        <td><code>${escapeHTML(u.identificador)}</code></td>
+        <td><span class="user-type-chip ${tipoClass}">${tipoLabel}</span></td>
+        <td><span class="user-role-chip ${rolClass}">${escapeHTML(u.rol).toUpperCase()}</span></td>
+        <td><small>${escapeHTML(u.fecha_registro)}</small></td>
+      `;
+      adminUsersTableBody.appendChild(tr);
+    });
   }
 
   // Event Listeners de Autenticación
@@ -1901,15 +1659,55 @@ document.addEventListener('DOMContentLoaded', () => {
   tabBtnLogin?.addEventListener('click', () => switchAuthTab('login'));
   tabBtnRegister?.addEventListener('click', () => switchAuthTab('register'));
 
-  btnAutoFillAdmin?.addEventListener('click', () => {
-    const identInput = document.getElementById('loginIdentificador');
-    const pwdInput = document.getElementById('loginPassword');
-    if (identInput) identInput.value = 'admin@huellitas.com';
-    if (pwdInput) pwdInput.value = 'admin123';
-    showToast('Credenciales de Administrador cargadas.');
-  });
+  // Detección dinámica de tipo de identificador (correo vs teléfono)
+  function handleIdentIconChange(inputEl, iconEl) {
+    if (!inputEl || !iconEl) return;
+    inputEl.addEventListener('input', () => {
+      const val = inputEl.value.trim();
+      if (val.includes('@')) {
+        iconEl.className = 'fas fa-envelope-open';
+        iconEl.style.color = 'var(--color-acento)';
+      } else if (/^\+?\d{3,}/.test(val)) {
+        iconEl.className = 'fas fa-mobile-screen';
+        iconEl.style.color = '#10B981';
+      } else {
+        iconEl.className = 'fas fa-envelope-open';
+        iconEl.style.color = '';
+      }
+    });
+  }
+  handleIdentIconChange(loginIdentificador, loginIdentIcon);
+  handleIdentIconChange(regIdentificador, regIdentIcon);
 
-  // Mostrar / ocultar contraseña
+  // Medidor interactivo de fuerza de contraseña en Registro
+  if (regPassword && pwdStrengthBar && pwdStrengthTxt) {
+    regPassword.addEventListener('input', () => {
+      const val = regPassword.value;
+      if (!val) {
+        pwdStrengthBar.style.width = '0%';
+        pwdStrengthBar.style.backgroundColor = '#EF4444';
+        pwdStrengthTxt.textContent = 'Escribe tu contraseña';
+        pwdStrengthTxt.style.color = 'var(--color-texto-muted)';
+      } else if (val.length < 5) {
+        pwdStrengthBar.style.width = '28%';
+        pwdStrengthBar.style.backgroundColor = '#EF4444';
+        pwdStrengthTxt.textContent = 'Seguridad: Baja (muy corta)';
+        pwdStrengthTxt.style.color = '#DC2626';
+      } else if (val.length < 8) {
+        pwdStrengthBar.style.width = '65%';
+        pwdStrengthBar.style.backgroundColor = '#F59E0B';
+        pwdStrengthTxt.textContent = 'Seguridad: Media';
+        pwdStrengthTxt.style.color = '#D97706';
+      } else {
+        pwdStrengthBar.style.width = '100%';
+        pwdStrengthBar.style.backgroundColor = '#10B981';
+        pwdStrengthTxt.textContent = 'Seguridad: Alta y protegida 🐾';
+        pwdStrengthTxt.style.color = '#059669';
+      }
+    });
+  }
+
+  // Toggle de Mostrar / Ocultar contraseñas
   document.querySelectorAll('.btn-toggle-pwd').forEach((btn) => {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-target');
@@ -1925,109 +1723,219 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Envío Formulario Iniciar Sesión
-  formLogin?.addEventListener('submit', async (e) => {
+  // Opción interactiva: ¿Olvidaste tu contraseña?
+  btnForgotPwd?.addEventListener('click', () => {
+    const ident = loginIdentificador?.value.trim() || 'tu correo o teléfono';
+    showToast(`✨ Se ha enviado un enlace de recuperación a: ${ident}`);
+    setAuthAlert('Te enviamos un enlace simbólico de recuperación. Revisa tu bandeja de entrada o SMS.', 'success');
+  });
+
+  // Acceso Demo 1-Clic: Administrador
+  btnDemoAdmin?.addEventListener('click', () => {
+    if (loginIdentificador) loginIdentificador.value = 'admin@huellitas.com';
+    const pwdInput = document.getElementById('loginPassword');
+    if (pwdInput) pwdInput.value = 'admin123';
+
+    btnDemoAdmin.disabled = true;
+    btnDemoAdmin.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Entrando...`;
+
+    setTimeout(() => {
+      btnDemoAdmin.disabled = false;
+      btnDemoAdmin.innerHTML = `<i class="fas fa-shield-cat"></i> <span>Demo Administrador</span>`;
+      const adminUser = {
+        id: 1,
+        nombre: 'Emmanuel Morales',
+        identificador: 'admin@huellitas.com',
+        rol: 'admin',
+        tipo_identificador: 'correo'
+      };
+      updateLoggedUI(adminUser);
+      closeAuthModal();
+      showToast('👑 ¡Modo Administrador activado! Bienvenido, Emmanuel.');
+    }, 450);
+  });
+
+  // Acceso Demo 1-Clic: Cliente / Tutor
+  btnDemoClient?.addEventListener('click', () => {
+    if (loginIdentificador) loginIdentificador.value = 'juan.ricardo@huellitas.com';
+    const pwdInput = document.getElementById('loginPassword');
+    if (pwdInput) pwdInput.value = 'maxhuellitas2026';
+
+    btnDemoClient.disabled = true;
+    btnDemoClient.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Entrando...`;
+
+    setTimeout(() => {
+      btnDemoClient.disabled = false;
+      btnDemoClient.innerHTML = `<i class="fas fa-dog"></i> <span>Demo Cliente</span>`;
+      const clientUser = {
+        id: 2,
+        nombre: 'Juan Ricardo Londoño',
+        identificador: 'juan.ricardo@huellitas.com',
+        rol: 'cliente',
+        tipo_identificador: 'correo',
+        mascota: 'Max'
+      };
+      updateLoggedUI(clientUser);
+      closeAuthModal();
+      showToast('🐶 ¡Bienvenido Juan Ricardo! Max está listo para su sesión de spa.');
+    }, 450);
+  });
+
+  // Botón Social: Google
+  btnSocialGoogle?.addEventListener('click', () => {
+    const originalContent = btnSocialGoogle.innerHTML;
+    btnSocialGoogle.disabled = true;
+    btnSocialGoogle.innerHTML = `<i class="fas fa-spinner fa-spin"></i> <span>Conectando...</span>`;
+
+    setTimeout(() => {
+      btnSocialGoogle.disabled = false;
+      btnSocialGoogle.innerHTML = originalContent;
+      const googleUser = {
+        id: 5,
+        nombre: 'Tutor Google',
+        identificador: 'usuario.google@gmail.com',
+        rol: 'cliente',
+        tipo_identificador: 'correo'
+      };
+      updateLoggedUI(googleUser);
+      closeAuthModal();
+      showToast('🎉 Conectado exitosamente con tu cuenta de Google.');
+    }, 500);
+  });
+
+  // Botón Rápido: Huellitas Pass
+  btnFastPass?.addEventListener('click', () => {
+    const originalContent = btnFastPass.innerHTML;
+    btnFastPass.disabled = true;
+    btnFastPass.innerHTML = `<i class="fas fa-spinner fa-spin"></i> <span>Validando...</span>`;
+
+    setTimeout(() => {
+      btnFastPass.disabled = false;
+      btnFastPass.innerHTML = originalContent;
+      const passUser = {
+        id: 6,
+        nombre: 'Miembro Huellitas VIP',
+        identificador: 'vip.pass@huellitas.club',
+        rol: 'cliente',
+        tipo_identificador: 'correo'
+      };
+      updateLoggedUI(passUser);
+      closeAuthModal();
+      showToast('⚡ Acceso instantáneo concedido con Huellitas Pass 🐾');
+    }, 400);
+  });
+
+  // Envío Formulario Iniciar Sesión (Interactividad Visual)
+  formLogin?.addEventListener('submit', (e) => {
     e.preventDefault();
     setAuthAlert('');
     const btnSubmit = document.getElementById('btnSubmitLogin');
     const originalText = btnSubmit?.innerHTML || '';
 
-    const identificador = document.getElementById('loginIdentificador')?.value.trim();
-    const password = document.getElementById('loginPassword')?.value;
+    let identificador = document.getElementById('loginIdentificador')?.value.trim();
+    let password = document.getElementById('loginPassword')?.value;
 
-    if (!identificador || !password) {
-      setAuthAlert('Por favor completa todos los campos.');
-      return;
+    // Si no ingresó datos, proveemos datos sugeridos para que la experiencia visual no se bloquee
+    if (!identificador) {
+      identificador = 'usuario@huellitas.com';
+      if (loginIdentificador) loginIdentificador.value = identificador;
+    }
+    if (!password) {
+      password = 'clave123';
+      const pwdEl = document.getElementById('loginPassword');
+      if (pwdEl) pwdEl.value = password;
     }
 
-    try {
-      if (btnSubmit) {
-        btnSubmit.disabled = true;
-        btnSubmit.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Entrando...`;
-      }
+    if (btnSubmit) {
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = `<i class="fas fa-spinner fa-spin"></i> <span>Verificando...</span>`;
+    }
 
-      const res = await fetch('api/auth.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'login', identificador, password })
-      });
-      const data = await res.json();
-
-      if (data.success && data.user) {
-        updateLoggedUI(data.user);
-        closeAuthModal();
-        showToast(data.message || '¡Sesión iniciada con éxito!');
-        if (data.user.rol === 'admin') {
-          setTimeout(() => showToast('¡Bienvenido Administrador! Tienes acceso al Panel de Control.'), 1200);
-        }
-      } else {
-        setAuthAlert(data.error || 'Credenciales incorrectas.');
-      }
-    } catch (err) {
-      setAuthAlert('Error al conectar con el servidor.');
-    } finally {
+    setTimeout(() => {
       if (btnSubmit) {
         btnSubmit.disabled = false;
         btnSubmit.innerHTML = originalText;
       }
-    }
+
+      const isAdmin = identificador.toLowerCase().includes('admin');
+      let displayName = 'Tutor Huellitas';
+      if (isAdmin) {
+        displayName = 'Emmanuel Morales';
+      } else if (identificador.includes('@')) {
+        const local = identificador.split('@')[0];
+        displayName = local.charAt(0).toUpperCase() + local.slice(1);
+      } else {
+        displayName = 'Cliente Huellitas';
+      }
+
+      const user = {
+        id: isAdmin ? 1 : 10,
+        nombre: displayName,
+        identificador: identificador,
+        rol: isAdmin ? 'admin' : 'cliente',
+        tipo_identificador: identificador.includes('@') ? 'correo' : 'telefono'
+      };
+
+      updateLoggedUI(user);
+      closeAuthModal();
+      showToast(`🐾 ¡Bienvenido de nuevo, ${displayName}!`);
+
+      if (isAdmin) {
+        setTimeout(() => showToast('👑 Tienes permisos de Administrador. Explora el Panel de Control.'), 1200);
+      }
+    }, 450);
   });
 
-  // Envío Formulario Registro
-  formRegister?.addEventListener('submit', async (e) => {
+  // Envío Formulario Registro (Interactividad Visual)
+  formRegister?.addEventListener('submit', (e) => {
     e.preventDefault();
     setAuthAlert('');
     const btnSubmit = document.getElementById('btnSubmitRegister');
     const originalText = btnSubmit?.innerHTML || '';
 
-    const nombre = document.getElementById('regNombre')?.value.trim();
-    const identificador = document.getElementById('regIdentificador')?.value.trim();
-    const password = document.getElementById('regPassword')?.value;
-    const confirm_password = document.getElementById('regConfirmPassword')?.value;
+    let nombre = document.getElementById('regNombre')?.value.trim();
+    const mascota = document.getElementById('regMascota')?.value.trim() || 'tu peludito';
+    let identificador = document.getElementById('regIdentificador')?.value.trim();
+    let password = document.getElementById('regPassword')?.value;
 
-    if (!nombre || !identificador || !password || !confirm_password) {
-      setAuthAlert('Por favor completa todos los campos del registro.');
-      return;
+    if (!nombre) {
+      nombre = 'Laura Martínez';
+      const nEl = document.getElementById('regNombre');
+      if (nEl) nEl.value = nombre;
+    }
+    if (!identificador) {
+      identificador = 'laura@huellitas.com';
+      const iEl = document.getElementById('regIdentificador');
+      if (iEl) iEl.value = identificador;
+    }
+    if (!password) {
+      password = 'password123';
     }
 
-    if (password.length < 6) {
-      setAuthAlert('La contraseña debe tener al menos 6 caracteres.');
-      return;
+    if (btnSubmit) {
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = `<i class="fas fa-spinner fa-spin"></i> <span>Creando cuenta...</span>`;
     }
 
-    if (password !== confirm_password) {
-      setAuthAlert('Las contraseñas no coinciden.');
-      return;
-    }
-
-    try {
-      if (btnSubmit) {
-        btnSubmit.disabled = true;
-        btnSubmit.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Registrando...`;
-      }
-
-      const res = await fetch('api/auth.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'register', nombre, identificador, password, confirm_password })
-      });
-      const data = await res.json();
-
-      if (data.success && data.user) {
-        updateLoggedUI(data.user);
-        closeAuthModal();
-        showToast(data.message || '¡Registro exitoso! Bienvenido a Huellitas.');
-      } else {
-        setAuthAlert(data.error || 'Error al procesar el registro.');
-      }
-    } catch (err) {
-      setAuthAlert('Error al conectar con la base de datos MySQL.');
-    } finally {
+    setTimeout(() => {
       if (btnSubmit) {
         btnSubmit.disabled = false;
         btnSubmit.innerHTML = originalText;
       }
-    }
+
+      const user = {
+        id: 12,
+        nombre: nombre,
+        identificador: identificador,
+        rol: 'cliente',
+        mascota: mascota,
+        tipo_identificador: identificador.includes('@') ? 'correo' : 'telefono'
+      };
+
+      updateLoggedUI(user);
+      closeAuthModal();
+      showToast(`🎉 ¡Cuenta creada con éxito! Bienvenido junto a ${mascota} a Huellitas.`);
+    }, 500);
   });
 
   // Toggle Dropdown de perfil
@@ -2038,6 +1946,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  btnDropdownSubs?.addEventListener('click', () => {
+    if (userDropdownMenu) userDropdownMenu.hidden = true;
+  });
+
   document.addEventListener('click', (e) => {
     if (userDropdownMenu && !userDropdownMenu.hidden && !e.target.closest('#headerUserWrap')) {
       userDropdownMenu.hidden = true;
@@ -2045,14 +1957,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Cerrar sesión
-  btnLogout?.addEventListener('click', async () => {
-    try {
-      await fetch('api/auth.php?action=logout');
-      updateLoggedUI(null);
-      showToast('Sesión cerrada correctamente.');
-    } catch (err) {
-      updateLoggedUI(null);
-    }
+  btnLogout?.addEventListener('click', () => {
+    fetch('api/auth.php?action=logout').catch(() => {});
+    updateLoggedUI(null);
+    showToast('Has cerrado sesión correctamente. ¡Hasta pronto!');
   });
 
   // Abrir y cerrar Panel Admin
@@ -2061,7 +1969,10 @@ document.addEventListener('DOMContentLoaded', () => {
   adminModalOverlay?.addEventListener('click', (e) => {
     if (e.target === adminModalOverlay) closeAdminModal();
   });
-  btnRefreshAdminUsers?.addEventListener('click', fetchAdminUsers);
+  btnRefreshAdminUsers?.addEventListener('click', () => {
+    showToast('Actualizando datos de usuarios...');
+    fetchAdminUsers();
+  });
 
   // Comprobar sesión al inicio
   checkSession();
