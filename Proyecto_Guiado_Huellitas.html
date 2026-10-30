@@ -18,8 +18,8 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-      color: #2D3748;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
+      color: #5C4A3D;
       background-color: #FFFFFF;
       font-size: 8.4pt;
       line-height: 1.34;
@@ -37,6 +37,7 @@
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
+      background-color: #FFFFFF;
     }
 
     .doc-page:last-child {
@@ -44,14 +45,14 @@
       break-after: avoid;
     }
 
-    /* ENCABEZADO INSTITUCIONAL */
+    /* ENCABEZADO CON IDENTIDAD HUELLITAS & INSTITUCIONAL */
     .inst-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-bottom: 6px;
       margin-bottom: 12px;
-      border-bottom: 1px solid #E2E8F0;
+      border-bottom: 1.5px solid #E6CBA8;
     }
 
     .header-logo-left {
@@ -61,49 +62,49 @@
     }
 
     .logo-ucaldas-text {
-      font-size: 15pt;
+      font-size: 14pt;
       font-weight: 900;
-      color: #1A202C;
+      color: #5C4A3D;
       letter-spacing: -0.5px;
       line-height: 1.1;
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
     }
 
     .cap-icon {
       display: inline-block;
-      width: 18px;
-      height: 18px;
-      margin-bottom: 4px;
+      width: 17px;
+      height: 17px;
+      margin-bottom: 2px;
+      fill: #8C4B1E;
     }
 
     .logo-pueblo-row {
       display: flex;
       align-items: baseline;
       gap: 3px;
-      font-size: 10pt;
+      font-size: 9.5pt;
       font-weight: 700;
       margin-top: -2px;
     }
 
     .txt-en-tu {
-      color: #4A5568;
+      color: #7A6458;
       font-weight: 600;
-      font-size: 9.5pt;
+      font-size: 9pt;
     }
 
-    .p-blue { color: #0077C8; }
-    .u-green { color: #78BE20; }
-    .e-orange { color: #F58220; }
-    .b-blue { color: #0077C8; }
-    .l-purple { color: #7A2582; }
-    .o-green { color: #78BE20; }
+    .p-brand {
+      color: #E09F5E;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
 
     .header-swoosh {
       height: 3px;
-      width: 110px;
-      background: linear-gradient(90deg, #1A202C 0%, #78BE20 50%, #0077C8 100%);
+      width: 120px;
+      background: linear-gradient(90deg, #5C4A3D 0%, #E09F5E 55%, #2A9D8F 100%);
       border-radius: 99px;
       margin-top: 2px;
     }
@@ -115,40 +116,56 @@
       text-align: right;
     }
 
-    .ucaldas-seal {
-      width: 28px;
+    .header-huellitas-badge {
+      width: 38px;
       height: 28px;
+      border-radius: 6px;
+      border: 1px solid #E6CBA8;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 1px;
+      box-shadow: 0 2px 5px rgba(92, 74, 61, 0.08);
+    }
+
+    .header-huellitas-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .tejiendo-txt {
       font-size: 7.2pt;
       font-weight: 800;
-      color: #2B4C7E;
+      color: #5C4A3D;
       line-height: 1.15;
       text-transform: uppercase;
       letter-spacing: 0.3px;
+      display: block;
     }
 
     .tejiendo-sub {
       display: block;
       font-size: 6pt;
       font-weight: 600;
-      color: #718096;
+      color: #8C4B1E;
     }
 
-    /* PIE DE PÁGINA INSTITUCIONAL */
+    /* PIE DE PÁGINA */
     .inst-footer {
-      border-top: 1px solid #E2E8F0;
+      border-top: 1px solid #E6CBA8;
       padding-top: 6px;
       margin-top: 8px;
       text-align: center;
       font-size: 7.2pt;
-      color: #718096;
+      color: #9E8C80;
       line-height: 1.35;
     }
 
     .inst-footer strong {
-      color: #4A5568;
+      color: #5C4A3D;
     }
 
     /* CONTENEDOR CENTRAL DE CADA PÁGINA */
@@ -161,30 +178,32 @@
     /* TIPOGRAFÍAS Y ELEMENTOS COMUNES */
     h1, h2, h3, h4 {
       margin: 0;
-      color: #1A365D;
+      color: #5C4A3D;
       font-weight: 800;
     }
 
     h2 {
-      font-size: 12pt;
-      margin-top: 10pt;
+      font-size: 11.8pt;
+      margin-top: 9pt;
       margin-bottom: 5pt;
-      color: #1A365D;
+      color: #5C4A3D;
       display: flex;
       align-items: center;
       gap: 6px;
+      border-left: 3.5px solid #E09F5E;
+      padding-left: 6px;
     }
 
     h3 {
-      font-size: 9.8pt;
-      margin-top: 7pt;
-      margin-bottom: 3.5pt;
-      color: #2B4C7E;
+      font-size: 9.6pt;
+      margin-top: 6pt;
+      margin-bottom: 3pt;
+      color: #8C4B1E;
     }
 
     p {
       margin: 0 0 5pt;
-      color: #374151;
+      color: #5C4A3D;
     }
 
     ul, ol {
@@ -194,55 +213,57 @@
 
     li {
       margin-bottom: 2.5pt;
+      color: #5C4A3D;
     }
 
-    /* TABLAS ESTILO UCAlDAS */
+    /* TABLAS ESTILO HUELLITAS */
     table.data-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 5pt 0 8pt;
+      margin: 5pt 0 7pt;
       font-size: 7.8pt;
     }
 
     table.data-table th {
-      background-color: #1E3A5F;
+      background: linear-gradient(135deg, #5C4A3D 0%, #4A382C 100%);
       color: #FFFFFF;
       text-align: left;
       padding: 5pt 6pt;
       font-weight: 700;
       font-size: 8pt;
-      border: 1px solid #1E3A5F;
+      border: 1px solid #5C4A3D;
+      letter-spacing: 0.2px;
     }
 
     table.data-table td {
       padding: 4.5pt 6pt;
-      border: 1px solid #E2E8F0;
+      border: 1px solid #E6CBA8;
       vertical-align: top;
-      color: #2D3748;
+      color: #5C4A3D;
     }
 
     table.data-table tr:nth-child(even) td {
-      background-color: #F8FAFC;
+      background-color: #FAF2E9;
     }
 
     table.data-table tr:nth-child(odd) td {
       background-color: #FFFFFF;
     }
 
-    /* CAJAS DESTACADAS (PROPÓSITO, CONCLUSIÓN, NOTAS) */
+    /* CAJAS DESTACADAS CON PALETA HUELLITAS */
     .callout-box {
-      background-color: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-left: 4px solid #2B4C7E;
-      border-radius: 4px;
+      background-color: #FAF2E9;
+      border: 1px solid #E6CBA8;
+      border-left: 4px solid #E09F5E;
+      border-radius: 6px;
       padding: 7pt 10pt;
       margin: 6pt 0 8pt;
     }
 
     .callout-box.green {
-      background-color: #F0FDF4;
-      border-color: #DCFCE7;
-      border-left: 4px solid #16A34A;
+      background-color: #E8F5F3;
+      border-color: #B7E4DC;
+      border-left: 4px solid #2A9D8F;
     }
 
     .callout-title {
@@ -250,7 +271,7 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #1E3A5F;
+      color: #8C4B1E;
       margin-bottom: 3pt;
       display: flex;
       align-items: center;
@@ -258,65 +279,68 @@
     }
 
     .callout-box.green .callout-title {
-      color: #15803D;
+      color: #2A9D8F;
     }
 
     .callout-desc {
-      font-size: 8.3pt;
-      color: #374151;
+      font-size: 8.2pt;
+      color: #5C4A3D;
       margin: 0;
       line-height: 1.35;
     }
 
     /* CÓDIGO FUENTE */
     pre.code-block {
-      background-color: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 4px;
+      background-color: #FAF2E9;
+      border: 1px solid #E6CBA8;
+      border-radius: 5px;
       padding: 6pt 8pt;
       margin: 4pt 0 7pt;
       font-family: Consolas, 'Courier New', monospace;
       font-size: 6.8pt;
       line-height: 1.25;
-      color: #1F2937;
+      color: #4A382C;
       overflow: hidden;
       white-space: pre-wrap;
     }
 
     code {
       font-family: Consolas, monospace;
-      background: #F1F5F9;
+      background: #F5E6D3;
       padding: 1px 4px;
       border-radius: 3px;
       font-size: 7.8pt;
-      color: #0F172A;
+      color: #8C4B1E;
+      font-weight: 600;
     }
 
     /* BADGES Y CHIPS */
     .badge-approved {
       display: inline-block;
-      background: #DCFCE7;
-      color: #15803D;
+      background: #E8F5F3;
+      color: #2A9D8F;
+      border: 1px solid #B7E4DC;
       font-weight: 800;
       padding: 1.5pt 5pt;
-      border-radius: 3px;
+      border-radius: 4px;
       font-size: 7pt;
     }
 
     .badge-role {
       display: inline-block;
-      background: #E0F2FE;
-      color: #0369A1;
+      background: #FAF2E9;
+      color: #8C4B1E;
+      border: 1px solid #E6CBA8;
       font-weight: 700;
       padding: 1pt 4pt;
-      border-radius: 3px;
+      border-radius: 4px;
       font-size: 6.8pt;
     }
 
-    /* PORTADA ESPECÍFICA */
+    /* PORTADA ESPECÍFICA HUELLITAS */
     .cover-body {
       text-align: center;
-      padding: 10pt 0 0;
+      padding: 6pt 0 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -325,83 +349,104 @@
     }
 
     .cover-tag {
-      font-size: 9.5pt;
+      font-size: 8.8pt;
       font-weight: 800;
-      color: #2B4C7E;
+      background: #FAF2E9;
+      color: #8C4B1E;
+      border: 1px solid #E6CBA8;
+      padding: 3pt 14pt;
+      border-radius: 99px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       margin-bottom: 8pt;
+      display: inline-block;
     }
 
     .cover-title {
-      font-size: 26pt;
+      font-size: 25pt;
       font-weight: 900;
-      color: #1A365D;
-      line-height: 1.1;
-      margin-bottom: 6pt;
+      color: #5C4A3D;
+      line-height: 1.12;
+      margin-bottom: 5pt;
       letter-spacing: -0.5px;
     }
 
     .cover-rule {
-      width: 80%;
-      height: 2px;
-      background: #2B4C7E;
+      width: 75%;
+      height: 3px;
+      background: linear-gradient(90deg, #E09F5E 0%, #5C4A3D 50%, #2A9D8F 100%);
       margin: 4pt auto 8pt;
+      border-radius: 99px;
     }
 
     .cover-sub {
-      font-size: 11pt;
+      font-size: 10.8pt;
       font-style: italic;
-      color: #4A5568;
-      margin-bottom: 4pt;
+      color: #7A6458;
+      margin-bottom: 3pt;
     }
 
     .cover-context {
-      font-size: 9.5pt;
-      font-weight: 600;
-      color: #2B4C7E;
+      font-size: 9.2pt;
+      font-weight: 700;
+      color: #8C4B1E;
       margin-bottom: 12pt;
     }
 
-    .cover-photo-wrap {
-      width: 82%;
-      max-width: 440px;
-      height: 200px;
+    .cover-brand-wrap {
+      width: 210px;
+      height: 210px;
       margin: 0 auto 12pt;
-      border-radius: 8px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-      border: 1px solid #CBD5E1;
-      background: #FAF5EE;
+      box-shadow: 0 10px 28px rgba(92, 74, 61, 0.12);
+      border: 2px solid #E6CBA8;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      position: relative;
     }
 
-    .cover-photo-wrap img {
+    .cover-brand-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px dashed #E6CBA8;
+      border-radius: 19px;
+      pointer-events: none;
+    }
+
+    .cover-brand-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      filter: drop-shadow(0 4px 10px rgba(92, 74, 61, 0.08));
     }
 
     .cover-authors-card {
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 6px;
-      padding: 8pt 20pt;
+      background: #FAF2E9;
+      border: 1px solid #E6CBA8;
+      border-radius: 8px;
+      padding: 8pt 24pt;
       margin: 0 auto;
-      max-width: 400px;
+      max-width: 420px;
       text-align: center;
+      box-shadow: 0 2px 8px rgba(92, 74, 61, 0.05);
     }
 
     .cover-authors-card strong {
       display: block;
-      font-size: 9.5pt;
-      color: #1A365D;
+      font-size: 9.6pt;
+      color: #5C4A3D;
       margin-bottom: 2pt;
     }
 
     .cover-authors-card span {
       font-size: 8pt;
-      color: #64748B;
+      color: #7A6458;
     }
   </style>
 </head>
@@ -415,25 +460,23 @@
       <div class="header-logo-left">
         <div class="logo-ucaldas-text">
           <span>UCaldas</span>
-          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C">
+          <svg class="cap-icon" viewBox="0 0 24 24">
             <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/>
           </svg>
         </div>
         <div class="logo-pueblo-row">
           <span class="txt-en-tu">en tu</span>
-          <span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span>
+          <span class="p-brand">pueblo</span>
         </div>
         <div class="header-swoosh"></div>
       </div>
       <div class="header-logo-right">
-        <svg class="ucaldas-seal" viewBox="0 0 36 36">
-          <circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/>
-          <circle cx="18" cy="18" r="12" fill="#2B4C7E"/>
-          <path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/>
-        </svg>
+        <div class="header-huellitas-badge">
+          <img src="img/logo-huellitas.png" alt="Logo Huellitas">
+        </div>
         <div>
-          <span class="tejiendo-txt">Tejiendo Universidad</span>
-          <span class="tejiendo-sub">Universidad de Caldas</span>
+          <span class="tejiendo-txt">Huellitas Oficial</span>
+          <span class="tejiendo-sub">Spa &bull; Veterinaria &bull; Tienda</span>
         </div>
       </div>
     </div>
@@ -445,14 +488,14 @@
       <div class="cover-sub">Del análisis de requisitos a una plataforma web funcional</div>
       <div class="cover-context">Caso de estudio para Análisis y Diseño de Soluciones Web</div>
 
-      <div class="cover-photo-wrap">
-        <img src="img/hero-mascotas.jpg" alt="Mascotas felices en Huellitas">
+      <div class="cover-brand-wrap">
+        <img src="img/logo-huellitas.png" alt="Logo Oficial Huellitas">
       </div>
 
       <div class="cover-authors-card">
         <strong>Emmanuel Morales &amp; Juan Ricardo Londoño</strong>
         <span>Desarrolladores Web &bull; Estudiantes de Programación Web</span>
-        <div style="margin-top: 4pt; font-size: 7.6pt; color: #2B4C7E; font-weight: 700;">
+        <div style="margin-top: 4pt; font-size: 7.6pt; color: #8C4B1E; font-weight: 700;">
           Docente: Ing. Angela Andrea Suarez Arango
         </div>
       </div>
@@ -472,14 +515,16 @@
       <div class="header-logo-left">
         <div class="logo-ucaldas-text">
           <span>UCaldas</span>
-          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+          <svg class="cap-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
         </div>
-        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-brand">pueblo</span></div>
         <div class="header-swoosh"></div>
       </div>
       <div class="header-logo-right">
-        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
-        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+        <div class="header-huellitas-badge">
+          <img src="img/logo-huellitas.png" alt="Logo Huellitas">
+        </div>
+        <div><span class="tejiendo-txt">Huellitas Oficial</span><span class="tejiendo-sub">Spa &bull; Veterinaria &bull; Tienda</span></div>
       </div>
     </div>
 
@@ -523,7 +568,7 @@
         A diferencia de los sitios web convencionales de tiendas para animales, <strong>Huellitas</strong> integra el concepto <em>Fear-Free</em> (cero estrés) en su experiencia digital:
       </p>
       <ul>
-        <li><strong>Psicología del color cálida y relajante:</strong> Uso de tonos crema, beige y terracota que transmiten calidez y profesionalismo.</li>
+        <li><strong>Psicología del color cálida y relajante:</strong> Uso de tonos crema, beige (#F5E6D3) y terracota (#E09F5E) que transmiten calidez, tranquilidad y profesionalismo.</li>
         <li><strong>Cotizador interactivo de suscripción mensual:</strong> Permite personalizar la nutrición según la etapa y peso exacto de la mascota, automatizando el despacho mensual.</li>
         <li><strong>Transparencia en servicios:</strong> Detalle explícito de qué incluye cada sesión de spa y consulta médica, sin costos ocultos.</li>
         <li><strong>Accesibilidad y rendimiento:</strong> Estructura ligera, libre de dependencias externas pesadas, garantizando carga rápida en dispositivos móviles.</li>
@@ -544,14 +589,16 @@
       <div class="header-logo-left">
         <div class="logo-ucaldas-text">
           <span>UCaldas</span>
-          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+          <svg class="cap-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
         </div>
-        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-brand">pueblo</span></div>
         <div class="header-swoosh"></div>
       </div>
       <div class="header-logo-right">
-        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
-        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+        <div class="header-huellitas-badge">
+          <img src="img/logo-huellitas.png" alt="Logo Huellitas">
+        </div>
+        <div><span class="tejiendo-txt">Huellitas Oficial</span><span class="tejiendo-sub">Spa &bull; Veterinaria &bull; Tienda</span></div>
       </div>
     </div>
 
@@ -595,7 +642,7 @@
           </tr>
           <tr>
             <td><strong>UI Designer</strong></td>
-            <td>Crea el sistema de diseño: paleta cálida (beige, café, terracota), tipografía Nunito y medallón del logo.</td>
+            <td>Crea el sistema de diseño: paleta cálida (beige, café, terracota), tipografía moderna y emblema del logo.</td>
             <td>Guía de estilos, componentes y mockups finales.</td>
           </tr>
           <tr>
@@ -648,14 +695,16 @@
       <div class="header-logo-left">
         <div class="logo-ucaldas-text">
           <span>UCaldas</span>
-          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+          <svg class="cap-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
         </div>
-        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-brand">pueblo</span></div>
         <div class="header-swoosh"></div>
       </div>
       <div class="header-logo-right">
-        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
-        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+        <div class="header-huellitas-badge">
+          <img src="img/logo-huellitas.png" alt="Logo Huellitas">
+        </div>
+        <div><span class="tejiendo-txt">Huellitas Oficial</span><span class="tejiendo-sub">Spa &bull; Veterinaria &bull; Tienda</span></div>
       </div>
     </div>
 
@@ -733,14 +782,16 @@
       <div class="header-logo-left">
         <div class="logo-ucaldas-text">
           <span>UCaldas</span>
-          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+          <svg class="cap-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
         </div>
-        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-brand">pueblo</span></div>
         <div class="header-swoosh"></div>
       </div>
       <div class="header-logo-right">
-        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
-        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+        <div class="header-huellitas-badge">
+          <img src="img/logo-huellitas.png" alt="Logo Huellitas">
+        </div>
+        <div><span class="tejiendo-txt">Huellitas Oficial</span><span class="tejiendo-sub">Spa &bull; Veterinaria &bull; Tienda</span></div>
       </div>
     </div>
 
@@ -813,14 +864,16 @@ body
       <div class="header-logo-left">
         <div class="logo-ucaldas-text">
           <span>UCaldas</span>
-          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+          <svg class="cap-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
         </div>
-        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-brand">pueblo</span></div>
         <div class="header-swoosh"></div>
       </div>
       <div class="header-logo-right">
-        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
-        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+        <div class="header-huellitas-badge">
+          <img src="img/logo-huellitas.png" alt="Logo Huellitas">
+        </div>
+        <div><span class="tejiendo-txt">Huellitas Oficial</span><span class="tejiendo-sub">Spa &bull; Veterinaria &bull; Tienda</span></div>
       </div>
     </div>
 
@@ -837,7 +890,7 @@ body
     &lt;a href="#inicio" class="logo-wrapper" aria-label="Ir al inicio de Huellitas"&gt;
       &lt;div class="brand-logo-frame"&gt;
         &lt;span class="logo-halo-ring" aria-hidden="true"&gt;&lt;/span&gt;
-        &lt;img src="img/logo-huellitas.jpg" alt="Logo Oficial Huellitas" width="370" height="405" class="brand-logo-img"&gt;
+        &lt;img src="img/logo-huellitas.png" alt="Logo Oficial Huellitas" width="370" height="405" class="brand-logo-img"&gt;
       &lt;/div&gt;
       &lt;div class="logo-text-group"&gt;
         &lt;span class="brand-pill-top"&gt;&lt;i class="fas fa-paw"&gt;&lt;/i&gt; Huellitas&lt;/span&gt;
@@ -857,39 +910,40 @@ body
 
       <h2>8. Fase 6: Estilos CSS (Sistema de Diseño y Variables)</h2>
       <p>
-        La apariencia visual se fundamenta en un sistema de variables CSS (Custom Properties) que define la paleta <em>Fear-Free</em>, espaciados y curvaturas suaves:
+        La apariencia visual se fundamenta en un sistema de variables CSS (Custom Properties) que define la paleta <em>Fear-Free</em> oficial de Huellitas, espaciados y curvaturas suaves:
       </p>
 
       <pre class="code-block">
 :root {
   /* Paleta cromática oficial Huellitas (Fear-Free) */
-  --color-fondo: #FBF8F3;         /* Beige crema suave */
-  --color-hueso: #F5EFE6;         /* Arena claro para superficies */
-  --color-beige-oscuro: #E2D3BE;  /* Líneas sutiles de separación */
-  --color-texto: #4A3B32;         /* Café oscuro legible para lectura prolongada */
-  --color-texto-suave: #6F5E53;   /* Café intermedio para subtítulos y descripciones */
-  --color-texto-muted: #8E7A6E;   /* Tono atenuado para notas secundarias */
+  --color-hueso: #FDFBF7;         /* Fondo cálido y suave */
+  --color-blanco: #FFFFFF;        /* Superficies de tarjetas y modales */
+  --color-beige: #F5E6D3;         /* Tono cálido de resalte */
+  --color-beige-claro: #FAF2E9;   /* Fondo secundario para cajas de texto */
+  --color-beige-oscuro: #E6CBA8;  /* Líneas divisorias y bordes elegantes */
+  --color-texto: #5C4A3D;         /* Café oscuro legible para lectura continua */
+  --color-texto-suave: #7A6458;   /* Café intermedio para subtítulos */
+  --color-texto-muted: #9E8C80;   /* Café suave para pies y notas */
   --color-acento: #E09F5E;        /* Terracota cálido de llamada a la acción */
-  --color-acento-hover: #C9823F;  /* Resalte interactivo al pasar el cursor */
-  --color-verde-menta: #68B0AB;   /* Verde médico para citas veterinarias */
-  --color-blanco: #FFFFFF;        /* Tarjetas y modales de contenido */
+  --color-acento-hover: #D08A44;  /* Resalte interactivo al interactuar */
+  --color-verde: #2A9D8F;         /* Verde médico/veterinario Fear-Free */
+  --color-verde-bg: #E8F5F3;      /* Fondo para estados de éxito y salud */
 
-  /* Tipografías y radios */
-  --font-principal: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
+  /* Tipografías y curvaturas */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
   --radius-full: 9999px;
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Reset y caja flexible */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: var(--font-principal);
-  background-color: var(--color-fondo);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-hueso);
   color: var(--color-texto);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 /* Rejilla de productos responsive con auto-fit */
@@ -897,11 +951,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
-}
-
-@media (max-width: 768px) {
-  .header-container { flex-wrap: wrap; }
-  .productos-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 }
       </pre>
     </div>
@@ -920,14 +969,16 @@ body {
       <div class="header-logo-left">
         <div class="logo-ucaldas-text">
           <span>UCaldas</span>
-          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+          <svg class="cap-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
         </div>
-        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-brand">pueblo</span></div>
         <div class="header-swoosh"></div>
       </div>
       <div class="header-logo-right">
-        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
-        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+        <div class="header-huellitas-badge">
+          <img src="img/logo-huellitas.png" alt="Logo Huellitas">
+        </div>
+        <div><span class="tejiendo-txt">Huellitas Oficial</span><span class="tejiendo-sub">Spa &bull; Veterinaria &bull; Tienda</span></div>
       </div>
     </div>
 
@@ -939,7 +990,7 @@ body {
       <ul>
         <li><strong>Motor del Carrito:</strong> Arreglo reactivo de objetos en memoria sincronizado con el DOM y persistido con almacenamiento local. Incrementa cantidades, recalcula subtotales y actualiza el contador de la cabecera en tiempo real.</li>
         <li><strong>Wizard de Suscripción:</strong> Algoritmo de nutrición veterinaria que calcula la ración diaria: <code>Gramos = Peso (kg) &times; Factor (15g perro / 12g gato)</code>, actualizando insignias y resumen de pago de forma inmediata.</li>
-        <li><strong>Módulo de Autenticación Visual:</strong> Interfaz con cambio suave de pestañas, conmutador de contraseña, medidor de seguridad y accesos demo de un toque (Administrador y Cliente) que sincronizan la cabecera.</li>
+        <li><strong>Módulo de Autenticación Visual:</strong> Interfaz con cambio suave de pestañas, conmutador de contraseña, medidor de seguridad y accesos demo de un toque (Administrador y Cliente) con retroalimentación inmediata.</li>
       </ul>
 
       <h2>9. QA: Plan Mínimo de Pruebas</h2>
@@ -984,12 +1035,12 @@ body {
           <tr>
             <td><strong>Autenticación Visual</strong></td>
             <td>El modal muestra el logo de Huellitas, permite alternar pestañas y usar accesos demo de 1 clic.</td>
-            <td>Prueba de inicio de sesión como Admin y Cliente; actualización de píldora.</td>
+            <td>Prueba de inicio de sesión como Admin y Cliente; actualización de cabecera.</td>
             <td><span class="badge-approved">APROBADO ✅</span></td>
           </tr>
           <tr>
             <td><strong>Pasarela de Pago</strong></td>
-            <td>Permite seleccionar Nequi, Daviplata o Tarjeta con instrucciones dinámicas y botón de confirmación.</td>
+            <td>Permite seleccionar Nequi, Daviplata o Tarjeta con instrucciones dinámicas y confirmación.</td>
             <td>Selección de medio de pago y generación de confirmación con toast.</td>
             <td><span class="badge-approved">APROBADO ✅</span></td>
           </tr>
@@ -1023,14 +1074,16 @@ body {
       <div class="header-logo-left">
         <div class="logo-ucaldas-text">
           <span>UCaldas</span>
-          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+          <svg class="cap-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
         </div>
-        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-brand">pueblo</span></div>
         <div class="header-swoosh"></div>
       </div>
       <div class="header-logo-right">
-        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
-        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+        <div class="header-huellitas-badge">
+          <img src="img/logo-huellitas.png" alt="Logo Huellitas">
+        </div>
+        <div><span class="tejiendo-txt">Huellitas Oficial</span><span class="tejiendo-sub">Spa &bull; Veterinaria &bull; Tienda</span></div>
       </div>
     </div>
 
@@ -1042,15 +1095,15 @@ body {
       <ol>
         <li><strong>Control de Versiones:</strong> Repositorio Git inicializado con control estricto de commits descriptivos en rama <code>main</code>.</li>
         <li><strong>Alojamiento en la Nube:</strong> Repositorio remoto público alojado en GitHub: <code>https://github.com/Emmanuel1614/huellitas</code>.</li>
+        <li><strong>Despliegue Global en Vivo:</strong> Publicación web permanente vía GitHub Pages: <code>https://emmanuel1614.github.io/huellitas/</code>.</li>
         <li><strong>Servidor Local de Pruebas:</strong> Despliegue sobre servidor Apache y base de datos MySQL en entorno XAMPP (<code>http://localhost/huellitas/</code>).</li>
-        <li><strong>Estrategia de Producción:</strong> Para la fase pública estática se cuenta con compatibilidad para GitHub Pages / Netlify; y para el backend transaccional PHP/MySQL, migración hacia servicio hosting LAMP con certificados SSL activos.</li>
       </ol>
 
       <h2>11. Entregables del proyecto</h2>
       <ul>
         <li><strong>Código Fuente Completo:</strong> Archivos estructurados <code>index.html</code>, <code>style.css</code> y <code>script.js</code> debidamente optimizados.</li>
         <li><strong>Base de Datos Relacional:</strong> Scripts <code>api/db.php</code>, <code>api/auth.php</code> y esquema SQL con usuario administrador preconfigurado.</li>
-        <li><strong>Control de Versiones:</strong> Historial de cambios y confirmaciones versionadas en GitHub.</li>
+        <li><strong>Control de Versiones y Despliegue:</strong> Repositorio sincronizado en GitHub y sitio activo en GitHub Pages.</li>
         <li><strong>Documento Técnico y Caso de Estudio:</strong> Especificación detallada en formato PDF bajo los estándares del programa.</li>
       </ul>
 
@@ -1068,7 +1121,7 @@ body {
         El desarrollo de <strong>Huellitas</strong> demuestra cómo la combinación metódica entre análisis de negocio, diseño centrado en el usuario (UX/UI) y programación limpia produce soluciones profesionales de alto impacto. Un equipo no empieza programando al azar: investiga la necesidad, modela las historias de usuario, valida prototipos y verifica la calidad con rigor.
       </p>
 
-      <div class="callout-box green" style="margin-top: 5pt;">
+      <div class="callout-box green" style="margin-top: 4pt;">
         <div class="callout-title">IDEA FINAL</div>
         <p class="callout-desc">
           Una web de calidad para el cuidado animal no se define únicamente por líneas de código, sino por la capacidad del equipo de comprender la empatía entre el tutor y su mascota, traduciéndola en una experiencia digital cálida, intuitiva y transparente.
@@ -1090,28 +1143,30 @@ body {
       <div class="header-logo-left">
         <div class="logo-ucaldas-text">
           <span>UCaldas</span>
-          <svg class="cap-icon" viewBox="0 0 24 24" fill="#1A202C"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
+          <svg class="cap-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5L4.5 12.4v3.85c0 3.31 3.36 6 7.5 6s7.5-2.69 7.5-6v-3.85L12 16.5z"/></svg>
         </div>
-        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-blue">p</span><span class="u-green">u</span><span class="e-orange">e</span><span class="b-blue">b</span><span class="l-purple">l</span><span class="o-green">o</span></div>
+        <div class="logo-pueblo-row"><span class="txt-en-tu">en tu</span><span class="p-brand">pueblo</span></div>
         <div class="header-swoosh"></div>
       </div>
       <div class="header-logo-right">
-        <svg class="ucaldas-seal" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="#F8FAFC" stroke="#C5A059" stroke-width="2"/><circle cx="18" cy="18" r="12" fill="#2B4C7E"/><path d="M18 9 L21 16 L28 17 L23 22 L24 29 L18 25 L12 29 L13 22 L8 17 L15 16 Z" fill="#F59E0B"/></svg>
-        <div><span class="tejiendo-txt">Tejiendo Universidad</span><span class="tejiendo-sub">Universidad de Caldas</span></div>
+        <div class="header-huellitas-badge">
+          <img src="img/logo-huellitas.png" alt="Logo Huellitas">
+        </div>
+        <div><span class="tejiendo-txt">Huellitas Oficial</span><span class="tejiendo-sub">Spa &bull; Veterinaria &bull; Tienda</span></div>
       </div>
     </div>
 
     <div class="page-body" style="justify-content: center; align-items: center; text-align: center;">
-      <div style="width: 72px; height: 80px; margin: 0 auto 10pt; border-radius: 18px; border: 2px solid #C5A059; padding: 4px; background: #FFFFFF; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-        <img src="img/logo-huellitas.jpg" alt="Logo Oficial Huellitas" style="width: 100%; height: 100%; object-fit: contain; border-radius: 12px;">
+      <div style="width: 130px; height: 75px; margin: 0 auto 10pt; border-radius: 12px; border: 2px solid #E6CBA8; padding: 4px; background: #FFFFFF; box-shadow: 0 4px 14px rgba(92, 74, 61, 0.08); display: flex; align-items: center; justify-content: center;">
+        <img src="img/logo-huellitas.png" alt="Logo Oficial Huellitas" style="width: 100%; height: 100%; object-fit: contain;">
       </div>
 
-      <h1 style="font-size: 16pt; color: #1A365D; margin-bottom: 4pt;">Constancia de Entrega de Solución Web</h1>
-      <p style="font-size: 9pt; color: #4A5568; max-width: 440px; margin: 0 auto 16pt;">
+      <h1 style="font-size: 15.5pt; color: #5C4A3D; margin-bottom: 4pt;">Constancia de Entrega de Solución Web</h1>
+      <p style="font-size: 8.8pt; color: #7A6458; max-width: 440px; margin: 0 auto 14pt;">
         El presente documento certifica la formulación, diseño, implementación y pruebas de la plataforma web <strong>Huellitas: Spa, Veterinaria &amp; Tienda</strong> como evidencia de aprendizaje del curso.
       </p>
 
-      <table class="data-table" style="max-width: 460px; margin: 0 auto 16pt; text-align: left;">
+      <table class="data-table" style="max-width: 460px; margin: 0 auto 14pt; text-align: left;">
         <tbody>
           <tr>
             <td style="font-weight: 700; width: 35%;">Asignatura:</td>
@@ -1135,7 +1190,11 @@ body {
           </tr>
           <tr>
             <td style="font-weight: 700;">Repositorio GitHub:</td>
-            <td><a href="https://github.com/Emmanuel1614/huellitas" target="_blank" style="color: #0077C8; font-weight: bold; text-decoration: none;">github.com/Emmanuel1614/huellitas</a></td>
+            <td><a href="https://github.com/Emmanuel1614/huellitas" target="_blank" style="color: #8C4B1E; font-weight: bold; text-decoration: none;">github.com/Emmanuel1614/huellitas</a></td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700;">Sitio Web en Vivo:</td>
+            <td><a href="https://emmanuel1614.github.io/huellitas/" target="_blank" style="color: #2A9D8F; font-weight: bold; text-decoration: none;">emmanuel1614.github.io/huellitas/</a></td>
           </tr>
           <tr>
             <td style="font-weight: 700;">Estado de entrega:</td>
@@ -1144,14 +1203,14 @@ body {
         </tbody>
       </table>
 
-      <div style="display: flex; justify-content: center; gap: 40pt; margin-top: 25pt;">
-        <div style="border-top: 1px solid #718096; width: 170px; padding-top: 4pt; font-size: 8pt;">
+      <div style="display: flex; justify-content: center; gap: 40pt; margin-top: 20pt;">
+        <div style="border-top: 1.5px solid #7A6458; width: 170px; padding-top: 4pt; font-size: 8pt;">
           <strong>Emmanuel Morales</strong><br>
-          <span style="color: #64748B;">Desarrollador Web</span>
+          <span style="color: #8C4B1E;">Desarrollador Web</span>
         </div>
-        <div style="border-top: 1px solid #718096; width: 170px; padding-top: 4pt; font-size: 8pt;">
+        <div style="border-top: 1.5px solid #7A6458; width: 170px; padding-top: 4pt; font-size: 8pt;">
           <strong>Juan Ricardo Londoño</strong><br>
-          <span style="color: #64748B;">Desarrollador Web</span>
+          <span style="color: #8C4B1E;">Desarrollador Web</span>
         </div>
       </div>
     </div>
